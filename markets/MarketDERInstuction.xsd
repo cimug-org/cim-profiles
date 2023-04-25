@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:m="https://ucaiug.org/2023/MarketDERInstruction#"
+           xmlns:sawsdl="http://www.w3.org/ns/sawsdl"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://ucaiug.org/2023/MarketDERInstruction#"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+   <xs:annotation>
+      <xs:documentation xml:lang="en">
+	Copyright 2023 UCAIug
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	https://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	
+	See the License for the specific language governing permissions and
+	limitations under the License.
+</xs:documentation>
+   </xs:annotation>
+   <xs:annotation>
+      <xs:documentation>V1: 2023 Initial Creation</xs:documentation>
+   </xs:annotation>
+   <xs:element name="MarketDERInstruction" type="m:MarketDERInstruction"/>
+   <xs:complexType name="MarketDERInstruction">
+      <xs:sequence>
+         <xs:element name="DistributedResourceActualEvent"
+                     type="m:DistributedResourceActualEvent"
+                     minOccurs="0"
+                     maxOccurs="1"/>
+         <xs:element name="InstructionClearing"
+                     type="m:InstructionClearing"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+         <xs:element name="MarketOccurrence"
+                     type="m:MarketOccurrence"
+                     minOccurs="0"
+                     maxOccurs="1"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="AutomaticDispInstTypeCommitment"
+                  sawsdl:modelReference="https://ucaiug.org/CIM101#AutomaticDispInstTypeCommitment">
+      <xs:annotation>
+         <xs:documentation>Commitment instruction types.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="ACTIVATE">
+            <xs:annotation>
+               <xs:documentation>Activate represents a call to provide grid services. The call generally comes from the grid operator or through an aggregator and interrupts local control. A call could represent any number of actions including the increase or decrease of power consumption and/or production.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="ADJUSTMENT">
+            <xs:annotation>
+               <xs:documentation>Adjustment represents a change in the level of the grid services provided.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RELEASE">
+            <xs:annotation>
+               <xs:documentation>Release represents the end of the call to provide grid services. This allows the resource to perform its own activity.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="DistributedResourceActualEvent"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#DistributedResourceActualEvent">
+      <xs:annotation>
+         <xs:documentation>A demand response event is created when there is a need to call upon resources to respond to demand adjustment requests. These events are created by ISO/RTO system operations and managed  by a demand response management system (DRMS). These events may or may not be coordinated with the Market Events and a defined Energy Market. The event will call for the deployment of a number of registered resources, or for deployment of resources within a zone (an organizational area within the power system that contains a number of resources).</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="m:MarketEvent">
+            <xs:sequence/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="FloatQuantity"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#FloatQuantity">
+      <xs:annotation>
+         <xs:documentation>Quantity with float value and associated unit information.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="multiplier"
+                     minOccurs="0"
+                     maxOccurs="1"
+                     type="m:UnitMultiplier"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#FloatQuantity.multiplier">
+            <xs:annotation>
+               <xs:documentation>Unit multiplier of this quantity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="unit"
+                     minOccurs="0"
+                     maxOccurs="1"
+                     type="m:UnitSymbol"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#FloatQuantity.unit">
+            <xs:annotation>
+               <xs:documentation>Unit of this quantity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="value"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="xs:float"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#FloatQuantity.value">
+            <xs:annotation>
+               <xs:documentation>Value of this quantity.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="IdentifiedObject"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#IdentifiedObject">
+      <xs:annotation>
+         <xs:documentation>This is a root class to provide common identification for all classes needing identification and naming attributes.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="mRID"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="xs:string"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#IdentifiedObject.mRID">
+            <xs:annotation>
+               <xs:documentation>Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in IETF RFC 4122, for the mRID. The use of UUID is strongly recommended.</xs:documentation>
+               <xs:documentation>For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="InstructionClearing"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#InstructionClearing">
+      <xs:annotation>
+         <xs:documentation>Model of market clearing, relating to commitment instructions. Identifies interval.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="m:MarketFactors">
+            <xs:sequence>
+               <xs:element name="Instructions"
+                           minOccurs="1"
+                           maxOccurs="unbounded"
+                           type="m:Instructions"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#InstructionClearing.Instructions">
+                  <xs:annotation/>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Instructions"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions">
+      <xs:annotation>
+         <xs:documentation>Provides the necessary information (on a resource basis) to capture the Startup/Shutdown instruction results. This information is relevant to the DA Market (RUC only) as well as the RT Market (HASP, Pre-dispatch, and Interval).</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="bindingDOTType"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="m:ScheduleKind"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions.bindingDOTType">
+            <xs:annotation>
+               <xs:documentation>The binding dispatch operating target type describes the binding dispatch operating target values, primarily differentiating among traditional generation set points (type = generation),  load set points (type = load), or level changes (type = loadIncrease or loadReduction).</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="bindingInstruction"
+                     minOccurs="0"
+                     maxOccurs="1"
+                     type="m:YesNo"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions.bindingInstruction">
+            <xs:annotation/>
+         </xs:element>
+         <xs:element name="instructionStartTime"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="xs:dateTime"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions.instructionStartTime">
+            <xs:annotation>
+               <xs:documentation>The date/time at which the resource should achieve the Dispatch Operating Target (DOT).  Unless otherwise specified in earlier instructions, any ramping should be performed in advance of the instructionStartTime. The resource is expected to maintain the DOT until either a subsequent instruction is received or the dispatch interval ends.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="instructionType"
+                     minOccurs="0"
+                     maxOccurs="1"
+                     type="m:AutomaticDispInstTypeCommitment"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions.instructionType">
+            <xs:annotation>
+               <xs:documentation>Indicator of the type of commitment instruction.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="bindingDOT"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="m:FloatQuantity"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions.bindingDOT">
+            <xs:annotation>
+               <xs:documentation>The binding dispatch operating target for the market interval.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="MarketProduct"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="m:MarketProduct"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions.MarketProduct">
+            <xs:annotation/>
+         </xs:element>
+         <xs:element name="RegisteredResource"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="m:RegisteredDistributedResource"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Instructions.RegisteredResource">
+            <xs:annotation/>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MarketEvent"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#MarketEvent">
+      <xs:annotation>
+         <xs:documentation>This class represents a market event.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="m:IdentifiedObject">
+            <xs:sequence>
+               <xs:element name="actualEventEndDateTime"
+                           minOccurs="0"
+                           maxOccurs="1"
+                           type="xs:dateTime"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketEvent.actualEventEndDateTime">
+                  <xs:annotation>
+                     <xs:documentation>Actual end date time of the event.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="actualEventStartDateTime"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="xs:dateTime"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketEvent.actualEventStartDateTime">
+                  <xs:annotation>
+                     <xs:documentation>Actual start date time of the event.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="eventComments"
+                           minOccurs="0"
+                           maxOccurs="1"
+                           type="xs:string"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketEvent.eventComments">
+                  <xs:annotation>
+                     <xs:documentation>Free format comments for the event, for any purpose needed.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="eventStatus"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="xs:string"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketEvent.eventStatus">
+                  <xs:annotation>
+                     <xs:documentation>Event status to describe the current state of the event which typically would be:</xs:documentation>
+                     <xs:documentation>Active - The event is currently in an active state (current time is between the actual start and end date times)</xs:documentation>
+                     <xs:documentation>Cancelled - The event has been cancelled.</xs:documentation>
+                     <xs:documentation>Completed - The event has completed (current time is after the actual end date time).</xs:documentation>
+                     <xs:documentation>Planned - The expected time the event is to become active.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="eventType"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="xs:string"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketEvent.eventType">
+                  <xs:annotation>
+                     <xs:documentation>Actual event type. Event types may be:</xs:documentation>
+                     <xs:documentation>Bid submission open/close</xs:documentation>
+                     <xs:documentation>Gas Market open/close</xs:documentation>
+                     <xs:documentation>Market Clearing Execution start/end</xs:documentation>
+                     <xs:documentation>Market Results Publish DateTime</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="MarketFactors"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#MarketFactors">
+      <xs:annotation>
+         <xs:documentation>Aggregation of market information relative for a specific time interval.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="m:IdentifiedObject">
+            <xs:sequence>
+               <xs:element name="intervalEndTime"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="xs:dateTime"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketFactors.intervalEndTime">
+                  <xs:annotation>
+                     <xs:documentation>The end of the time interval for which requirement is defined.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="intervalStartTime"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="xs:dateTime"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketFactors.intervalStartTime">
+                  <xs:annotation>
+                     <xs:documentation>The start of the time interval for which requirement is defined.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="MarketOccurrence"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#MarketOccurrence">
+      <xs:annotation>
+         <xs:documentation>Represents an occurrence of a market. For example a planned DA/HA/RT market with a defined market start and end time.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="m:IdentifiedObject">
+            <xs:sequence>
+               <xs:element name="marketHorizonEnd"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="xs:dateTime"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketOccurrence.marketHorizonEnd">
+                  <xs:annotation>
+                     <xs:documentation>Market end time.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="marketHorizonStart"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="xs:dateTime"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketOccurrence.marketHorizonStart">
+                  <xs:annotation>
+                     <xs:documentation>Market start time.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="timeIntervalLength"
+                           minOccurs="1"
+                           maxOccurs="1"
+                           type="m:Minutes"
+                           sawsdl:modelReference="https://ucaiug.org/CIM101#MarketOccurrence.timeIntervalLength">
+                  <xs:annotation>
+                     <xs:documentation>Trading time interval length.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="MarketProduct"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#MarketProduct">
+      <xs:annotation>
+         <xs:documentation>A product traded by an RTO (e.g. energy, 10 minute spinning reserve).  Ancillary service product examples include: Regulation, Regulation Up, Regulation Down, Spinning Reserve, Non-Spinning Reserve, etc.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="marketProductType"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="m:MarketProductType"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#MarketProduct.marketProductType">
+            <xs:annotation>
+               <xs:documentation>Market product type examples:</xs:documentation>
+               <xs:documentation>EN (Energy)</xs:documentation>
+               <xs:documentation>RU (Regulation Up)</xs:documentation>
+               <xs:documentation>RD (Regulation Dn)</xs:documentation>
+               <xs:documentation>SR (Spinning Reserve)</xs:documentation>
+               <xs:documentation>NR (Non-Spinning Reserve)</xs:documentation>
+               <xs:documentation>RC (RUC)</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="MarketProductType"
+                  sawsdl:modelReference="https://ucaiug.org/CIM101#MarketProductType">
+      <xs:annotation>
+         <xs:documentation>For example:</xs:documentation>
+         <xs:documentation>Energy, Reg Up, Reg Down, Spin Reserve, Nonspin Reserve, RUC, Load Folloing Up, and Load Following Down.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="CO2e">
+            <xs:annotation>
+               <xs:documentation>A carbon dioxide equivalent is a metric measure used to compare the emissions from various greenhouse gases on the basis of their global-warming potential (GWP), by converting amounts of other gases to the equivalent amount of carbon dioxide with the same global warming potential.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="EN">
+            <xs:annotation>
+               <xs:documentation>Energy generally priced per kWh or MWh.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LFD">
+            <xs:annotation>
+               <xs:documentation>Load following down (power withdrawal) generally priced per kW or MW.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="LFU">
+            <xs:annotation>
+               <xs:documentation>Load following up (power injection) generally priced per kW or MW.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="NR">
+            <xs:annotation>
+               <xs:documentation>Non-spinning Reserve or Replacement Reserve generally priced per kWh or MWh.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RC">
+            <xs:annotation>
+               <xs:documentation>Resources with available capacity for a forward market such as Day Ahead that are awarded due to their need for resource adequacy (i.e. reliability) purposes. RC represents the process for reliability unit commitment.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RD">
+            <xs:annotation>
+               <xs:documentation>Frequency Regulation Service (energy withdrawal).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="REG">
+            <xs:annotation>
+               <xs:documentation>Frequency Regulation Service (injection and/or withdrawal).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RMD">
+            <xs:annotation>
+               <xs:documentation>Regulation Mileage Down.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RMU">
+            <xs:annotation>
+               <xs:documentation>Regulation Mileage Up.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RPD">
+            <xs:annotation>
+               <xs:documentation>RampDown: Power withdrawal generally priced per kW or MW.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RPU">
+            <xs:annotation>
+               <xs:documentation>RampUp: Power injection generally priced per kW or MW.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="RU">
+            <xs:annotation>
+               <xs:documentation>Frequency Regulation Service (energy injection).</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="SR">
+            <xs:annotation>
+               <xs:documentation>Spinning Reserve or Contingency Reserve generally priced per kWh or MWh.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="Minutes"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#Minutes">
+      <xs:annotation>
+         <xs:documentation>Time in minutes.</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+         <xs:element name="unit"
+                     minOccurs="0"
+                     maxOccurs="1"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Minutes.unit">
+            <xs:annotation/>
+            <xs:simpleType sawsdl:modelReference="https://ucaiug.org/CIM101#UnitSymbol">
+               <xs:restriction base="xs:string">
+                  <xs:enumeration value="min">
+                     <xs:annotation>
+                        <xs:documentation>Time in minutes, minute  = 60 s.</xs:documentation>
+                     </xs:annotation>
+                  </xs:enumeration>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="value"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="xs:float"
+                     sawsdl:modelReference="https://ucaiug.org/CIM101#Minutes.value">
+            <xs:annotation/>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="RegisteredDistributedResource"
+                   sawsdl:modelReference="https://ucaiug.org/CIM101#RegisteredDistributedResource">
+      <xs:annotation>
+         <xs:documentation>A registered resource that represents a distributed energy resource, such as a micro-generator, fuel cell, photo-voltaic energy source, etc.</xs:documentation>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="m:IdentifiedObject">
+            <xs:sequence/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:simpleType name="ScheduleKind"
+                  sawsdl:modelReference="https://ucaiug.org/CIM101#ScheduleKind">
+      <xs:annotation>
+         <xs:documentation>ScheduleKind is an enumeration that documents two key features for a specific DER operating mode: (a) the energy flow convention for a positive number as either production or consumption of service and (b) the sense of how the bid/offer amount is used as either a target or setpoint or as a relative change to a defined level.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="generation">
+            <xs:annotation>
+               <xs:documentation>The resource operates as a generation resource, where a positive amount corresponds to an injection of energy and/or grid support services to the grid.  The amount of energy is an absolute level understood to be a production setpoint.  Negative values are acceptable and represent an energy withdrawal setpoint.  For energy storage resources, a positive amount represents a setpoint in the discharging state.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="load">
+            <xs:annotation>
+               <xs:documentation>The resource operates as a load resource, where a positive amount corresponds to a withdrawal of energy and/or support services from the grid.  The amount of energy is an absolute level understood to be a consumption setpoint.  Negative values are acceptable and represent an energy injection setpoint. For energy storage resources, a positive amount represents a setpoint in the charging state.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="loadIncrease">
+            <xs:annotation>
+               <xs:documentation>The resource operates as a variable load, where a positive amount corresponds to a relative load increase.  The level is relative, generally as an upward offset to a reference level such as the current consumption or a calculated baseline consumption. Negative values are acceptable and represent a load reduction offset.  For energy storage resources, a positive amount represents a faster rate of charge, a state change from discharging (or offline) to charge, or a slower rate of discharge.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="loadReduction">
+            <xs:annotation>
+               <xs:documentation>The resource operates as a curtailable load, where a positive amount corresponds to a relative load reduction.  The level is relative, generally as an downward offset to a reference level such as the current consumption or a calculated baseline consumption.  Negative values are acceptable and represent a load increase offset.  For energy storage resources, a positive amount represents a slower rate of charge, a state change from charging (or offline) to discharging, or a faster rate of discharge.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="UnitMultiplier"
+                  sawsdl:modelReference="https://ucaiug.org/CIM101#UnitMultiplier">
+      <xs:annotation>
+         <xs:documentation>The unit multipliers defined for the CIM. When applied to unit symbols, the unit symbol is treated as a derived unit. Regardless of the contents of the unit symbol text, the unit symbol shall be treated as if it were a single-character unit symbol. Unit symbols should not contain multipliers, and it should be left to the multiplier to define the multiple for an entire data type.</xs:documentation>
+         <xs:documentation>For example, if a unit symbol is "m2Pers" and the multiplier is "k", then the value is k(m**2/s), and the multiplier applies to the entire final value, not to any individual part of the value. This can be conceptualized by substituting a derived unit symbol for the unit type. If one imagines that the symbol "&amp;#222;" represents the derived unit "m2Pers", then applying the multiplier "k" can be conceptualized simply as "k&amp;#222;".</xs:documentation>
+         <xs:documentation>For example, the SI unit for mass is "kg" and not "g".  If the unit symbol is defined as "kg", then the multiplier is applied to "kg" as a whole and does not replace the "k" in front of the "g". In this case, the multiplier of "m" would be used with the unit symbol of "kg" to represent one gram.  As a text string, this violates the instructions in IEC 80000-1. However, because the unit symbol in CIM is treated as a derived unit instead of as an SI unit, it makes more sense to conceptualize the "kg" as if it were replaced by one of the proposed replacements for the SI mass symbol. If one imagines that the "kg" were replaced by a symbol "&amp;#222;", then it is easier to conceptualize the multiplier "m" as creating the proper unit "m&amp;#222;", and not the forbidden unit "mkg".</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="M">
+            <xs:annotation>
+               <xs:documentation>Mega 10**6.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="k">
+            <xs:annotation>
+               <xs:documentation>Kilo 10**3.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="none">
+            <xs:annotation>
+               <xs:documentation>No multiplier or equivalently multiply by 1.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="UnitSymbol"
+                  sawsdl:modelReference="https://ucaiug.org/CIM101#UnitSymbol">
+      <xs:annotation>
+         <xs:documentation>The derived units defined for usage in the CIM. In some cases, the derived unit is equal to an SI unit. Whenever possible, the standard derived symbol is used instead of the formula for the derived unit. For example, the unit symbol Farad is defined as "F" instead of "CPerV". In cases where a standard symbol does not exist for a derived unit, the formula for the unit is used as the unit symbol. For example, density does not have a standard symbol and so it is represented as "kgPerm3". With the exception of the "kg", which is an SI unit, the unit symbols do not contain multipliers and therefore represent the base derived unit to which a multiplier can be applied as a whole.</xs:documentation>
+         <xs:documentation>Every unit symbol is treated as an unparseable text as if it were a single-letter symbol. The meaning of each unit symbol is defined by the accompanying descriptive text and not by the text contents of the unit symbol.</xs:documentation>
+         <xs:documentation>To allow the widest possible range of serializations without requiring special character handling, several substitutions are made which deviate from the format described in IEC 80000-1. The division symbol "/" is replaced by the letters "Per". Exponents are written in plain text after the unit as "m3" instead of being formatted as "m" with a superscript of 3  or introducing a symbol as in "m^3". The degree symbol "°" is replaced with the letters "deg". Any clarification of the meaning for a substitution is included in the description for the unit symbol.</xs:documentation>
+         <xs:documentation>Non-SI units are included in list of unit symbols to allow sources of data to be correctly labelled with their non-SI units (for example, a GPS sensor that is reporting numbers that represent feet instead of meters). This allows software to use the unit symbol information correctly convert and scale the raw data of those sources into SI-based units.</xs:documentation>
+         <xs:documentation>The integer values are used for harmonization with IEC 61850.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="W">
+            <xs:annotation>
+               <xs:documentation>Real power in watts (J/s). Electrical power may have real and reactive components. The real portion of electrical power (I&amp;#178;R or VIcos(phi)), is expressed in Watts. See also apparent power and reactive power.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="Wh">
+            <xs:annotation>
+               <xs:documentation>Real energy in watt hours.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+         <xs:enumeration value="kg">
+            <xs:annotation>
+               <xs:documentation>Mass in kilograms. Note: multiplier “k” is included in this unit symbol for compatibility with IEC 61850-7-3.</xs:documentation>
+            </xs:annotation>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="YesNo" sawsdl:modelReference="https://ucaiug.org/CIM101#YesNo">
+      <xs:annotation>
+         <xs:documentation>Used as a flag set to Yes or No.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:enumeration value="NO">
+            <xs:annotation/>
+         </xs:enumeration>
+         <xs:enumeration value="YES">
+            <xs:annotation/>
+         </xs:enumeration>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>
