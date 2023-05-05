@@ -1,0 +1,884 @@
+@base          <http://cim-profile.ucaiug.io/grid/DetailedModelConfiguration/Constraints> .
+@prefix cim:     <http://cim.ucaiug.io/ns#> .
+@prefix cims:    <http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#> .
+@prefix dash:    <http://datashapes.org/dash#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/#> .
+@prefix dcterms: <http://purl.org/dc/terms/#> .
+@prefix dm:      <http://iec.ch/TC57/61970-552/DifferenceModel/1#> .
+@prefix dmc:     <http://cim-profile.ucaiug.io/grid/DetailedModelConfiguration/Constraints#> .
+@prefix eu:      <http://iec.ch/TC57/CIM100-European#> .
+@prefix ido:     <http://iec.ch/TC57/ns/CIM/IdentifiedObject/constraints/3.0#> .
+@prefix md:      <http://iec.ch/TC57/61970-552/ModelDescription/1#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prof:    <http://www.w3.org/ns/dx/prof/#> .
+@prefix profcim: <http://iec.ch/TC57/ns/CIM/prof-cim#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+dmc:ParameterDescriptor.kind-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "ParameterDescriptor.kind-cardinality" ;
+        sh:order        7 ;
+        sh:path         cim:ParameterDescriptor.kind ;
+        sh:severity     sh:Violation .
+
+dmc:LimiterDescriptor.LowerLimitFunction-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "LimiterDescriptor.LowerLimitFunction-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:LimiterDescriptor.LowerLimitFunction ;
+        sh:severity     sh:Violation .
+
+dmc:LimiterDescriptor.InputOutputDescriptor-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Association with cardinality violation at the used direction." ;
+        sh:minCount     1 ;
+        sh:name         "LimiterDescriptor.InputOutputDescriptor-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:LimiterDescriptor.InputOutputDescriptor ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.sequenceNumber-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "ParameterDescriptor.sequenceNumber-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:ParameterDescriptor.sequenceNumber ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.typicalValue-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterDescriptor.typicalValue-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        4 ;
+        sh:path         cim:ParameterDescriptor.typicalValue ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.LowerLimit-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the inverse direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "FunctionDescriptor.LowerLimit-cardinality" ;
+        sh:order        5 ;
+        sh:path         [ sh:inversePath  cim:LimiterDescriptor.LowerLimitFunction ] ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.engineeringUnit-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.engineeringUnit-cardinality" ;
+        sh:order        6 ;
+        sh:path         cim:ParameterDescriptor.engineeringUnit ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.describedByArtifact-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "FunctionDescriptor.describedByArtifact-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:FunctionDescriptor.describedByArtifact ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.equation-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "FunctionDescriptor.equation-cardinality" ;
+        sh:order        7 ;
+        sh:path         cim:FunctionDescriptor.equation ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.UpperLimit-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the inverse direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "FunctionDescriptor.UpperLimit-cardinality" ;
+        sh:order        2 ;
+        sh:path         [ sh:inversePath  cim:LimiterDescriptor.UpperLimitFunction ] ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.valueXSDdatatype-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "ParameterDescriptor.valueXSDdatatype-cardinality" ;
+        sh:order        5 ;
+        sh:path         cim:ParameterDescriptor.valueXSDdatatype ;
+        sh:severity     sh:Violation .
+
+dmc:InputOutputDescriptor.InputSignal-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:SignalDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalDescriptor" ;
+        sh:name         "InputOutputDescriptor.InputSignal-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        1 ;
+        sh:path         ( cim:InputOutputDescriptor.InputSignal rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:DetailedModelDescriptorArtifact.equationLanguageKind-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:in           ( cim:EquationLanguageKind.other cim:EquationLanguageKind.modelica cim:EquationLanguageKind.matlab cim:EquationLanguageKind.generalMathemathicalExpression ) ;
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
+        sh:name         "DetailedModelDescriptorArtifact.equationLanguageKind-datatype" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        2 ;
+        sh:path         cim:DetailedModelDescriptorArtifact.equationLanguageKind ;
+        sh:severity     sh:Violation .
+
+dmc:SignalDescriptor.DynamicsFunctionBlock-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "SignalDescriptor.DynamicsFunctionBlock-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:SignalDescriptor.DynamicsFunctionBlock ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.sequenceNumber-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:integer ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterDescriptor.sequenceNumber-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        2 ;
+        sh:path         cim:ParameterDescriptor.sequenceNumber ;
+        sh:severity     sh:Violation .
+
+dmc:OperatorDescriptor.logicalKind-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "OperatorDescriptor.logicalKind-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:OperatorDescriptor.logicalKind ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.FunctionDescriptor-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:FunctionDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:FunctionDescriptor" ;
+        sh:name         "ParameterDescriptor.FunctionDescriptor-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        10 ;
+        sh:path         ( cim:ParameterDescriptor.FunctionDescriptor rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:LimiterDescriptor.InputOutputDescriptor-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:InputOutputDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:InputOutputDescriptor" ;
+        sh:name         "LimiterDescriptor.InputOutputDescriptor-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        0 ;
+        sh:path         ( cim:LimiterDescriptor.InputOutputDescriptor rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.constraintValue-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:float ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterDescriptor.constraintValue-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        9 ;
+        sh:path         cim:ParameterDescriptor.constraintValue ;
+        sh:severity     sh:Violation .
+
+dmc:DetailedModelDescriptorArtifact.equationLanguageTypeOther-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "DetailedModelDescriptorArtifact.equationLanguageTypeOther-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        1 ;
+        sh:path         cim:DetailedModelDescriptorArtifact.equationLanguageTypeOther ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.InputOutputDescriptor-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "FunctionDescriptor.InputOutputDescriptor-cardinality" ;
+        sh:order        8 ;
+        sh:path         cim:FunctionDescriptor.InputOutputDescriptor ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor
+        rdf:type        sh:NodeShape ;
+        sh:property     dmc:ParameterDescriptor.referenceCustomConstraint-datatype , dmc:ParameterDescriptor.valueXSDdatatype-cardinality , ido:IdentifiedObject.name-datatype , dmc:ParameterDescriptor.typicalValueRangeMax-cardinality , dmc:ParameterDescriptor.engineeringUnit-cardinality , dmc:ParameterDescriptor.typicalValue-datatype , dmc:ParameterDescriptor.typicalValue-cardinality , dmc:ParameterDescriptor.typicalValueRangeMin-datatype , ido:IdentifiedObject.name-cardinality , dmc:ParameterDescriptor.kind-cardinality , dmc:ParameterDescriptor.constraintValue-datatype , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , dmc:ParameterDescriptor.kind-datatype , dmc:ParameterDescriptor.sequenceNumber-cardinality , dmc:ParameterDescriptor.constraintKind-cardinality , dmc:ParameterDescriptor.sequenceNumber-datatype , dmc:ParameterDescriptor.valueXSDdatatype-datatype , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , dmc:ParameterDescriptor.engineeringUnit-datatype , dmc:ParameterDescriptor.constraintKind-datatype , ido:IdentifiedObject.mRID-datatype , dmc:ParameterDescriptor.typicalValueRangeMax-datatype , dmc:ParameterDescriptor.referenceCustomConstraint-cardinality , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.description-datatype , dmc:ParameterDescriptor.constraintValue-cardinality , dmc:ParameterDescriptor.FunctionDescriptor-valueType , ido:IdentifiedObject.mRID-cardinality , dmc:ParameterDescriptor.typicalValueRangeMin-cardinality ;
+        sh:targetClass  cim:ParameterDescriptor .
+
+dmc:ParameterDescriptor.constraintKind-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.constraintKind-cardinality" ;
+        sh:order        8 ;
+        sh:path         cim:ParameterDescriptor.constraintKind ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.initialConditionsEquation-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "FunctionDescriptor.initialConditionsEquation-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        1 ;
+        sh:path         cim:FunctionDescriptor.initialConditionsEquation ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.description-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        ido:DatatypesGroupIO ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "IdentifiedObject.description-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.description ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.typicalValue-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.typicalValue-cardinality" ;
+        sh:order        4 ;
+        sh:path         cim:ParameterDescriptor.typicalValue ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.constraintKind-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:in           ( cim:ConstraintKind.equals cim:ConstraintKind.greaterThan cim:ConstraintKind.greaterThanOrEquals cim:ConstraintKind.lessThanOrEquals cim:ConstraintKind.lessThan ) ;
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
+        sh:name         "ParameterDescriptor.constraintKind-datatype" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        8 ;
+        sh:path         cim:ParameterDescriptor.constraintKind ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.typicalValueRangeMin-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:float ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterDescriptor.typicalValueRangeMin-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        1 ;
+        sh:path         cim:ParameterDescriptor.typicalValueRangeMin ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.description-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        ido:CardinalityIO ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "IdentifiedObject.description-cardinality" ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.description ;
+        sh:severity     sh:Violation .
+
+dmc:SignalDescriptor.DynamicsFunctionBlock-valueTypeNodeShape
+        rdf:type        sh:NodeShape ;
+        sh:property     dmc:SignalDescriptor.DynamicsFunctionBlock-valueType ;
+        sh:targetClass  cim:SignalDescriptor .
+
+dmc:DatatypesGroup  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "Datatypes" ;
+        sh:order    1 .
+
+dmc:DetailedModelDescriptorArtifact.equationLanguageTypeOther-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "DetailedModelDescriptorArtifact.equationLanguageTypeOther-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:DetailedModelDescriptorArtifact.equationLanguageTypeOther ;
+        sh:severity     sh:Violation .
+
+dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:DetailedModelTypeDynamics ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:DetailedModelTypeDynamics" ;
+        sh:name         "DetailedModelDescriptor.DetailedModelTypeDynamics-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        0 ;
+        sh:path         ( cim:DetailedModelDescriptor.DetailedModelTypeDynamics rdf:type ) ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.name-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        ido:DatatypesGroupIO ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "IdentifiedObject.name-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.name ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.equation-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "FunctionDescriptor.equation-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        7 ;
+        sh:path         cim:FunctionDescriptor.equation ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.mRID-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        ido:DatatypesGroupIO ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "IdentifiedObject.mRID-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.mRID ;
+        sh:severity     sh:Violation .
+
+dmc:AssociationsGroup
+        rdf:type    sh:PropertyGroup ;
+        rdfs:label  "Associations" ;
+        sh:order    2 .
+
+dmc:OperatorDescriptor.logicalKind-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:in           ( cim:LogicalKind.or cim:LogicalKind.equal cim:LogicalKind.greaterThanOrEqual cim:LogicalKind.greaterThan cim:LogicalKind.and cim:LogicalKind.not cim:LogicalKind.lessThan cim:LogicalKind.lessThanOrEqual ) ;
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
+        sh:name         "OperatorDescriptor.logicalKind-datatype" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        1 ;
+        sh:path         cim:OperatorDescriptor.logicalKind ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.describedByArtifact-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:boolean ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "FunctionDescriptor.describedByArtifact-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0 ;
+        sh:path         cim:FunctionDescriptor.describedByArtifact ;
+        sh:severity     sh:Violation .
+
+dmc:LimiterDescriptor.UpperLimitFunction-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:FunctionDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:FunctionDescriptor" ;
+        sh:name         "LimiterDescriptor.UpperLimitFunction-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        1 ;
+        sh:path         ( cim:LimiterDescriptor.UpperLimitFunction rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:DetailedModelDocumentationArtifact
+        rdf:type        sh:NodeShape ;
+        sh:property     dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.name-datatype , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.name-cardinality , ido:IdentifiedObject.description-cardinality ;
+        sh:targetClass  cim:DetailedModelDocumentationArtifact .
+
+dmc:FunctionDescriptor
+        rdf:type        sh:NodeShape ;
+        sh:property     dmc:FunctionDescriptor.describedByArtifact-datatype , ido:IdentifiedObject.mRID-datatype , dmc:FunctionDescriptor.describedByArtifact-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , dmc:FunctionDescriptor.EquationDescriptorArtifact-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , dmc:FunctionDescriptor.equation-cardinality , dmc:FunctionDescriptor.initialConditionsEquation-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , dmc:FunctionDescriptor.equation-datatype , ido:IdentifiedObject.name-cardinality , dmc:FunctionDescriptor.equationLanguageKind-datatype , ido:IdentifiedObject.name-datatype , dmc:FunctionDescriptor.EquationDescriptorArtifact-valueType , dmc:FunctionDescriptor.InputOutputDescriptor-valueType , dmc:FunctionDescriptor.LowerLimit-cardinality , dmc:FunctionDescriptor.InputOutputDescriptor-cardinality , dmc:FunctionDescriptor.UpperLimit-cardinality , dmc:FunctionDescriptor.equationLanguageKind-cardinality , ido:IdentifiedObject.mRID-cardinality , dmc:FunctionDescriptor.initialConditionsEquation-datatype ;
+        sh:targetClass  cim:FunctionDescriptor .
+
+dmc:OperatorDescriptor.InputOutputDescriptor-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:InputOutputDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:InputOutputDescriptor" ;
+        sh:name         "OperatorDescriptor.InputOutputDescriptor-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        2 ;
+        sh:path         ( cim:OperatorDescriptor.InputOutputDescriptor rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.constraintValue-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.constraintValue-cardinality" ;
+        sh:order        9 ;
+        sh:path         cim:ParameterDescriptor.constraintValue ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.mRID-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        ido:CardinalityIO ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "IdentifiedObject.mRID-cardinality" ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.mRID ;
+        sh:severity     sh:Violation .
+
+dmc:SignalDescriptor.DynamicsFunctionBlock-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:GovIEEEHydroDD cim:ExcIEEEST3C cim:WindGenTurbineType2IEC cim:LoadGenericNonLinear cim:PowerSystemStabilizerUserDefined cim:WeccREEC cim:ShuntCompensatorUserDefined cim:VCompIEEEType2 cim:ExcST6B cim:OverexcLimIEEEOEL4C cim:ExcAVR1 cim:ExcIEEEAC7B cim:LoadUserDefined cim:SynchronousMachineEquivalentCircuit cim:PssELIN2 cim:CSCUserDefined cim:PssIEEE1A cim:WeccREGCB cim:ExcCZ cim:ExcIEEEST7C cim:GovHydro3 cim:ExcIEEEDC1A cim:ExcIEEEAC6A cim:UnderexcLimX2 cim:VCompIEEEType1 cim:PssIEEE2C cim:ExcIEEEST6B cim:ExcIEEEAC11C cim:GovHydroR cim:ExcIEEEAC1C cim:Pss1A cim:LoadCompositeWECC cim:PssIEEE3C cim:WeccWTGIBFFRA cim:ExcIEEEST7B cim:ExcIEEEDC2C cim:AsynchronousMachineUserDefined cim:GovSteamIEEETGOV5 cim:ExcAC6A cim:PssIEEE2B cim:ExcAC1A cim:ExcRQB cim:ExcIEEEST3A cim:SVCUserDefined cim:WindGenTurbineType1bIEC2 cim:PssSH cim:UnderexcLimIEEE2 cim:Pss1 cim:WindPlantUserDefined cim:ExcREXS cim:GovHydroWPID cim:PFVArType2CIEEEPFController cim:GovGAST2 cim:ExcIEEEST4C cim:VAdjIEEE2 cim:StatorCurrentLimIEEESCL2C cim:GovHydro1 cim:GovSteamIEEEG1Aug cim:WindTurbineType4aIEC2 cim:WeccWTGTB cim:OverexcLimIEEEOEL5C cim:ExcIEEEST10C cim:GovGAST1 cim:GovGAST4 cim:GovSteamFV4 cim:ExcIEEEAC1A cim:OverexcLim2 cim:ExcAVR2 cim:ExcST7B cim:PFVArControllerType1UserDefined cim:GovIEEEGT1 cim:ExcIEEEAC2C cim:ExcIEEEST8C cim:SVSMO2 cim:SynchronousMachineSimplified cim:VAdjIEEE cim:ExcIEEEAC3C cim:ExcST3A cim:GovGAST3 cim:ExcST1A cim:UnderexcLimIEEEUEL2C cim:ExcAVR4 cim:SVSMO3 cim:ExcAC2A cim:TurbLCFB1 cim:WindTurbineType4bIEC2 cim:PssPTIST3 cim:TurbIEEEHydroWCNonLinear cim:GovGAST cim:ExcAC3A cim:GovSteamIEEE1 cim:ExcNI cim:WindGenTurbineType1bIEC cim:GovSteam2 cim:WindType3or4UserDefined cim:Pss2B cim:OverexcitationLimiterUserDefined cim:RateOfChangeOfPowerRelay cim:GovHydroPID2 cim:GovHydroIEEE0 cim:AsynchronousMachineTimeConstantReactance cim:DiscExcContIEEEDEC3A cim:UnderexcLimX1 cim:LoadComposite cim:WindGenTurbineType1aIEC2 cim:DiscontinuousExcitationControlUserDefined cim:PFVArType2Common1 cim:GovIEEEHydroPIDspt cim:PFVArType2IEEEPFController cim:TurbIEEEHydroWClinear cim:PFVArType1CIEEEPFController cim:GovSteamFV2 cim:ExcIEEEAC2A cim:GovHydroIEEE2 cim:WeccDERApvmod cim:WeccWTGWGOA cim:WeccREECC cim:WindTurbineType3IEC2 cim:WeccREECD cim:ExcSCRX cim:ExcIEEEAC3A cim:GovSteam1 cim:ExcIEEEAC8B cim:PssWECC cim:WeccREPCC cim:PssIEEE5C cim:WindType1or2UserDefined cim:UnderexcLim2Simplified cim:ExcIEEEAC8C cim:PFVArType1CIEEEVArController cim:ExcIEEEDC2A cim:TurbineLoadControllerUserDefined cim:PssPTIST1 cim:PssIEEE3B cim:StatcomIEC cim:GovHydroWEH cim:GovSteam0 cim:GovIEEEHydroMech cim:GovHydroDD cim:UnderexcitationLimiterUserDefined cim:DiscExcContIEEEDEC1A cim:MechanicalLoadUserDefined cim:ExcIEEEDC4C cim:WeccWT1PB cim:WeccWTGTA cim:OverexcLimIEEEOEL2C cim:WeccWTGTRQA cim:ExcELIN2 cim:WindTurbineType4bIEC cim:PssSK cim:UnderexcLimIEEE1 cim:WindTurbineType3IEC cim:WindGenTurbineType1aIEC cim:ExcDC3A1 cim:Pss2ST cim:ExcIEEEST2C cim:ExcIEEEST5C cim:GovSteamSGO cim:WeccWTGPB cim:OverexcLimIEEEOEL3C cim:ExcBBC cim:WeccREGCC cim:ExcIEEEST4B cim:WeccWTGPTA cim:StatorCurrentLimIEEESCL1C cim:GovHydro4 cim:SynchronousMachineTimeConstantReactance cim:VoltageCompensatorUserDefined cim:TurbIEEEHydroWCgen cim:TurbineGovernorUserDefined cim:ExcIEEEST6C cim:ExcIEEEST9C cim:ExcIEEEDC4B cim:ExcIEEEST5B cim:ExcDC3A cim:ExcHU cim:GovSteamFV3 cim:PssIEEE6C cim:PssIEEE4C cim:TurbCIGREHRSGST cim:GovGASTWD cim:PssSTAB2A cim:WindPlantBasicIEC cim:OverexcLimIEEE cim:ExcIEEEAC10C cim:WindTurbineType4aIEC cim:ExcIEEEAC5C cim:WeccDERA cim:ExcANS cim:PssIEEE7C cim:GovSteamBB cim:SVSMO1 cim:StatcomUserDefined cim:MechLoad1 cim:ExcAVR7 cim:PFVArControllerType2UserDefined cim:AsynchronousMachineEquivalentCircuit cim:ExcAC5A cim:PssIEEE4B cim:PssSB4 cim:OverexcLimX2 cim:GovIEEEHydroLL cim:VoltageAdjusterUserDefined cim:ExcIEEEAC9C cim:ExcIEEEST2A cim:SynchronousMachineUserDefined cim:ExcST4B cim:GovCT2 cim:GovSteamCC cim:ExcIEEEST1C cim:WeccREGCA cim:PFVArType2CIEEEVArController cim:RelayUserDefined cim:GovHydro2 cim:PFVArType1IEEEPFController cim:DiscExcContIEEEDEC2A cim:WeccWTGARA cim:WeccWT12T cim:GovCIGREGT cim:WindPlantIEC cim:ExcDC1A cim:WeccWT2E cim:ExcIEEEAC4A cim:TurbIEEEHydroWCNonLinearB cim:ExcSK cim:ExcAVR3 cim:GovCT1 cim:GovIEEEHydroPID cim:Pss5 cim:PFVArType2IEEEVArController cim:ExcDC2A cim:ExcSEXS cim:LoadAggregate cim:GovHydroFrancis cim:TurbIEEEGenericHRSGST cim:OverexcLimX1 cim:WeccREECB cim:DetailedModelDynamics cim:ExcIEEEAC5A cim:ExcPIC cim:StatorCurrentLimiterUserDefined cim:GovSteamEU cim:ExcIEEEDC1C cim:WeccREPCA cim:ExcIEEEAC6C cim:ExcIEEEAC4C cim:ExcIEEEDC3A cim:WeccTIOCRS cim:TurbIEEEHydroWCNonLinearA cim:VSCUserDefined cim:ExcAVR5 cim:HVDCInterconnectionUserDefined cim:SVSMO4 cim:ExcELIN1 cim:ExcitationSystemUserDefined cim:WeccBESS cim:ExcIEEEAC7C cim:PFVArType1IEEEVArController cim:DERIEEEType1 cim:WindGenTurbineType2IEC2 cim:ExcST2A cim:PssRQB cim:GovHydroPID cim:WeccREECA cim:ExcAC8B cim:WindPlantQCompensationIEC cim:ExcIEEEST1A cim:ExcAC4A cim:GovHydroPelton cim:WeccPVD1 cim:ExcOEX3T ) ;
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class." ;
+        sh:name         "SignalDescriptor.DynamicsFunctionBlock-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        1 ;
+        sh:path         ( cim:SignalDescriptor.DynamicsFunctionBlock rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:OperatorDescriptor.InputOutputDescriptor-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Association with cardinality violation at the used direction." ;
+        sh:minCount     1 ;
+        sh:name         "OperatorDescriptor.InputOutputDescriptor-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:OperatorDescriptor.InputOutputDescriptor ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.EquationDescriptorArtifact-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "FunctionDescriptor.EquationDescriptorArtifact-cardinality" ;
+        sh:order        6 ;
+        sh:path         cim:FunctionDescriptor.EquationDescriptorArtifact ;
+        sh:severity     sh:Violation .
+
+dmc:DetailedModelDescriptorArtifact
+        rdf:type        sh:NodeShape ;
+        sh:property     ido:IdentifiedObject.mRID-datatype , dmc:DetailedModelDescriptorArtifact.equationLanguageKind-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , ido:IdentifiedObject.name-datatype , dmc:DetailedModelDescriptorArtifact.equationLanguageTypeOther-cardinality , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-cardinality , dmc:DetailedModelDescriptorArtifact.equationLanguageTypeOther-datatype , dmc:DetailedModelDescriptorArtifact.equationLanguageKind-datatype , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.mRID-cardinality ;
+        sh:targetClass  cim:DetailedModelDescriptorArtifact .
+
+dmc:FunctionDescriptor.equationLanguageKind-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:in           ( cim:EquationLanguageKind.other cim:EquationLanguageKind.modelica cim:EquationLanguageKind.matlab cim:EquationLanguageKind.generalMathemathicalExpression ) ;
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
+        sh:name         "FunctionDescriptor.equationLanguageKind-datatype" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        4 ;
+        sh:path         cim:FunctionDescriptor.equationLanguageKind ;
+        sh:severity     sh:Violation .
+
+dmc:InputOutputDescriptor
+        rdf:type        sh:NodeShape ;
+        sh:property     ido:IdentifiedObject.name-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , dmc:InputOutputDescriptor.InputSignal-cardinality , dmc:InputOutputDescriptor.OutputSignal-valueType , dmc:InputOutputDescriptor.OutputSignal-cardinality , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.description-datatype , dmc:InputOutputDescriptor.InputSignal-valueType , ido:IdentifiedObject.name-datatype ;
+        sh:targetClass  cim:InputOutputDescriptor .
+
+dmc:LimiterDescriptor.UpperLimitFunction-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "LimiterDescriptor.UpperLimitFunction-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:LimiterDescriptor.UpperLimitFunction ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.InputOutputDescriptor-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:InputOutputDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:InputOutputDescriptor" ;
+        sh:name         "FunctionDescriptor.InputOutputDescriptor-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        8 ;
+        sh:path         ( cim:FunctionDescriptor.InputOutputDescriptor rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:InputOutputDescriptor.OutputSignal-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:message      "Cardinality violation. Lower bound shall be 1" ;
+        sh:minCount     1 ;
+        sh:name         "InputOutputDescriptor.OutputSignal-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:InputOutputDescriptor.OutputSignal ;
+        sh:severity     sh:Violation .
+
+ido:DatatypesGroupIO  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "DatatypesIO" ;
+        sh:order    1 .
+
+dmc:ParameterDescriptor.typicalValueRangeMax-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.typicalValueRangeMax-cardinality" ;
+        sh:order        3 ;
+        sh:path         cim:ParameterDescriptor.typicalValueRangeMax ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.equationLanguageKind-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "FunctionDescriptor.equationLanguageKind-cardinality" ;
+        sh:order        4 ;
+        sh:path         cim:FunctionDescriptor.equationLanguageKind ;
+        sh:severity     sh:Violation .
+
+dmc:SignalDescriptor.isSignalInverted-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "SignalDescriptor.isSignalInverted-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:SignalDescriptor.isSignalInverted ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.valueXSDdatatype-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:in           ( cim:XSDDatatypeKind.dateTime cim:XSDDatatypeKind.double cim:XSDDatatypeKind.anyURI cim:XSDDatatypeKind.string cim:XSDDatatypeKind.integer cim:XSDDatatypeKind.boolean cim:XSDDatatypeKind.decimal cim:XSDDatatypeKind.date cim:XSDDatatypeKind.float cim:XSDDatatypeKind.duration cim:XSDDatatypeKind.time ) ;
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
+        sh:name         "ParameterDescriptor.valueXSDdatatype-datatype" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        5 ;
+        sh:path         cim:ParameterDescriptor.valueXSDdatatype ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.initialConditionsEquation-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "FunctionDescriptor.initialConditionsEquation-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:FunctionDescriptor.initialConditionsEquation ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.typicalValueRangeMin-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.typicalValueRangeMin-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:ParameterDescriptor.typicalValueRangeMin ;
+        sh:severity     sh:Violation .
+
+dmc:OperatorDescriptor
+        rdf:type        sh:NodeShape ;
+        sh:property     dmc:OperatorDescriptor.InputOutputDescriptor-valueType , dmc:OperatorDescriptor.operatorKind-datatype , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.description-datatype , dmc:OperatorDescriptor.operatorKind-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , ido:IdentifiedObject.description-cardinality , dmc:OperatorDescriptor.InputOutputDescriptor-cardinality , dmc:OperatorDescriptor.logicalKind-datatype , dmc:OperatorDescriptor.logicalKind-cardinality , ido:IdentifiedObject.name-cardinality ;
+        sh:targetClass  cim:OperatorDescriptor .
+
+dmc:DetailedModelDescriptorArtifact.equationLanguageKind-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "DetailedModelDescriptorArtifact.equationLanguageKind-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:DetailedModelDescriptorArtifact.equationLanguageKind ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.name-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        ido:CardinalityIO ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "IdentifiedObject.name-cardinality" ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.name ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.engineeringUnit-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterDescriptor.engineeringUnit-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        6 ;
+        sh:path         cim:ParameterDescriptor.engineeringUnit ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.kind-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:in           ( cim:ParameterKind.internal cim:ParameterKind.stateVariable cim:ParameterKind.regular ) ;
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
+        sh:name         "ParameterDescriptor.kind-datatype" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        7 ;
+        sh:path         cim:ParameterDescriptor.kind ;
+        sh:severity     sh:Violation .
+
+dmc:LimiterDescriptor
+        rdf:type        sh:NodeShape ;
+        sh:property     ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.description-cardinality , dmc:LimiterDescriptor.UpperLimitFunction-valueType , dmc:LimiterDescriptor.UpperLimitFunction-cardinality , dmc:LimiterDescriptor.InputOutputDescriptor-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , dmc:LimiterDescriptor.LowerLimitFunction-valueType , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , ido:IdentifiedObject.mRID-cardinality , dmc:LimiterDescriptor.LowerLimitFunction-cardinality , ido:IdentifiedObject.name-cardinality , dmc:LimiterDescriptor.InputOutputDescriptor-valueType , ido:IdentifiedObject.mRID-datatype ;
+        sh:targetClass  cim:LimiterDescriptor .
+
+dmc:DetailedModelTypeDynamics.DetailedModelDescriptor-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the inverse direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:message      "Cardinality violation. Lower bound shall be 1" ;
+        sh:minCount     1 ;
+        sh:name         "DetailedModelTypeDynamics.DetailedModelDescriptor-cardinality" ;
+        sh:order        0 ;
+        sh:path         [ sh:inversePath  cim:DetailedModelDescriptor.DetailedModelTypeDynamics ] ;
+        sh:severity     sh:Violation .
+
+dmc:InputOutputDescriptor.OutputSignal-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:SignalDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalDescriptor" ;
+        sh:name         "InputOutputDescriptor.OutputSignal-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        2 ;
+        sh:path         ( cim:InputOutputDescriptor.OutputSignal rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:CardinalityGroup  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "Cardinality" ;
+        sh:order    0 .
+
+dmc:OperatorDescriptor.operatorKind-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "OperatorDescriptor.operatorKind-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:OperatorDescriptor.operatorKind ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.EquationDescriptorArtifact-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:DetailedModelDescriptorArtifact ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:DetailedModelDescriptorArtifact" ;
+        sh:name         "FunctionDescriptor.EquationDescriptorArtifact-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        6 ;
+        sh:path         ( cim:FunctionDescriptor.EquationDescriptorArtifact rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.typicalValueRangeMax-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:float ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterDescriptor.typicalValueRangeMax-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        3 ;
+        sh:path         cim:ParameterDescriptor.typicalValueRangeMax ;
+        sh:severity     sh:Violation .
+
+dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Association with cardinality violation at the used direction." ;
+        sh:minCount     1 ;
+        sh:name         "DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:DetailedModelDescriptor.DetailedModelTypeDynamics ;
+        sh:severity     sh:Violation .
+
+dmc:DetailedModelTypeDynamics
+        rdf:type        sh:NodeShape ;
+        sh:property     ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , dmc:DetailedModelTypeDynamics.DetailedModelDescriptor-cardinality ;
+        sh:targetClass  cim:DetailedModelTypeDynamics .
+
+dmc:LimiterDescriptor.LowerLimitFunction-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmc:AssociationsGroup ;
+        sh:in           ( cim:FunctionDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:FunctionDescriptor" ;
+        sh:name         "LimiterDescriptor.LowerLimitFunction-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        2 ;
+        sh:path         ( cim:LimiterDescriptor.LowerLimitFunction rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmc:InputOutputDescriptor.InputSignal-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:message      "Cardinality violation. Lower bound shall be 1" ;
+        sh:minCount     1 ;
+        sh:name         "InputOutputDescriptor.InputSignal-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:InputOutputDescriptor.InputSignal ;
+        sh:severity     sh:Violation .
+
+dmc:OperatorDescriptor.operatorKind-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:in           ( cim:OperatorDescriptorKind.multiplier cim:OperatorDescriptorKind.summation cim:OperatorDescriptorKind.other cim:OperatorDescriptorKind.division cim:OperatorDescriptorKind.logical ) ;
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
+        sh:name         "OperatorDescriptor.operatorKind-datatype" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        0 ;
+        sh:path         cim:OperatorDescriptor.operatorKind ;
+        sh:severity     sh:Violation .
+
+dmc:SignalDescriptor  rdf:type  sh:NodeShape ;
+        sh:property     ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-cardinality , dmc:SignalDescriptor.isSignalInverted-datatype , dmc:SignalDescriptor.isSignalInverted-cardinality , ido:IdentifiedObject.description-datatype , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.name-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , dmc:SignalDescriptor.DynamicsFunctionBlock-cardinality ;
+        sh:targetClass  cim:SignalDescriptor .
+
+dmc:ParameterDescriptor.referenceCustomConstraint-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.referenceCustomConstraint-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:ParameterDescriptor.referenceCustomConstraint ;
+        sh:severity     sh:Violation .
+
+dmc:ParameterDescriptor.referenceCustomConstraint-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:anyURI ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterDescriptor.referenceCustomConstraint-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0 ;
+        sh:path         cim:ParameterDescriptor.referenceCustomConstraint ;
+        sh:severity     sh:Violation .
+
+dmc:SignalDescriptor.isSignalInverted-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:boolean ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "SignalDescriptor.isSignalInverted-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        2 ;
+        sh:path         cim:SignalDescriptor.isSignalInverted ;
+        sh:severity     sh:Violation .
+
+ido:CardinalityGroup  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "CardinalityIO" ;
+        sh:order    0 .

@@ -1,0 +1,325 @@
+@base          <http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation/Constraints> .
+@prefix cim:     <http://cim.ucaiug.io/ns#> .
+@prefix cims:    <http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#> .
+@prefix dash:    <http://datashapes.org/dash#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/#> .
+@prefix dcterms: <http://purl.org/dc/terms/#> .
+@prefix dm:      <http://iec.ch/TC57/61970-552/DifferenceModel/1#> .
+@prefix dmp:     <http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation/Constraints#> .
+@prefix eu:      <http://iec.ch/TC57/CIM100-European#> .
+@prefix ido:     <http://iec.ch/TC57/ns/CIM/IdentifiedObject/constraints/3.0#> .
+@prefix md:      <http://iec.ch/TC57/61970-552/ModelDescription/1#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prof:    <http://www.w3.org/ns/dx/prof/#> .
+@prefix profcim: <http://iec.ch/TC57/ns/CIM/prof-cim#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+dmp:DynamicsFunctionBlock.enabled-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "DynamicsFunctionBlock.enabled-cardinality" ;
+        sh:order        4 ;
+        sh:path         cim:DynamicsFunctionBlock.enabled ;
+        sh:severity     sh:Violation .
+
+dmp:DetailedModelDynamics.DetailedModelTypeDynamics-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Association with cardinality violation at the used direction." ;
+        sh:minCount     1 ;
+        sh:name         "DetailedModelDynamics.DetailedModelTypeDynamics-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:DetailedModelDynamics.DetailedModelTypeDynamics ;
+        sh:severity     sh:Violation .
+
+dmp:SignalDescriptor  rdf:type  sh:NodeShape ;
+        sh:property     dmp:SignalDescriptor.ACDCTerminal-cardinality ;
+        sh:targetClass  cim:SignalDescriptor .
+
+dmp:SignalDescriptor.ACDCTerminal-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "SignalDescriptor.ACDCTerminal-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:SignalDescriptor.ACDCTerminal ;
+        sh:severity     sh:Violation .
+
+dmp:ParameterValue.ParameterDescriptor-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Association with cardinality violation at the used direction." ;
+        sh:minCount     1 ;
+        sh:name         "ParameterValue.ParameterDescriptor-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:ParameterValue.ParameterDescriptor ;
+        sh:severity     sh:Violation .
+
+ido:DatatypesGroupIO  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "DatatypesIO" ;
+        sh:order    1 .
+
+ido:IdentifiedObject.description-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        ido:CardinalityIO ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "IdentifiedObject.description-cardinality" ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.description ;
+        sh:severity     sh:Violation .
+
+dmp:SignalDescriptor.ACDCTerminal-valueTypeNodeShape
+        rdf:type        sh:NodeShape ;
+        sh:property     dmp:SignalDescriptor.ACDCTerminal-valueType ;
+        sh:targetClass  cim:SignalDescriptor .
+
+ido:IdentifiedObject.name-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        ido:CardinalityIO ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "IdentifiedObject.name-cardinality" ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.name ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.description-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        ido:DatatypesGroupIO ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "IdentifiedObject.description-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.description ;
+        sh:severity     sh:Violation .
+
+dmp:ParameterValue.DetailedModelDynamics-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmp:AssociationsGroup ;
+        sh:in           ( cim:DetailedModelDynamics ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:DetailedModelDynamics" ;
+        sh:name         "ParameterValue.DetailedModelDynamics-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        0 ;
+        sh:path         ( cim:ParameterValue.DetailedModelDynamics rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmp:DynamicsFunctionBlock.enabled-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:boolean ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmp:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "DynamicsFunctionBlock.enabled-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        4 ;
+        sh:path         cim:DynamicsFunctionBlock.enabled ;
+        sh:severity     sh:Violation .
+
+dmp:ParameterValue  rdf:type  sh:NodeShape ;
+        sh:property     dmp:ParameterValue.value-datatype , dmp:ParameterValue.value-cardinality , dmp:ParameterValue.ParameterDescriptor-valueType , dmp:ParameterValue.ParameterDescriptor-cardinality , dmp:ParameterValue.DetailedModelDynamics-valueType , dmp:ParameterValue.DetailedModelDynamics-cardinality ;
+        sh:targetClass  cim:ParameterValue .
+
+dmp:DetailedModelDynamics.Equipment-valueTypeNodeShape
+        rdf:type        sh:NodeShape ;
+        sh:property     dmp:DetailedModelDynamics.Equipment-valueType ;
+        sh:targetClass  cim:DetailedModelDynamics .
+
+dmp:SignalDescriptor.ACDCTerminal-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmp:AssociationsGroup ;
+        sh:in           ( cim:Terminal cim:ACDCConverterDCTerminal cim:DCTerminal ) ;
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class." ;
+        sh:name         "SignalDescriptor.ACDCTerminal-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        0 ;
+        sh:path         ( cim:SignalDescriptor.ACDCTerminal rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmp:DetailedModelDynamics.DetailedModelTypeDynamics-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmp:AssociationsGroup ;
+        sh:in           ( cim:DetailedModelTypeDynamics ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:DetailedModelTypeDynamics" ;
+        sh:name         "DetailedModelDynamics.DetailedModelTypeDynamics-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        0 ;
+        sh:path         ( cim:DetailedModelDynamics.DetailedModelTypeDynamics rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmp:DetailedModelDynamics.DynamicsFunctionBlock-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "DetailedModelDynamics.DynamicsFunctionBlock-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:DetailedModelDynamics.DynamicsFunctionBlock ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.name-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        ido:DatatypesGroupIO ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "IdentifiedObject.name-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.name ;
+        sh:severity     sh:Violation .
+
+ido:CardinalityGroup  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "CardinalityIO" ;
+        sh:order    0 .
+
+dmp:DetailedModelDynamics.Equipment-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "DetailedModelDynamics.Equipment-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:DetailedModelDynamics.Equipment ;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.mRID-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        ido:CardinalityIO ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "IdentifiedObject.mRID-cardinality" ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.mRID ;
+        sh:severity     sh:Violation .
+
+dmp:DatatypesGroup  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "Datatypes" ;
+        sh:order    1 .
+
+dmp:ParameterValue.DetailedModelDynamics-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Association with cardinality violation at the used direction." ;
+        sh:minCount     1 ;
+        sh:name         "ParameterValue.DetailedModelDynamics-cardinality" ;
+        sh:order        0 ;
+        sh:path         cim:ParameterValue.DetailedModelDynamics ;
+        sh:severity     sh:Violation .
+
+dmp:DetailedModelDynamics.Equipment-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmp:AssociationsGroup ;
+        sh:in           ( cim:DCShunt cim:Cut cim:ExternalNetworkInjection cim:DCSwitch cim:DisconnectingCircuitBreaker cim:Breaker cim:GroundingImpedance cim:SynchronousMachine cim:PetersenCoil cim:ConformLoad cim:EnergyConsumer cim:DCDisconnector cim:VsConverter cim:NuclearGeneratingUnit cim:PowerTransformer cim:ACLineSegment cim:NonConformLoad cim:Jumper cim:WaveTrap cim:DCSeriesDevice cim:BusbarSection cim:SurgeArrester cim:EquivalentBranch cim:PostLineSensor cim:LinearShuntCompensator cim:CurrentTransformer cim:NonlinearShuntCompensator cim:Ground cim:Fuse cim:CsConverter cim:Junction cim:WindGeneratingUnit cim:DCGround cim:HydroPump cim:StaticVarCompensator cim:DCLineSegment cim:PowerElectronicsConnection cim:Switch cim:PhotoVoltaicUnit cim:ThermalGeneratingUnit cim:DCChopper cim:BatteryUnit cim:DCBreaker cim:LoadBreakSwitch cim:EquivalentShunt cim:VariableShuntCompensator cim:Clamp cim:SolarGeneratingUnit cim:StationSupply cim:FaultIndicator cim:EquivalentInjection cim:AsynchronousMachine cim:GeneratingUnit cim:Disconnector cim:SeriesCompensator cim:HydroGeneratingUnit cim:GroundDisconnector cim:DCBusbar cim:EnergySource cim:PotentialTransformer cim:PowerElectronicsWindUnit ) ;
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class." ;
+        sh:name         "DetailedModelDynamics.Equipment-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        2 ;
+        sh:path         ( cim:DetailedModelDynamics.Equipment rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmp:CardinalityGroup  rdf:type  sh:PropertyGroup ;
+        rdfs:label  "Cardinality" ;
+        sh:order    0 .
+
+dmp:AssociationsGroup
+        rdf:type    sh:PropertyGroup ;
+        rdfs:label  "Associations" ;
+        sh:order    2 .
+
+ido:IdentifiedObject.mRID-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        ido:DatatypesGroupIO ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "IdentifiedObject.mRID-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        0.1 ;
+        sh:path         cim:IdentifiedObject.mRID ;
+        sh:severity     sh:Violation .
+
+dmp:DetailedModelDynamics
+        rdf:type        sh:NodeShape ;
+        sh:property     ido:IdentifiedObject.name-cardinality , dmp:DynamicsFunctionBlock.enabled-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.mRID-datatype , dmp:DetailedModelDynamics.DynamicsFunctionBlock-valueType , dmp:DetailedModelDynamics.Equipment-cardinality , ido:IdentifiedObject.description-datatype , dmp:DetailedModelDynamics.DynamicsFunctionBlock-cardinality , dmp:DetailedModelDynamics.DetailedModelTypeDynamics-valueType , dmp:DynamicsFunctionBlock.enabled-datatype , ido:IdentifiedObject.mRID-cardinality , dmp:DetailedModelDynamics.DetailedModelTypeDynamics-cardinality ;
+        sh:targetClass  cim:DetailedModelDynamics .
+
+dmp:ParameterValue.ParameterDescriptor-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmp:AssociationsGroup ;
+        sh:in           ( cim:ParameterDescriptor ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:ParameterDescriptor" ;
+        sh:name         "ParameterValue.ParameterDescriptor-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        1 ;
+        sh:path         ( cim:ParameterValue.ParameterDescriptor rdf:type ) ;
+        sh:severity     sh:Violation .
+
+dmp:ParameterValue.value-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmp:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "ParameterValue.value-cardinality" ;
+        sh:order        2 ;
+        sh:path         cim:ParameterValue.value ;
+        sh:severity     sh:Violation .
+
+dmp:ParameterValue.value-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmp:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "ParameterValue.value-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        2 ;
+        sh:path         cim:ParameterValue.value ;
+        sh:severity     sh:Violation .
+
+dmp:DetailedModelDynamics.DynamicsFunctionBlock-valueType
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the value type of the association at the used direction." ;
+        sh:group        dmp:AssociationsGroup ;
+        sh:in           ( cim:DetailedModelDynamics ) ;
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:DetailedModelDynamics" ;
+        sh:name         "DetailedModelDynamics.DynamicsFunctionBlock-valueType" ;
+        sh:nodeKind     sh:IRI ;
+        sh:order        1 ;
+        sh:path         ( cim:DetailedModelDynamics.DynamicsFunctionBlock rdf:type ) ;
+        sh:severity     sh:Violation .
