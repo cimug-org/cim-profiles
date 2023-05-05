@@ -18,18 +18,18 @@ xmlns:dcterms="http://purl.org/dc/terms/#"
 xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
 xmlns:dm="http://iec.ch/TC57/61970-552/DifferenceModel/1#"
 xmlns:prov="http://www.w3.org/ns/prov#"
-xmlns:dmp="http://cim-profile.ucaiug.io/DetailedModelParameterisation#"
+xmlns:dmp="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#"
 xml:base ="http://cim.ucaiug.io/ns"
 >
 <!--  ********** Header **************** -->
 <!-- RDFS header -->
-<rdf:Description rdf:about = "http://cim-profile.ucaiug.io/DetailedModelParameterisation#Ontology">
+<rdf:Description rdf:about = "http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Ontology">
 	<dcat:keyword>DMP</dcat:keyword>
 	<dcat:theme xml:lang ="en">vocabulary</dcat:theme>
-	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation/1.0"/>
+	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation/1.0"/>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-301:ed-7:amd1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-302:ed-2</dcterms:conformsTo>
-	<dcterms:conformsTo>file://iec61970cim18v04_iec61968cim14v00_iec62325cim04v14.eap</dcterms:conformsTo>
+	<dcterms:conformsTo>file://CIM_Grid18v04_Support14v00_Market04v14_TF13_Dynamics_Profiles.eap</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-401:draft:ed-1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-501:draft:ed-2</dcterms:conformsTo>
 	<owl:versionInfo xml:lang ="en">1.0.0</owl:versionInfo>
@@ -43,7 +43,7 @@ xml:base ="http://cim.ucaiug.io/ns"
 <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
 </rdf:Description >
 <!-- ******************************** -->
-	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile">
+	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile">
 	<rdfs:label xml:lang="en">DetailedModelParameterisationProfile</rdfs:label>
 	<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This profile defines classes needed to exchange the values for parameters of a detailed model defined by detailed model configuration profile.
@@ -52,7 +52,7 @@ The information in the entire clause &quot;Detailed Model Parameterisation Profi
 	 <rdf:Description rdf:about="#ACDCTerminal">
 	<rdfs:label xml:lang="en">ACDCTerminal</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SignalDescriptor.ACDCTerminal">
@@ -79,7 +79,7 @@ The information in the entire clause &quot;Detailed Model Parameterisation Profi
 	<rdfs:label xml:lang="en">SignalDescriptor</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Describes the signals both internal signals that connect different functions or external signals.</rdfs:comment>
 <cims:stereotype>Description</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -87,14 +87,14 @@ The information in the entire clause &quot;Detailed Model Parameterisation Profi
 	<rdfs:label xml:lang="en">DetailedModelDescriptor</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Describes different components of a detailed model.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#DetailedModelDynamics">
 	<rdfs:label xml:lang="en">DetailedModelDynamics</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#DynamicsFunctionBlock"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The main class that packages all related to this detailed model. This includes all parameters, functions, signals, etc.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -182,14 +182,14 @@ The information in the entire clause &quot;Detailed Model Parameterisation Profi
 	<rdfs:label xml:lang="en">DetailedModelTypeDynamics</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The main class that packages all related to this type of a detailed model. This includes all parameters, functions, signals, etc.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#DynamicsFunctionBlock">
 	<rdfs:label xml:lang="en">DynamicsFunctionBlock</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Abstract parent class for all Dynamics function blocks.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#DynamicsFunctionBlock.enabled">
@@ -207,20 +207,20 @@ false = use of function block is disabled.</rdfs:comment>
 	<rdfs:label xml:lang="en">Boolean</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A type with the value space &quot;true&quot; and &quot;false&quot;.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Equipment">
 	<rdfs:label xml:lang="en">Equipment</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#PowerSystemResource"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The parts of a power system that are physical devices, electronic or mechanical.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#IdentifiedObject">
 	<rdfs:label xml:lang="en">IdentifiedObject</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This is a root class to provide common identification for all classes needing identification and naming attributes.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#IdentifiedObject.description">
@@ -236,7 +236,7 @@ false = use of function block is disabled.</rdfs:comment>
 	<rdfs:label xml:lang="en">String</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#IdentifiedObject.mRID">
@@ -263,7 +263,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:subClassOf rdf:resource="#DetailedModelDescriptor"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Supports definition of one or more parameters of several different datatypes for use by the detailed model.  It describes the parameters used in the equations of the detailed model.
 The name of the parameter shall be the same as the name used in the equations of the detailed model.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#ParameterDescriptor.ParameterValue">
@@ -289,7 +289,7 @@ The name of the parameter shall be the same as the name used in the equations of
 	 <rdf:Description rdf:about="#ParameterValue">
 	<rdfs:label xml:lang="en">ParameterValue</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Provides the value of a given parameter of a detailed model dynamics.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -306,10 +306,10 @@ The name of the parameter shall be the same as the name used in the equations of
 	<rdfs:label xml:lang="en">PowerSystemResource</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
-	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile">
+	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile">
 	<rdfs:label xml:lang="en">DocDetailedModelParameterisationProfile</rdfs:label>
 	<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This package includes material that is needed for the profiling but should not be printed in the documentation.</rdfs:comment>
@@ -318,14 +318,14 @@ The name of the parameter shall be the same as the name used in the equations of
 	<rdfs:label xml:lang="en">Date</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date as &quot;yyyy-mm-dd&quot;, which conforms with ISO 8601. UTC time zone is specified as &quot;yyyy-mm-ddZ&quot;. A local timezone relative UTC is specified as &quot;yyyy-mm-dd(+/-)hh:mm&quot;.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#DateTime">
 	<rdfs:label xml:lang="en">DateTime</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date and time as &quot;yyyy-mm-ddThh:mm:ss.sss&quot;, which conforms with ISO 8601. UTC time zone is specified as &quot;yyyy-mm-ddThh:mm:ss.sssZ&quot;. A local timezone relative UTC is specified as &quot;yyyy-mm-ddThh:mm:ss.sss-hh:mm&quot;. The second component (shown here as &quot;ss.sss&quot;) could have any number of digits in its fractional part to allow any kind of precision beyond seconds.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#IRI">
@@ -337,7 +337,7 @@ IRI equality: Two IRIs are equal if and only if they are equivalent under Simple
 IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicode characters. Every absolute URI and URL is an IRI, but not every IRI is an URI. When IRIs are used in operations that are only defined for URIs, they must first be converted according to the mapping defined in section 3.1 of [RFC3987]. A notable example is retrieval over the HTTP protocol. The mapping involves UTF-8 encoding of non-ASCII characters, %-encoding of octets not allowed in URIs, and Punycode-encoding of domain names.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#StringFixedLanguage">
@@ -346,7 +346,7 @@ IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicod
 The primitive is serialized as literal without language support.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#StringIRI">
@@ -358,7 +358,7 @@ IRI equality: Two IRIs are equal if and only if they are equivalent under Simple
 IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicode characters. Every absolute URI and URL is an IRI, but not every IRI is an URI. When IRIs are used in operations that are only defined for URIs, they must first be converted according to the mapping defined in section 3.1 of [RFC3987]. A notable example is retrieval over the HTTP protocol. The mapping involves UTF-8 encoding of non-ASCII characters, %-encoding of octets not allowed in URIs, and Punycode-encoding of domain names.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#URL">
@@ -366,7 +366,7 @@ IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicod
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it. A URL is a specific type of Uniform Resource Identifier (URI), although many people use the two terms interchangeably.URLs occur most commonly to reference web pages (http), but are also used for file transfer (ftp), email (mailto), database access (JDBC), and many other applications.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/DetailedModelParameterisation#Package_DocDetailedModelParameterisationProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 </rdf:RDF>

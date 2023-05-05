@@ -18,18 +18,18 @@ xmlns:dcterms="http://purl.org/dc/terms/#"
 xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
 xmlns:dm="http://iec.ch/TC57/61970-552/DifferenceModel/1#"
 xmlns:prov="http://www.w3.org/ns/prov#"
-xmlns:set="http://cim-profile.ucaiug.io/SimulationSettings#"
+xmlns:set="http://cim-profile.ucaiug.io/grid/SimulationSettings#"
 xml:base ="http://cim.ucaiug.io/ns"
 >
 <!--  ********** Header **************** -->
 <!-- RDFS header -->
-<rdf:Description rdf:about = "http://cim-profile.ucaiug.io/SimulationSettings#Ontology">
+<rdf:Description rdf:about = "http://cim-profile.ucaiug.io/grid/SimulationSettings#Ontology">
 	<dcat:keyword>SET</dcat:keyword>
 	<dcat:theme xml:lang ="en">vocabulary</dcat:theme>
-	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings/1.0"/>
+	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings/1.0"/>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-301:ed-7:amd1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-302:ed-2</dcterms:conformsTo>
-	<dcterms:conformsTo>file://iec61970cim18v04_iec61968cim14v00_iec62325cim04v14.eap</dcterms:conformsTo>
+	<dcterms:conformsTo>file://CIM_Grid18v04_Support14v00_Market04v14_TF13_Dynamics_Profiles.eap</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-401:draft:ed-1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-501:draft:ed-2</dcterms:conformsTo>
 	<owl:versionInfo xml:lang ="en">1.0.0</owl:versionInfo>
@@ -45,7 +45,7 @@ xml:base ="http://cim.ucaiug.io/ns"
 <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
 </rdf:Description >
 <!-- ******************************** -->
-	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile">
+	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile">
 	<rdfs:label xml:lang="en">SimulationSettingsProfile</rdfs:label>
 	<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This profile defines classes needed for an exchange of simulation settings. The set of settings include power flow calculation settings and dynamics related simulation settings. This profile can also be used for an exchange of power flow calculation setting even if there is no intention to perform dynamics simulation. 
@@ -56,7 +56,7 @@ The information in the entire clause &quot;Simulation Settings Profile&quot; is 
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A wire or combination of wires, with consistent electrical characteristics, building a single electrical system, used to carry alternating current between points in the power system.
 For symmetrical, transposed three phase lines, it is sufficient to use attributes of the line segment, which describe impedances and admittances for the entire length of the segment.  Additionally impedances can be computed by using length and associated per length impedances.
 The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same BaseVoltage.nominalVoltage. However, boundary lines may have slightly different BaseVoltage.nominalVoltages and variation is allowed. Larger voltage difference in general requires use of an equivalent branch.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#ACLineSegment.LineFaults">
@@ -83,7 +83,7 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 	<rdfs:label xml:lang="en">Terminal</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#ACDCTerminal"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Terminal.EquipmentFaults">
@@ -109,7 +109,7 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 	 <rdf:Description rdf:about="#Equipment">
 	<rdfs:label xml:lang="en">Equipment</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The parts of a power system that are physical devices, electronic or mechanical.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Fault.FaultyEquipment">
@@ -136,7 +136,7 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 	<rdfs:label xml:lang="en">EquipmentFault</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#Fault"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -144,7 +144,7 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 	<rdfs:label xml:lang="en">Fault</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modelled (for example, a tree falling on a line).</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Fault.impedance">
@@ -160,7 +160,7 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 	<rdfs:label xml:lang="en">FaultImpedance</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Impedance description for the fault.</rdfs:comment>
 <cims:stereotype>Compound</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#FaultImpedance.rGround">
@@ -176,7 +176,7 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 	<rdfs:label xml:lang="en">Resistance</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resistance (real part of impedance).</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Resistance.value">
@@ -191,7 +191,7 @@ The BaseVoltage at the two ends of ACLineSegments in a Line shall have the same 
 	<rdfs:label xml:lang="en">Float</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A floating point number. The range is unspecified and not limited.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Resistance.unit">
@@ -210,7 +210,7 @@ Every unit symbol is treated as an unparseable text as if it were a single-lette
 To allow the widest possible range of serializations without requiring special character handling, several substitutions are made which deviate from the format described in IEC 80000-1. The division symbol &quot;/&quot; is replaced by the letters &quot;Per&quot;. Exponents are written in plain text after the unit as &quot;m3&quot; instead of being formatted as &quot;m&quot; with a superscript of 3  or introducing a symbol as in &quot;m^3&quot;. The degree symbol &quot;°&quot; is replaced with the letters &quot;deg&quot;. Any clarification of the meaning for a substitution is included in the description for the unit symbol.
 Non-SI units are included in list of unit symbols to allow sources of data to be correctly labelled with their non-SI units (for example, a GPS sensor that is reporting numbers that represent feet instead of meters). This allows software to use the unit symbol information correctly convert and scale the raw data of those sources into SI-based units. 
 The integer values are used for harmonization with IEC 61850.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1079,7 +1079,7 @@ Note 2 : Beware of differing sign conventions in use between the IEC and EEI. I
 For example, if a unit symbol is &quot;m2Pers&quot; and the multiplier is &quot;k&quot;, then the value is k(m**2/s), and the multiplier applies to the entire final value, not to any individual part of the value. This can be conceptualized by substituting a derived unit symbol for the unit type. If one imagines that the symbol &quot;&amp;#222;&quot; represents the derived unit &quot;m2Pers&quot;, then applying the multiplier &quot;k&quot; can be conceptualized simply as &quot;k&amp;#222;&quot;.
 
 For example, the SI unit for mass is &quot;kg&quot; and not &quot;g&quot;.  If the unit symbol is defined as &quot;kg&quot;, then the multiplier is applied to &quot;kg&quot; as a whole and does not replace the &quot;k&quot; in front of the &quot;g&quot;. In this case, the multiplier of &quot;m&quot; would be used with the unit symbol of &quot;kg&quot; to represent one gram.  As a text string, this violates the instructions in IEC 80000-1. However, because the unit symbol in CIM is treated as a derived unit instead of as an SI unit, it makes more sense to conceptualize the &quot;kg&quot; as if it were replaced by one of the proposed replacements for the SI mass symbol. If one imagines that the &quot;kg&quot; were replaced by a symbol &quot;&amp;#222;&quot;, then it is easier to conceptualize the multiplier &quot;m&quot; as creating the proper unit &quot;m&amp;#222;&quot;, and not the forbidden unit &quot;mkg&quot;.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1231,7 +1231,7 @@ For example, the SI unit for mass is &quot;kg&quot; and not &quot;g&quot;.  If t
 	<rdfs:label xml:lang="en">Reactance</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reactance (imaginary part of impedance), at rated frequency.</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Reactance.value">
@@ -1280,7 +1280,7 @@ For example, the SI unit for mass is &quot;kg&quot; and not &quot;g&quot;.  If t
 	 <rdf:Description rdf:about="#PhaseConnectedFaultKind">
 	<rdfs:label xml:lang="en">PhaseConnectedFaultKind</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The type of fault connection among phases.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1323,7 +1323,7 @@ For example, the SI unit for mass is &quot;kg&quot; and not &quot;g&quot;.  If t
 This is an unordered enumeration of phase identifiers.  Allows designation of phases for both transmission and distribution equipment, circuits and loads.   The enumeration, by itself, does not describe how the phases are connected together or connected to ground.  Ground is not explicitly denoted as a phase.
 Residential and small commercial loads are often served from single-phase, or split-phase, secondary circuits. For the example of s12N, phases 1 and 2 refer to hot wires that are 180 degrees out of phase, while N refers to the neutral wire. Through single-phase transformer connections, these secondary circuits may be served from one or two of the primary phases A, B, and C. For three-phase loads, use the A, B, C phase codes instead of s12N.
 The integer values are from IEC 61968-9 to support revenue metering applications.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1496,7 +1496,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">DateTime</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date and time as &quot;yyyy-mm-ddThh:mm:ss.sss&quot;, which conforms with ISO 8601. UTC time zone is specified as &quot;yyyy-mm-ddThh:mm:ss.sssZ&quot;. A local timezone relative UTC is specified as &quot;yyyy-mm-ddThh:mm:ss.sss-hh:mm&quot;. The second component (shown here as &quot;ss.sss&quot;) could have any number of digits in its fractional part to allow any kind of precision beyond seconds.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#ClearSimulationEvent.ClearedFaultEvent">
@@ -1563,7 +1563,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">FaultCauseType</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Type of cause of the fault.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1571,7 +1571,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">LineFault</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#Fault"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A fault that occurs on an AC line segment at some point along the length.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1588,7 +1588,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">Length</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unit of length. It shall be a positive value or zero.</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Length.multiplier">
@@ -1621,7 +1621,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">ACDCTerminal</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SignalRecorder.RecordedSignalAt">
@@ -1648,7 +1648,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">ClearSimulationEvent</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defines an event which clears another event such as ParemeterEvent or Fault.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1665,7 +1665,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">Seconds</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time, in seconds.</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Seconds.value">
@@ -1739,14 +1739,14 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">DetailedModelDescriptor</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Describes different components of a detailed model.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#DynamicsFunctionBlock">
 	<rdfs:label xml:lang="en">DynamicsFunctionBlock</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Abstract parent class for all Dynamics function blocks.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SignalRecorder.RecordedSignalOf">
@@ -1772,7 +1772,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	 <rdf:Description rdf:about="#IdentifiedObject">
 	<rdfs:label xml:lang="en">IdentifiedObject</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This is a root class to provide common identification for all classes needing identification and naming attributes.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#IdentifiedObject.description">
@@ -1788,7 +1788,7 @@ The integer values are from IEC 61968-9 to support revenue metering applications
 	<rdfs:label xml:lang="en">String</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#IdentifiedObject.mRID">
@@ -1834,7 +1834,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">ParameterEvent</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Used to apply changes to particular parameter or signal. The parameter or signal could be any property from power flow part of the model or property/signal of standard, user defined or detailed model.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1878,7 +1878,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">Boolean</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A type with the value space &quot;true&quot; and &quot;false&quot;.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#ParameterEvent.changeKind">
@@ -1893,7 +1893,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	 <rdf:Description rdf:about="#ParameterChangeKind">
 	<rdfs:label xml:lang="en">ParameterChangeKind</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kinds of changes applied to a parameter.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1940,7 +1940,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">Integer</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An integer number. The range is unspecified and not limited.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SimulationEvents.ParameterEvent">
@@ -1973,7 +1973,7 @@ The following attributes:
 - transformerPhaseTapControlPriority, and
 - transformerPhaseTapControlPriority 
  shall have different values in case they are enabled (i.e. value different than 0).  </rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1989,7 +1989,7 @@ The following attributes:
 	 <rdf:Description rdf:about="#PowerFlowAlgorithmKind">
 	<rdfs:label xml:lang="en">PowerFlowAlgorithmKind</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Power flow algorithm.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2051,7 +2051,7 @@ The following attributes:
 	<rdfs:label xml:lang="en">ActivePower</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Product of RMS value of the voltage and the RMS value of the in-phase component of the current.</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#ActivePower.multiplier">
@@ -2093,7 +2093,7 @@ The following attributes:
 	<rdfs:label xml:lang="en">ReactivePower</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Product of RMS value of the voltage and the RMS value of the quadrature component of the current.</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#ReactivePower.value">
@@ -2138,7 +2138,7 @@ It shall be less than the controlled bus voltage error convergence tolerance. </
 	<rdfs:label xml:lang="en">PU</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Per Unit - a positive or negative value referred to a defined base. Values typically range from -10 to +10.</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#PU.value">
@@ -2180,7 +2180,7 @@ It shall be less than the controlled bus voltage error convergence tolerance. </
 	<rdfs:label xml:lang="en">AngleDegrees</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measurement of angle in degrees.</rdfs:comment>
 <cims:stereotype>CIMDatatype</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#AngleDegrees.value">
@@ -2288,7 +2288,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	 <rdf:Description rdf:about="#SlackDistributionKind">
 	<rdfs:label xml:lang="en">SlackDistributionKind</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">It defines the kind of slack distribution.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2337,7 +2337,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	 <rdf:Description rdf:about="#PowerShiftKind">
 	<rdfs:label xml:lang="en">PowerShiftKind</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kinds of power shift.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2398,7 +2398,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<rdfs:label xml:lang="en">SignalConfiguration</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A configuration or a set of signals selected for recording during a simulation.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2426,7 +2426,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<rdfs:label xml:lang="en">SignalDescriptor</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#DetailedModelDescriptor"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Describes the signals both internal signals that connect different functions or external signals.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SignalRecorder.RecordedSignal">
@@ -2453,7 +2453,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<rdfs:label xml:lang="en">SignalRecorder</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A recorder for a given signal.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2469,7 +2469,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	 <rdf:Description rdf:about="#SignalKind">
 	<rdfs:label xml:lang="en">SignalKind</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kinds of signals depending on where the signal is defined or positioned.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2495,7 +2495,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<rdfs:label xml:lang="en">SimulationEvents</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A configuration or a set of events executed during a simulation.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2503,7 +2503,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<rdfs:label xml:lang="en">SimulationSettings</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Describes simulation settings necessary for a simulation.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -2565,17 +2565,17 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<rdfs:label xml:lang="en">Duration</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Duration as &quot;PnYnMnDTnHnMnS&quot; which conforms to ISO 8601, where nY expresses a number of years, nM a number of months, nD a number of days. The letter T separates the date expression from the time expression and, after it, nH identifies a number of hours, nM a number of minutes and nS a number of seconds. The number of seconds could be expressed as a decimal number, but all other numbers are integers.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Date">
 	<rdfs:label xml:lang="en">Date</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date as &quot;yyyy-mm-dd&quot;, which conforms with ISO 8601. UTC time zone is specified as &quot;yyyy-mm-ddZ&quot;. A local timezone relative UTC is specified as &quot;yyyy-mm-dd(+/-)hh:mm&quot;.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_SimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_SimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
-	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/SimulationSettings#Package_DocSimulationSettingsProfile">
+	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_DocSimulationSettingsProfile">
 	<rdfs:label xml:lang="en">DocSimulationSettingsProfile</rdfs:label>
 	<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This package includes material that is needed for the profiling but should not be printed in the documentation.</rdfs:comment>
@@ -2585,7 +2585,7 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it. A URL is a specific type of Uniform Resource Identifier (URI), although many people use the two terms interchangeably.URLs occur most commonly to reference web pages (http), but are also used for file transfer (ftp), email (mailto), database access (JDBC), and many other applications.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_DocSimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_DocSimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#StringIRI">
@@ -2597,7 +2597,7 @@ IRI equality: Two IRIs are equal if and only if they are equivalent under Simple
 IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicode characters. Every absolute URI and URL is an IRI, but not every IRI is an URI. When IRIs are used in operations that are only defined for URIs, they must first be converted according to the mapping defined in section 3.1 of [RFC3987]. A notable example is retrieval over the HTTP protocol. The mapping involves UTF-8 encoding of non-ASCII characters, %-encoding of octets not allowed in URIs, and Punycode-encoding of domain names.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_DocSimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_DocSimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#IRI">
@@ -2609,7 +2609,7 @@ IRI equality: Two IRIs are equal if and only if they are equivalent under Simple
 IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicode characters. Every absolute URI and URL is an IRI, but not every IRI is an URI. When IRIs are used in operations that are only defined for URIs, they must first be converted according to the mapping defined in section 3.1 of [RFC3987]. A notable example is retrieval over the HTTP protocol. The mapping involves UTF-8 encoding of non-ASCII characters, %-encoding of octets not allowed in URIs, and Punycode-encoding of domain names.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_DocSimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_DocSimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#StringFixedLanguage">
@@ -2618,7 +2618,7 @@ IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicod
 The primitive is serialized as literal without language support.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationSettings#Package_DocSimulationSettingsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings#Package_DocSimulationSettingsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 </rdf:RDF>
