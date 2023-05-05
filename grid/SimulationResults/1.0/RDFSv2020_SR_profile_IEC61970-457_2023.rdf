@@ -18,18 +18,18 @@ xmlns:dcterms="http://purl.org/dc/terms/#"
 xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#"
 xmlns:dm="http://iec.ch/TC57/61970-552/DifferenceModel/1#"
 xmlns:prov="http://www.w3.org/ns/prov#"
-xmlns:sr="http://cim-profile.ucaiug.io/SimulationResults#"
+xmlns:sr="http://cim-profile.ucaiug.io/grid/SimulationResults#"
 xml:base ="http://cim.ucaiug.io/ns"
 >
 <!--  ********** Header **************** -->
 <!-- RDFS header -->
-<rdf:Description rdf:about = "http://cim-profile.ucaiug.io/SimulationResults#Ontology">
+<rdf:Description rdf:about = "http://cim-profile.ucaiug.io/grid/SimulationResults#Ontology">
 	<dcat:keyword>SR</dcat:keyword>
 	<dcat:theme xml:lang ="en">vocabulary</dcat:theme>
-	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/SimulationResults/1.0"/>
+	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults/1.0"/>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-301:ed-7:amd1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-302:ed-2</dcterms:conformsTo>
-	<dcterms:conformsTo>file://iec61970cim18v04_iec61968cim14v00_iec62325cim04v14.eap</dcterms:conformsTo>
+	<dcterms:conformsTo>file://CIM_Grid18v04_Support14v00_Market04v14_TF13_Dynamics_Profiles.eap</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-401:draft:ed-1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-501:draft:ed-2</dcterms:conformsTo>
 	<owl:versionInfo xml:lang ="en">1.0.0</owl:versionInfo>
@@ -45,7 +45,7 @@ xml:base ="http://cim.ucaiug.io/ns"
 <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
 </rdf:Description >
 <!-- ******************************** -->
-	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile">
+	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile">
 	<rdfs:label xml:lang="en">SimulationResultsProfile</rdfs:label>
 	<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This profile defines classes needed for exchange of dynamics simulation results which are obtained by a simulation that has its simulation settings exchanged using simulation settings profile.
@@ -55,7 +55,7 @@ The information in the entire clause &quot;Simulation Results Profile&quot; is r
 	<rdfs:label xml:lang="en">Curve</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A multi-purpose curve or functional relationship between an independent variable (X-axis) and dependent (Y-axis) variables. </rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Curve.curveStyle">
@@ -70,7 +70,7 @@ The information in the entire clause &quot;Simulation Results Profile&quot; is r
 	 <rdf:Description rdf:about="#CurveStyle">
 	<rdfs:label xml:lang="en">CurveStyle</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Style or shape of curve.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -102,7 +102,7 @@ The information in the entire clause &quot;Simulation Results Profile&quot; is r
 For example, if a unit symbol is &quot;m2Pers&quot; and the multiplier is &quot;k&quot;, then the value is k(m**2/s), and the multiplier applies to the entire final value, not to any individual part of the value. This can be conceptualized by substituting a derived unit symbol for the unit type. If one imagines that the symbol &quot;&amp;#222;&quot; represents the derived unit &quot;m2Pers&quot;, then applying the multiplier &quot;k&quot; can be conceptualized simply as &quot;k&amp;#222;&quot;.
 
 For example, the SI unit for mass is &quot;kg&quot; and not &quot;g&quot;.  If the unit symbol is defined as &quot;kg&quot;, then the multiplier is applied to &quot;kg&quot; as a whole and does not replace the &quot;k&quot; in front of the &quot;g&quot;. In this case, the multiplier of &quot;m&quot; would be used with the unit symbol of &quot;kg&quot; to represent one gram.  As a text string, this violates the instructions in IEC 80000-1. However, because the unit symbol in CIM is treated as a derived unit instead of as an SI unit, it makes more sense to conceptualize the &quot;kg&quot; as if it were replaced by one of the proposed replacements for the SI mass symbol. If one imagines that the &quot;kg&quot; were replaced by a symbol &quot;&amp;#222;&quot;, then it is easier to conceptualize the multiplier &quot;m&quot; as creating the proper unit &quot;m&amp;#222;&quot;, and not the forbidden unit &quot;mkg&quot;.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -248,7 +248,7 @@ Every unit symbol is treated as an unparseable text as if it were a single-lette
 To allow the widest possible range of serializations without requiring special character handling, several substitutions are made which deviate from the format described in IEC 80000-1. The division symbol &quot;/&quot; is replaced by the letters &quot;Per&quot;. Exponents are written in plain text after the unit as &quot;m3&quot; instead of being formatted as &quot;m&quot; with a superscript of 3  or introducing a symbol as in &quot;m^3&quot;. The degree symbol &quot;°&quot; is replaced with the letters &quot;deg&quot;. Any clarification of the meaning for a substitution is included in the description for the unit symbol.
 Non-SI units are included in list of unit symbols to allow sources of data to be correctly labelled with their non-SI units (for example, a GPS sensor that is reporting numbers that represent feet instead of meters). This allows software to use the unit symbol information correctly convert and scale the raw data of those sources into SI-based units. 
 The integer values are used for harmonization with IEC 61850.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#enumeration"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1179,7 +1179,7 @@ Note 2 : Beware of differing sign conventions in use between the IEC and EEI. I
 	 <rdf:Description rdf:about="#CurveData">
 	<rdfs:label xml:lang="en">CurveData</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Multi-purpose data points for defining a curve. The use of this generic class is discouraged if a more specific class can be used to specify the X and Y axis values along with their specific data types.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1196,7 +1196,7 @@ Note 2 : Beware of differing sign conventions in use between the IEC and EEI. I
 	<rdfs:label xml:lang="en">Float</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A floating point number. The range is unspecified and not limited.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#CurveData.y1value">
@@ -1229,7 +1229,7 @@ Note 2 : Beware of differing sign conventions in use between the IEC and EEI. I
 	 <rdf:Description rdf:about="#IdentifiedObject">
 	<rdfs:label xml:lang="en">IdentifiedObject</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This is a root class to provide common identification for all classes needing identification and naming attributes.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#IdentifiedObject.description">
@@ -1245,7 +1245,7 @@ Note 2 : Beware of differing sign conventions in use between the IEC and EEI. I
 	<rdfs:label xml:lang="en">String</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#IdentifiedObject.mRID">
@@ -1271,7 +1271,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">SignalConfiguration</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A configuration or a set of signals selected for recording during a simulation.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SimulationResult.SignalConfiguration">
@@ -1298,7 +1298,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">SignalRecorder</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A recorder for a given signal.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SimulationResultCharacteristic.Y2valueSignal">
@@ -1365,7 +1365,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">SimulationEvents</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A configuration or a set of events executed during a simulation.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SimulationResult.SimulationEvents">
@@ -1392,7 +1392,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">SimulationResult</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Represents the simulation result.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1440,7 +1440,7 @@ For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is map
 	<rdfs:label xml:lang="en">SimulationResultCharacteristic</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#Curve"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Result characteristic. The xvalue of the curve is time.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#concrete"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
@@ -1461,17 +1461,17 @@ IRIs in the RDF abstract syntax must be absolute, and may contain a fragment ide
 IRI equality: Two IRIs are equal if and only if they are equivalent under Simple String Comparison according to section 5.1 of [RFC3987]. Further normalization must not be performed when comparing IRIs for equality.
 IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicode characters. Every absolute URI and URL is an IRI, but not every IRI is an URI. When IRIs are used in operations that are only defined for URIs, they must first be converted according to the mapping defined in section 3.1 of [RFC3987]. A notable example is retrieval over the HTTP protocol. The mapping involves UTF-8 encoding of non-ASCII characters, %-encoding of octets not allowed in URIs, and Punycode-encoding of domain names.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SimulationSettings">
 	<rdfs:label xml:lang="en">SimulationSettings</rdfs:label>
 	<rdfs:subClassOf rdf:resource="#IdentifiedObject"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Describes simulation settings necessary for a simulation.</rdfs:comment>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_SimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_SimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
-	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/SimulationResults#Package_DocSimulationResultsProfile">
+	 <rdf:Description rdf:about="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_DocSimulationResultsProfile">
 	<rdfs:label xml:lang="en">DocSimulationResultsProfile</rdfs:label>
 	<rdf:type rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#ClassCategory"/>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This package includes material that is needed for the profiling but should not be printed in the documentation.</rdfs:comment>
@@ -1485,7 +1485,7 @@ IRI equality: Two IRIs are equal if and only if they are equivalent under Simple
 IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicode characters. Every absolute URI and URL is an IRI, but not every IRI is an URI. When IRIs are used in operations that are only defined for URIs, they must first be converted according to the mapping defined in section 3.1 of [RFC3987]. A notable example is retrieval over the HTTP protocol. The mapping involves UTF-8 encoding of non-ASCII characters, %-encoding of octets not allowed in URIs, and Punycode-encoding of domain names.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_DocSimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_DocSimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#StringFixedLanguage">
@@ -1494,21 +1494,21 @@ IRIs are a generalization of URIs [RFC3986] that permits a wider range of Unicod
 The primitive is serialized as literal without language support.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_DocSimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_DocSimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#DateTime">
 	<rdfs:label xml:lang="en">DateTime</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date and time as &quot;yyyy-mm-ddThh:mm:ss.sss&quot;, which conforms with ISO 8601. UTC time zone is specified as &quot;yyyy-mm-ddThh:mm:ss.sssZ&quot;. A local timezone relative UTC is specified as &quot;yyyy-mm-ddThh:mm:ss.sss-hh:mm&quot;. The second component (shown here as &quot;ss.sss&quot;) could have any number of digits in its fractional part to allow any kind of precision beyond seconds.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_DocSimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_DocSimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#Date">
 	<rdfs:label xml:lang="en">Date</rdfs:label>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date as &quot;yyyy-mm-dd&quot;, which conforms with ISO 8601. UTC time zone is specified as &quot;yyyy-mm-ddZ&quot;. A local timezone relative UTC is specified as &quot;yyyy-mm-dd(+/-)hh:mm&quot;.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_DocSimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_DocSimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="http://iec.ch/TC57/ns/CIM/prof-cim#URL">
@@ -1516,7 +1516,7 @@ The primitive is serialized as literal without language support.</rdfs:comment>
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it. A URL is a specific type of Uniform Resource Identifier (URI), although many people use the two terms interchangeably.URLs occur most commonly to reference web pages (http), but are also used for file transfer (ftp), email (mailto), database access (JDBC), and many other applications.</rdfs:comment>
 <cims:stereotype>Primitive</cims:stereotype>
 <cims:stereotype>profcim</cims:stereotype>
-	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/SimulationResults#Package_DocSimulationResultsProfile"/>
+	<cims:belongsToCategory rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults#Package_DocSimulationResultsProfile"/>
 	<rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
 	 </rdf:Description>
 </rdf:RDF>
