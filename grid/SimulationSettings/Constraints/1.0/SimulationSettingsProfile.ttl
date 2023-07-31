@@ -49,18 +49,6 @@ set:SimulationSettings.minimumIntegrationStepSize-datatype
         sh:path         cim:SimulationSettings.minimumIntegrationStepSize ;
         sh:severity     sh:Violation .
 
-set:PowerFlowSettings.switchedShuntControlPriority-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.switchedShuntControlPriority-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        15 ;
-        sh:path         cim:PowerFlowSettings.switchedShuntControlPriority ;
-        sh:severity     sh:Violation .
-
 set:SignalRecorder.signalKind-cardinality
         rdf:type        sh:PropertyShape ;
         sh:description  "This constraint validates the cardinality of the property (attribute)." ;
@@ -73,10 +61,46 @@ set:SignalRecorder.signalKind-cardinality
         sh:path         cim:SignalRecorder.signalKind ;
         sh:severity     sh:Violation .
 
+set:PowerFlowSettings.switchedShuntControlPriority-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:integer ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        set:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "PowerFlowSettings.switchedShuntControlPriority-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        17 ;
+        sh:path         cim:PowerFlowSettings.switchedShuntControlPriority ;
+        sh:severity     sh:Violation .
+
 set:SignalRecorder.RecordedSignalOf-valueTypeNodeShape
         rdf:type        sh:NodeShape ;
         sh:property     set:SignalRecorder.RecordedSignalOf-valueType ;
         sh:targetClass  cim:SignalRecorder .
+
+set:PowerFlowSettings.maxIterationsOuterLoop-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        set:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "PowerFlowSettings.maxIterationsOuterLoop-cardinality" ;
+        sh:order        14 ;
+        sh:path         cim:PowerFlowSettings.maxIterationsOuterLoop ;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        set:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality" ;
+        sh:order        1 ;
+        sh:path         cim:PowerFlowSettings.loadResponseCharacteristicsEnabled ;
+        sh:severity     sh:Violation .
 
 set:ParameterEvent.integerParameterValue-datatype
         rdf:type        sh:PropertyShape ;
@@ -98,7 +122,7 @@ set:PowerFlowSettings.reactivePowerTolerance-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.reactivePowerTolerance-cardinality" ;
-        sh:order        5 ;
+        sh:order        6 ;
         sh:path         cim:PowerFlowSettings.reactivePowerTolerance ;
         sh:severity     sh:Violation .
 
@@ -165,7 +189,7 @@ set:PowerFlowSettings.shiftKind-datatype
         sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
         sh:name         "PowerFlowSettings.shiftKind-datatype" ;
         sh:nodeKind     sh:IRI ;
-        sh:order        10 ;
+        sh:order        11 ;
         sh:path         cim:PowerFlowSettings.shiftKind ;
         sh:severity     sh:Violation .
 
@@ -181,7 +205,7 @@ set:PowerFlowSettings.staticVarCompensatorControlPriority-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.staticVarCompensatorControlPriority-cardinality" ;
-        sh:order        3 ;
+        sh:order        4 ;
         sh:path         cim:PowerFlowSettings.staticVarCompensatorControlPriority ;
         sh:severity     sh:Violation .
 
@@ -221,7 +245,7 @@ set:PowerFlowSettings.flatStart-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.flatStart-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        13 ;
+        sh:order        15 ;
         sh:path         cim:PowerFlowSettings.flatStart ;
         sh:severity     sh:Violation .
 
@@ -257,7 +281,7 @@ set:PowerFlowSettings.interchangeControlEnabled-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.interchangeControlEnabled-cardinality" ;
-        sh:order        8 ;
+        sh:order        9 ;
         sh:path         cim:PowerFlowSettings.interchangeControlEnabled ;
         sh:severity     sh:Violation .
 
@@ -311,7 +335,7 @@ set:EquipmentFault.Terminal-cardinality
 
 set:PowerFlowSettings
         rdf:type        sh:NodeShape ;
-        sh:property     set:PowerFlowSettings.transformerRatioTapControlPriority-datatype , set:PowerFlowSettings.transformerRatioTapControlPriority-cardinality , ido:IdentifiedObject.description-datatype , set:PowerFlowSettings.flatStart-cardinality , set:PowerFlowSettings.switchedShuntControlPriority-cardinality , ido:IdentifiedObject.description-cardinality , set:PowerFlowSettings.shiftKind-datatype , set:PowerFlowSettings.slackDistributionKind-datatype , set:PowerFlowSettings.activePowerTolerance-cardinality , set:PowerFlowSettings.slackDistributionKind-cardinality , ido:IdentifiedObject.name-datatype , set:PowerFlowSettings.respectReactivePowerLimits-datatype , set:PowerFlowSettings.interchangeControlEnabled-datatype , set:PowerFlowSettings.voltageTolerance-datatype , set:PowerFlowSettings.activePowerTolerance-datatype , set:PowerFlowSettings.voltageTolerance-cardinality , set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype , ido:IdentifiedObject.name-cardinality , set:PowerFlowSettings.transformerPhaseTapControlPriority-datatype , ido:IdentifiedObject.mRID-datatype , set:PowerFlowSettings.voltageAngleLimit-datatype , set:PowerFlowSettings.shiftKind-cardinality , set:PowerFlowSettings.algorithmKind-cardinality , set:PowerFlowSettings.impedanceThreshold-datatype , set:PowerFlowSettings.reactivePowerTolerance-cardinality , set:PowerFlowSettings.loadVoltageDependency-datatype , set:PowerFlowSettings.respectReactivePowerLimits-cardinality , set:PowerFlowSettings.transformerPhaseTapControlPriority-cardinality , set:PowerFlowSettings.impedanceThreshold-cardinality , set:PowerFlowSettings.voltageAngleLimit-cardinality , set:PowerFlowSettings.loadVoltageDependency-cardinality , set:PowerFlowSettings.interchangeControlEnabled-cardinality , set:PowerFlowSettings.reactivePowerTolerance-datatype , ido:IdentifiedObject.mRID-cardinality , set:PowerFlowSettings.staticVarCompensatorControlPriority-cardinality , set:PowerFlowSettings.algorithmKind-datatype , set:PowerFlowSettings.respectActivePowerLimits-datatype , set:PowerFlowSettings.flatStart-datatype , set:PowerFlowSettings.respectActivePowerLimits-cardinality , set:PowerFlowSettings.switchedShuntControlPriority-datatype ;
+        sh:property     set:PowerFlowSettings.transformerRatioTapControlPriority-datatype , set:PowerFlowSettings.transformerRatioTapControlPriority-cardinality , ido:IdentifiedObject.description-datatype , set:PowerFlowSettings.maxIterationsOuterLoop-datatype , set:PowerFlowSettings.flatStart-cardinality , set:PowerFlowSettings.switchedShuntControlPriority-cardinality , ido:IdentifiedObject.description-cardinality , set:PowerFlowSettings.shiftKind-datatype , set:PowerFlowSettings.maxIterationsOuterLoop-cardinality , set:PowerFlowSettings.slackDistributionKind-datatype , set:PowerFlowSettings.activePowerTolerance-cardinality , set:PowerFlowSettings.slackDistributionKind-cardinality , ido:IdentifiedObject.name-datatype , set:PowerFlowSettings.respectReactivePowerLimits-datatype , set:PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype , set:PowerFlowSettings.interchangeControlEnabled-datatype , set:PowerFlowSettings.voltageTolerance-datatype , set:PowerFlowSettings.activePowerTolerance-datatype , set:PowerFlowSettings.voltageTolerance-cardinality , set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype , ido:IdentifiedObject.name-cardinality , set:PowerFlowSettings.transformerPhaseTapControlPriority-datatype , ido:IdentifiedObject.mRID-datatype , set:PowerFlowSettings.voltageAngleLimit-datatype , set:PowerFlowSettings.maxIterationsInnerLoop-cardinality , set:PowerFlowSettings.shiftKind-cardinality , set:PowerFlowSettings.algorithmKind-cardinality , set:PowerFlowSettings.impedanceThreshold-datatype , set:PowerFlowSettings.reactivePowerTolerance-cardinality , set:PowerFlowSettings.loadVoltageDependency-datatype , set:PowerFlowSettings.respectReactivePowerLimits-cardinality , set:PowerFlowSettings.transformerPhaseTapControlPriority-cardinality , set:PowerFlowSettings.impedanceThreshold-cardinality , set:PowerFlowSettings.voltageAngleLimit-cardinality , set:PowerFlowSettings.loadVoltageDependency-cardinality , set:PowerFlowSettings.interchangeControlEnabled-cardinality , set:PowerFlowSettings.reactivePowerTolerance-datatype , ido:IdentifiedObject.mRID-cardinality , set:PowerFlowSettings.maxIterationsInnerLoop-datatype , set:PowerFlowSettings.staticVarCompensatorControlPriority-cardinality , set:PowerFlowSettings.algorithmKind-datatype , set:PowerFlowSettings.respectActivePowerLimits-datatype , set:PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality , set:PowerFlowSettings.flatStart-datatype , set:PowerFlowSettings.respectActivePowerLimits-cardinality , set:PowerFlowSettings.switchedShuntControlPriority-datatype ;
         sh:targetClass  cim:PowerFlowSettings .
 
 set:Fault.FaultyEquipment-valueType
@@ -334,7 +358,7 @@ set:PowerFlowSettings.interchangeControlEnabled-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.interchangeControlEnabled-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        8 ;
+        sh:order        9 ;
         sh:path         cim:PowerFlowSettings.interchangeControlEnabled ;
         sh:severity     sh:Violation .
 
@@ -387,7 +411,7 @@ set:PowerFlowSettings.activePowerTolerance-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.activePowerTolerance-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        17 ;
+        sh:order        20 ;
         sh:path         cim:PowerFlowSettings.activePowerTolerance ;
         sh:severity     sh:Violation .
 
@@ -434,7 +458,7 @@ set:PowerFlowSettings.flatStart-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.flatStart-cardinality" ;
-        sh:order        13 ;
+        sh:order        15 ;
         sh:path         cim:PowerFlowSettings.flatStart ;
         sh:severity     sh:Violation .
 
@@ -446,7 +470,7 @@ set:PowerFlowSettings.loadVoltageDependency-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.loadVoltageDependency-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        16 ;
+        sh:order        18 ;
         sh:path         cim:PowerFlowSettings.loadVoltageDependency ;
         sh:severity     sh:Violation .
 
@@ -528,7 +552,7 @@ set:PowerFlowSettings.transformerRatioTapControlPriority-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.transformerRatioTapControlPriority-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        1 ;
+        sh:order        2 ;
         sh:path         cim:PowerFlowSettings.transformerRatioTapControlPriority ;
         sh:severity     sh:Violation .
 
@@ -564,7 +588,7 @@ set:PowerFlowSettings.voltageAngleLimit-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.voltageAngleLimit-cardinality" ;
-        sh:order        7 ;
+        sh:order        8 ;
         sh:path         cim:PowerFlowSettings.voltageAngleLimit ;
         sh:severity     sh:Violation .
 
@@ -591,6 +615,11 @@ set:SimulationSettings.simulationResultsRecordedEvery-cardinality
         sh:path         cim:SimulationSettings.simulationResultsRecordedEvery ;
         sh:severity     sh:Violation .
 
+set:AssociationsGroup
+        rdf:type    sh:PropertyGroup ;
+        rdfs:label  "Associations" ;
+        sh:order    2 .
+
 set:ParameterEvent.parameterIRI-datatype
         rdf:type        sh:PropertyShape ;
         sh:datatype     xsd:string ;
@@ -603,10 +632,17 @@ set:ParameterEvent.parameterIRI-datatype
         sh:path         cim:ParameterEvent.parameterIRI ;
         sh:severity     sh:Violation .
 
-set:AssociationsGroup
-        rdf:type    sh:PropertyGroup ;
-        rdfs:label  "Associations" ;
-        sh:order    2 .
+set:PowerFlowSettings.maxIterationsOuterLoop-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:integer ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        set:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "PowerFlowSettings.maxIterationsOuterLoop-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        14 ;
+        sh:path         cim:PowerFlowSettings.maxIterationsOuterLoop ;
+        sh:severity     sh:Violation .
 
 set:PowerFlowSettings.respectActivePowerLimits-cardinality
         rdf:type        sh:PropertyShape ;
@@ -616,7 +652,7 @@ set:PowerFlowSettings.respectActivePowerLimits-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.respectActivePowerLimits-cardinality" ;
-        sh:order        2 ;
+        sh:order        3 ;
         sh:path         cim:PowerFlowSettings.respectActivePowerLimits ;
         sh:severity     sh:Violation .
 
@@ -659,7 +695,7 @@ set:SignalRecorder.RecordedSignalOf-valueType
         rdf:type        sh:PropertyShape ;
         sh:description  "This constraint validates the value type of the association at the used direction." ;
         sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:GovIEEEHydroDD cim:ExcIEEEST3C cim:WindGenTurbineType2IEC cim:LoadGenericNonLinear cim:PowerSystemStabilizerUserDefined cim:WeccREEC cim:ShuntCompensatorUserDefined cim:VCompIEEEType2 cim:ExcST6B cim:OverexcLimIEEEOEL4C cim:ExcAVR1 cim:ExcIEEEAC7B cim:LoadUserDefined cim:SynchronousMachineEquivalentCircuit cim:PssELIN2 cim:CSCUserDefined cim:PssIEEE1A cim:WeccREGCB cim:ExcCZ cim:ExcIEEEST7C cim:GovHydro3 cim:ExcIEEEDC1A cim:ExcIEEEAC6A cim:UnderexcLimX2 cim:VCompIEEEType1 cim:PssIEEE2C cim:ExcIEEEST6B cim:ExcIEEEAC11C cim:GovHydroR cim:ExcIEEEAC1C cim:Pss1A cim:LoadCompositeWECC cim:PssIEEE3C cim:WeccWTGIBFFRA cim:ExcIEEEST7B cim:ExcIEEEDC2C cim:AsynchronousMachineUserDefined cim:GovSteamIEEETGOV5 cim:ExcAC6A cim:PssIEEE2B cim:ExcAC1A cim:ExcRQB cim:ExcIEEEST3A cim:SVCUserDefined cim:WindGenTurbineType1bIEC2 cim:PssSH cim:UnderexcLimIEEE2 cim:Pss1 cim:WindPlantUserDefined cim:ExcREXS cim:GovHydroWPID cim:PFVArType2CIEEEPFController cim:GovGAST2 cim:ExcIEEEST4C cim:VAdjIEEE2 cim:StatorCurrentLimIEEESCL2C cim:GovHydro1 cim:GovSteamIEEEG1Aug cim:WindTurbineType4aIEC2 cim:WeccWTGTB cim:OverexcLimIEEEOEL5C cim:ExcIEEEST10C cim:GovGAST1 cim:GovGAST4 cim:GovSteamFV4 cim:ExcIEEEAC1A cim:OverexcLim2 cim:ExcAVR2 cim:ExcST7B cim:PFVArControllerType1UserDefined cim:GovIEEEGT1 cim:ExcIEEEAC2C cim:ExcIEEEST8C cim:SVSMO2 cim:SynchronousMachineSimplified cim:VAdjIEEE cim:ExcIEEEAC3C cim:ExcST3A cim:GovGAST3 cim:ExcST1A cim:UnderexcLimIEEEUEL2C cim:ExcAVR4 cim:SVSMO3 cim:ExcAC2A cim:TurbLCFB1 cim:WindTurbineType4bIEC2 cim:PssPTIST3 cim:TurbIEEEHydroWCNonLinear cim:GovGAST cim:ExcAC3A cim:GovSteamIEEE1 cim:ExcNI cim:WindGenTurbineType1bIEC cim:GovSteam2 cim:WindType3or4UserDefined cim:Pss2B cim:OverexcitationLimiterUserDefined cim:RateOfChangeOfPowerRelay cim:GovHydroPID2 cim:GovHydroIEEE0 cim:AsynchronousMachineTimeConstantReactance cim:DiscExcContIEEEDEC3A cim:UnderexcLimX1 cim:LoadComposite cim:WindGenTurbineType1aIEC2 cim:DiscontinuousExcitationControlUserDefined cim:PFVArType2Common1 cim:GovIEEEHydroPIDspt cim:PFVArType2IEEEPFController cim:TurbIEEEHydroWClinear cim:PFVArType1CIEEEPFController cim:GovSteamFV2 cim:ExcIEEEAC2A cim:GovHydroIEEE2 cim:WeccDERApvmod cim:WeccWTGWGOA cim:WeccREECC cim:WindTurbineType3IEC2 cim:WeccREECD cim:ExcSCRX cim:ExcIEEEAC3A cim:GovSteam1 cim:ExcIEEEAC8B cim:PssWECC cim:WeccREPCC cim:PssIEEE5C cim:WindType1or2UserDefined cim:UnderexcLim2Simplified cim:ExcIEEEAC8C cim:PFVArType1CIEEEVArController cim:ExcIEEEDC2A cim:TurbineLoadControllerUserDefined cim:PssPTIST1 cim:PssIEEE3B cim:StatcomIEC cim:GovHydroWEH cim:GovSteam0 cim:GovIEEEHydroMech cim:GovHydroDD cim:UnderexcitationLimiterUserDefined cim:DiscExcContIEEEDEC1A cim:MechanicalLoadUserDefined cim:ExcIEEEDC4C cim:WeccWT1PB cim:WeccWTGTA cim:OverexcLimIEEEOEL2C cim:WeccWTGTRQA cim:ExcELIN2 cim:WindTurbineType4bIEC cim:PssSK cim:UnderexcLimIEEE1 cim:WindTurbineType3IEC cim:WindGenTurbineType1aIEC cim:ExcDC3A1 cim:Pss2ST cim:ExcIEEEST2C cim:ExcIEEEST5C cim:GovSteamSGO cim:WeccWTGPB cim:OverexcLimIEEEOEL3C cim:ExcBBC cim:WeccREGCC cim:ExcIEEEST4B cim:WeccWTGPTA cim:StatorCurrentLimIEEESCL1C cim:GovHydro4 cim:SynchronousMachineTimeConstantReactance cim:VoltageCompensatorUserDefined cim:TurbIEEEHydroWCgen cim:TurbineGovernorUserDefined cim:ExcIEEEST6C cim:ExcIEEEST9C cim:ExcIEEEDC4B cim:ExcIEEEST5B cim:ExcDC3A cim:ExcHU cim:GovSteamFV3 cim:PssIEEE6C cim:PssIEEE4C cim:TurbCIGREHRSGST cim:GovGASTWD cim:PssSTAB2A cim:WindPlantBasicIEC cim:OverexcLimIEEE cim:ExcIEEEAC10C cim:WindTurbineType4aIEC cim:ExcIEEEAC5C cim:WeccDERA cim:ExcANS cim:PssIEEE7C cim:GovSteamBB cim:SVSMO1 cim:StatcomUserDefined cim:MechLoad1 cim:ExcAVR7 cim:PFVArControllerType2UserDefined cim:AsynchronousMachineEquivalentCircuit cim:ExcAC5A cim:PssIEEE4B cim:PssSB4 cim:OverexcLimX2 cim:GovIEEEHydroLL cim:VoltageAdjusterUserDefined cim:ExcIEEEAC9C cim:ExcIEEEST2A cim:SynchronousMachineUserDefined cim:ExcST4B cim:GovCT2 cim:GovSteamCC cim:ExcIEEEST1C cim:WeccREGCA cim:PFVArType2CIEEEVArController cim:RelayUserDefined cim:GovHydro2 cim:PFVArType1IEEEPFController cim:DiscExcContIEEEDEC2A cim:WeccWTGARA cim:WeccWT12T cim:GovCIGREGT cim:WindPlantIEC cim:ExcDC1A cim:WeccWT2E cim:ExcIEEEAC4A cim:TurbIEEEHydroWCNonLinearB cim:ExcSK cim:ExcAVR3 cim:GovCT1 cim:GovIEEEHydroPID cim:Pss5 cim:PFVArType2IEEEVArController cim:ExcDC2A cim:ExcSEXS cim:LoadAggregate cim:GovHydroFrancis cim:TurbIEEEGenericHRSGST cim:OverexcLimX1 cim:WeccREECB cim:DetailedModelDynamics cim:ExcIEEEAC5A cim:ExcPIC cim:StatorCurrentLimiterUserDefined cim:GovSteamEU cim:ExcIEEEDC1C cim:WeccREPCA cim:ExcIEEEAC6C cim:ExcIEEEAC4C cim:ExcIEEEDC3A cim:WeccTIOCRS cim:TurbIEEEHydroWCNonLinearA cim:VSCUserDefined cim:ExcAVR5 cim:HVDCInterconnectionUserDefined cim:SVSMO4 cim:ExcELIN1 cim:ExcitationSystemUserDefined cim:WeccBESS cim:ExcIEEEAC7C cim:PFVArType1IEEEVArController cim:DERIEEEType1 cim:WindGenTurbineType2IEC2 cim:ExcST2A cim:PssRQB cim:GovHydroPID cim:WeccREECA cim:ExcAC8B cim:WindPlantQCompensationIEC cim:ExcIEEEST1A cim:ExcAC4A cim:GovHydroPelton cim:WeccPVD1 cim:ExcOEX3T ) ;
+        sh:in           ( cim:GovIEEEHydroDD cim:ExcIEEEST3C cim:WindGenTurbineType2IEC cim:LoadGenericNonLinear cim:PowerSystemStabilizerUserDefined cim:WeccREEC cim:ShuntCompensatorUserDefined cim:VCompIEEEType2 cim:ExcST6B cim:OverexcLimIEEEOEL4C cim:ExcAVR1 cim:ExcIEEEAC7B cim:LoadUserDefined cim:SynchronousMachineEquivalentCircuit cim:PssELIN2 cim:CSCUserDefined cim:PssIEEE1A cim:WeccREGCB cim:ExcCZ cim:ExcIEEEST7C cim:GovHydro3 cim:ExcIEEEDC1A cim:ExcIEEEAC6A cim:UnderexcLimX2 cim:VCompIEEEType1 cim:PssIEEE2C cim:ExcIEEEST6B cim:ExcIEEEAC11C cim:GovHydroR cim:ExcIEEEAC1C cim:Pss1A cim:LoadCompositeWECC cim:PssIEEE3C cim:WeccWTGIBFFRA cim:ExcIEEEST7B cim:ExcIEEEDC2C cim:AsynchronousMachineUserDefined cim:GovSteamIEEETGOV5 cim:ExcAC6A cim:PssIEEE2B cim:ExcAC1A cim:ExcRQB cim:ExcIEEEST3A cim:SVCUserDefined cim:WindGenTurbineType1bIEC2 cim:PssSH cim:UnderexcLimIEEE2 cim:Pss1 cim:WindPlantUserDefined cim:ExcREXS cim:GovHydroWPID cim:PFVArType2CIEEEPFController cim:GovGAST2 cim:ExcIEEEST4C cim:VAdjIEEE2 cim:StatorCurrentLimIEEESCL2C cim:GovHydro1 cim:GovSteamIEEEG1Aug cim:WindTurbineType4aIEC2 cim:WeccWTGTB cim:OverexcLimIEEEOEL5C cim:ExcIEEEST10C cim:GovGAST1 cim:GovGAST4 cim:GovSteamFV4 cim:ExcIEEEAC1A cim:OverexcLim2 cim:ExcAVR2 cim:ExcST7B cim:PFVArControllerType1UserDefined cim:GovIEEEGT1 cim:ExcIEEEAC2C cim:ExcIEEEST8C cim:SVSMO2 cim:SynchronousMachineSimplified cim:VAdjIEEE cim:ExcIEEEAC3C cim:ExcST3A cim:GovGAST3 cim:ExcST1A cim:UnderexcLimIEEEUEL2C cim:ExcAVR4 cim:SVSMO3 cim:ExcAC2A cim:TurbLCFB1 cim:WindTurbineType4bIEC2 cim:PssPTIST3 cim:TurbIEEEHydroWCNonLinear cim:GovGAST cim:ExcAC3A cim:GovSteamIEEE1 cim:ExcNI cim:WindGenTurbineType1bIEC cim:GovSteam2 cim:WindType3or4UserDefined cim:Pss2B cim:OverexcitationLimiterUserDefined cim:RateOfChangeOfPowerRelay cim:GovHydroPID2 cim:GovHydroIEEE0 cim:AsynchronousMachineTimeConstantReactance cim:DiscExcContIEEEDEC3A cim:UnderexcLimX1 cim:LoadComposite cim:WindGenTurbineType1aIEC2 cim:DiscontinuousExcitationControlUserDefined cim:PFVArType2Common1 cim:GovIEEEHydroPIDspt cim:PFVArType2IEEEPFController cim:TurbIEEEHydroWClinear cim:PFVArType1CIEEEPFController cim:GovSteamFV2 cim:ExcIEEEAC2A cim:GovHydroIEEE2 cim:WeccDERApvmod cim:WeccWTGWGOA cim:WeccREECC cim:WindTurbineType3IEC2 cim:WeccREECD cim:ExcSCRX cim:ExcIEEEAC3A cim:GovSteam1 cim:ExcIEEEAC8B cim:PssWECC cim:WeccREPCC cim:PssIEEE5C cim:WindType1or2UserDefined cim:UnderexcLim2Simplified cim:ExcIEEEAC8C cim:PFVArType1CIEEEVArController cim:ExcIEEEDC2A cim:TurbineLoadControllerUserDefined cim:PssPTIST1 cim:PssIEEE3B cim:StatcomIEC cim:GovHydroWEH cim:GovSteam0 cim:GovIEEEHydroMech cim:GovHydroDD cim:UnderexcitationLimiterUserDefined cim:DiscExcContIEEEDEC1A cim:MechanicalLoadUserDefined cim:ExcIEEEDC4C cim:WeccWT1PB cim:WeccWTGTA cim:OverexcLimIEEEOEL2C cim:WeccWTGTRQA cim:ExcELIN2 cim:WindTurbineType4bIEC cim:PssSK cim:UnderexcLimIEEE1 cim:WindTurbineType3IEC cim:WindGenTurbineType1aIEC cim:ExcDC3A1 cim:Pss2ST cim:ExcIEEEST2C cim:ExcIEEEST5C cim:GovSteamSGO cim:WeccWTGPB cim:OverexcLimIEEEOEL3C cim:ExcBBC cim:WeccREGCC cim:ExcIEEEST4B cim:WeccWTGPTA cim:StatorCurrentLimIEEESCL1C cim:GovHydro4 cim:SynchronousMachineTimeConstantReactance cim:VoltageCompensatorUserDefined cim:TurbIEEEHydroWCgen cim:TurbineGovernorUserDefined cim:ExcIEEEST6C cim:ExcIEEEST9C cim:ExcIEEEDC4B cim:ExcIEEEST5B cim:ExcDC3A cim:ExcHU cim:GovSteamFV3 cim:PssIEEE6C cim:PssIEEE4C cim:TurbCIGREHRSGST cim:GovGASTWD cim:PssSTAB2A cim:WindPlantBasicIEC cim:OverexcLimIEEE cim:ExcIEEEAC10C cim:WindTurbineType4aIEC cim:ExcIEEEAC5C cim:WeccDERA cim:ExcANS cim:PssIEEE7C cim:GovSteamBB cim:SVSMO1 cim:StatcomUserDefined cim:MechLoad1 cim:ExcAVR7 cim:PFVArControllerType2UserDefined cim:AsynchronousMachineEquivalentCircuit cim:ExcAC5A cim:PssIEEE4B cim:PssSB4 cim:OverexcLimX2 cim:GovIEEEHydroLL cim:VoltageAdjusterUserDefined cim:ExcIEEEAC9C cim:ExcIEEEST2A cim:SynchronousMachineUserDefined cim:ExcST4B cim:GovCT2 cim:GovSteamCC cim:ExcIEEEST1C cim:WeccREGCA cim:PFVArType2CIEEEVArController cim:RelayUserDefined cim:GovHydro2 cim:PFVArType1IEEEPFController cim:DiscExcContIEEEDEC2A cim:WeccWTGARA cim:WeccWT12T cim:GovCIGREGT cim:WindPlantIEC cim:ExcDC1A cim:WeccWT2E cim:ExcIEEEAC4A cim:TurbIEEEHydroWCNonLinearB cim:ExcSK cim:ExcAVR3 cim:GovCT1 cim:GovIEEEHydroPID cim:Pss5 cim:PFVArType2IEEEVArController cim:ExcDC2A cim:ExcSEXS cim:LoadAggregate cim:GovHydroFrancis cim:OverexcLimX1 cim:TurbIEEEGenericHRSGST cim:WeccREECB cim:ExcIEEEAC5A cim:ExcPIC cim:StatorCurrentLimiterUserDefined cim:GovSteamEU cim:ExcIEEEDC1C cim:WeccREPCA cim:ExcIEEEAC6C cim:ExcIEEEAC4C cim:ExcIEEEDC3A cim:WeccTIOCRS cim:TurbIEEEHydroWCNonLinearA cim:VSCUserDefined cim:ExcAVR5 cim:HVDCInterconnectionUserDefined cim:SVSMO4 cim:ExcELIN1 cim:ExcitationSystemUserDefined cim:WeccBESS cim:ExcIEEEAC7C cim:PFVArType1IEEEVArController cim:DERIEEEType1 cim:WindGenTurbineType2IEC2 cim:ExcST2A cim:PssRQB cim:GovHydroPID cim:WeccREECA cim:ExcAC8B cim:WindPlantQCompensationIEC cim:ExcIEEEST1A cim:ExcAC4A cim:GovHydroPelton cim:WeccPVD1 cim:ExcOEX3T ) ;
         sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class." ;
         sh:name         "SignalRecorder.RecordedSignalOf-valueType" ;
         sh:nodeKind     sh:IRI ;
@@ -687,13 +723,25 @@ set:PowerFlowSettings.transformerPhaseTapControlPriority-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.transformerPhaseTapControlPriority-cardinality" ;
-        sh:order        9 ;
+        sh:order        10 ;
         sh:path         cim:PowerFlowSettings.transformerPhaseTapControlPriority ;
         sh:severity     sh:Violation .
 
 set:FaultCauseType  rdf:type  sh:NodeShape ;
         sh:property     ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality ;
         sh:targetClass  cim:FaultCauseType .
+
+set:PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:boolean ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        set:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        1 ;
+        sh:path         cim:PowerFlowSettings.loadResponseCharacteristicsEnabled ;
+        sh:severity     sh:Violation .
 
 set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype
         rdf:type        sh:PropertyShape ;
@@ -703,7 +751,7 @@ set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.staticVarCompensatorControlPriority-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        3 ;
+        sh:order        4 ;
         sh:path         cim:PowerFlowSettings.staticVarCompensatorControlPriority ;
         sh:severity     sh:Violation .
 
@@ -727,7 +775,7 @@ set:PowerFlowSettings.impedanceThreshold-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.impedanceThreshold-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        4 ;
+        sh:order        5 ;
         sh:path         cim:PowerFlowSettings.impedanceThreshold ;
         sh:severity     sh:Violation .
 
@@ -775,7 +823,7 @@ set:PowerFlowSettings.voltageTolerance-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.voltageTolerance-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        6 ;
+        sh:order        7 ;
         sh:path         cim:PowerFlowSettings.voltageTolerance ;
         sh:severity     sh:Violation .
 
@@ -787,7 +835,7 @@ set:PowerFlowSettings.respectReactivePowerLimits-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.respectReactivePowerLimits-cardinality" ;
-        sh:order        11 ;
+        sh:order        12 ;
         sh:path         cim:PowerFlowSettings.respectReactivePowerLimits ;
         sh:severity     sh:Violation .
 
@@ -822,7 +870,7 @@ set:PowerFlowSettings.impedanceThreshold-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.impedanceThreshold-cardinality" ;
-        sh:order        4 ;
+        sh:order        5 ;
         sh:path         cim:PowerFlowSettings.impedanceThreshold ;
         sh:severity     sh:Violation .
 
@@ -858,7 +906,7 @@ set:PowerFlowSettings.slackDistributionKind-datatype
         sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
         sh:name         "PowerFlowSettings.slackDistributionKind-datatype" ;
         sh:nodeKind     sh:IRI ;
-        sh:order        12 ;
+        sh:order        13 ;
         sh:path         cim:PowerFlowSettings.slackDistributionKind ;
         sh:severity     sh:Violation .
 
@@ -890,6 +938,18 @@ set:EquipmentFault  rdf:type  sh:NodeShape ;
         sh:property     ido:IdentifiedObject.description-datatype , set:Fault.FaultyEquipment-cardinality , set:Fault.SimulationEvents-cardinality , set:EquipmentFault.Terminal-valueType , set:Fault.kind-datatype , ido:IdentifiedObject.description-cardinality , set:EquipmentFault.Terminal-cardinality , ido:IdentifiedObject.mRID-datatype , set:Fault.occurredDateTime-cardinality , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.name-cardinality , set:Fault.impedance-datatype , set:Fault.phases-datatype , set:Fault.FaultCauseTypes-cardinality , set:Fault.phases-cardinality , ido:IdentifiedObject.name-datatype , set:Fault.occurredDateTime-datatype , set:Fault.kind-cardinality , set:Fault.impedance-cardinality , set:Fault.FaultCauseTypes-valueType , set:Fault.SimulationEvents-valueType ;
         sh:targetClass  cim:EquipmentFault .
 
+set:PowerFlowSettings.maxIterationsInnerLoop-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        set:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Missing required property (attribute)." ;
+        sh:minCount     1 ;
+        sh:name         "PowerFlowSettings.maxIterationsInnerLoop-cardinality" ;
+        sh:order        19 ;
+        sh:path         cim:PowerFlowSettings.maxIterationsInnerLoop ;
+        sh:severity     sh:Violation .
+
 ido:DatatypesGroupIO  rdf:type  sh:PropertyGroup ;
         rdfs:label  "DatatypesIO" ;
         sh:order    1 .
@@ -913,7 +973,7 @@ set:PowerFlowSettings.respectReactivePowerLimits-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.respectReactivePowerLimits-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        11 ;
+        sh:order        12 ;
         sh:path         cim:PowerFlowSettings.respectReactivePowerLimits ;
         sh:severity     sh:Violation .
 
@@ -960,7 +1020,7 @@ set:PowerFlowSettings.reactivePowerTolerance-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.reactivePowerTolerance-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        5 ;
+        sh:order        6 ;
         sh:path         cim:PowerFlowSettings.reactivePowerTolerance ;
         sh:severity     sh:Violation .
 
@@ -972,7 +1032,7 @@ set:PowerFlowSettings.loadVoltageDependency-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.loadVoltageDependency-cardinality" ;
-        sh:order        16 ;
+        sh:order        18 ;
         sh:path         cim:PowerFlowSettings.loadVoltageDependency ;
         sh:severity     sh:Violation .
 
@@ -996,7 +1056,7 @@ set:PowerFlowSettings.activePowerTolerance-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.activePowerTolerance-cardinality" ;
-        sh:order        17 ;
+        sh:order        20 ;
         sh:path         cim:PowerFlowSettings.activePowerTolerance ;
         sh:severity     sh:Violation .
 
@@ -1007,7 +1067,7 @@ set:PowerFlowSettings.shiftKind-cardinality
         sh:maxCount     1 ;
         sh:message      "Cardinality violation. Upper bound shall be 1" ;
         sh:name         "PowerFlowSettings.shiftKind-cardinality" ;
-        sh:order        10 ;
+        sh:order        11 ;
         sh:path         cim:PowerFlowSettings.shiftKind ;
         sh:severity     sh:Violation .
 
@@ -1042,7 +1102,7 @@ set:PowerFlowSettings.algorithmKind-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.algorithmKind-cardinality" ;
-        sh:order        14 ;
+        sh:order        16 ;
         sh:path         cim:PowerFlowSettings.algorithmKind ;
         sh:severity     sh:Violation .
 
@@ -1167,7 +1227,7 @@ set:PowerFlowSettings.slackDistributionKind-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.slackDistributionKind-cardinality" ;
-        sh:order        12 ;
+        sh:order        13 ;
         sh:path         cim:PowerFlowSettings.slackDistributionKind ;
         sh:severity     sh:Violation .
 
@@ -1207,7 +1267,7 @@ set:PowerFlowSettings.voltageAngleLimit-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.voltageAngleLimit-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        7 ;
+        sh:order        8 ;
         sh:path         cim:PowerFlowSettings.voltageAngleLimit ;
         sh:severity     sh:Violation .
 
@@ -1243,7 +1303,7 @@ set:PowerFlowSettings.transformerPhaseTapControlPriority-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.transformerPhaseTapControlPriority-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        9 ;
+        sh:order        10 ;
         sh:path         cim:PowerFlowSettings.transformerPhaseTapControlPriority ;
         sh:severity     sh:Violation .
 
@@ -1255,7 +1315,7 @@ set:PowerFlowSettings.algorithmKind-datatype
         sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
         sh:name         "PowerFlowSettings.algorithmKind-datatype" ;
         sh:nodeKind     sh:IRI ;
-        sh:order        14 ;
+        sh:order        16 ;
         sh:path         cim:PowerFlowSettings.algorithmKind ;
         sh:severity     sh:Violation .
 
@@ -1268,6 +1328,18 @@ set:ClearSimulationEvent.ClearedParameterEvent-cardinality
         sh:name         "ClearSimulationEvent.ClearedParameterEvent-cardinality" ;
         sh:order        2 ;
         sh:path         cim:ClearSimulationEvent.ClearedParameterEvent ;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.maxIterationsInnerLoop-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:integer ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        set:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "PowerFlowSettings.maxIterationsInnerLoop-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        19 ;
+        sh:path         cim:PowerFlowSettings.maxIterationsInnerLoop ;
         sh:severity     sh:Violation .
 
 set:ParameterEvent.changeKind-cardinality
@@ -1301,7 +1373,7 @@ set:PowerFlowSettings.respectActivePowerLimits-datatype
         sh:message      "The datatype is not literal or it violates the xsd datatype." ;
         sh:name         "PowerFlowSettings.respectActivePowerLimits-datatype" ;
         sh:nodeKind     sh:Literal ;
-        sh:order        2 ;
+        sh:order        3 ;
         sh:path         cim:PowerFlowSettings.respectActivePowerLimits ;
         sh:severity     sh:Violation .
 
@@ -1353,7 +1425,7 @@ set:PowerFlowSettings.transformerRatioTapControlPriority-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.transformerRatioTapControlPriority-cardinality" ;
-        sh:order        1 ;
+        sh:order        2 ;
         sh:path         cim:PowerFlowSettings.transformerRatioTapControlPriority ;
         sh:severity     sh:Violation .
 
@@ -1365,7 +1437,7 @@ set:PowerFlowSettings.voltageTolerance-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.voltageTolerance-cardinality" ;
-        sh:order        6 ;
+        sh:order        7 ;
         sh:path         cim:PowerFlowSettings.voltageTolerance ;
         sh:severity     sh:Violation .
 
@@ -1381,6 +1453,6 @@ set:PowerFlowSettings.switchedShuntControlPriority-cardinality
         sh:message      "Missing required property (attribute)." ;
         sh:minCount     1 ;
         sh:name         "PowerFlowSettings.switchedShuntControlPriority-cardinality" ;
-        sh:order        15 ;
+        sh:order        17 ;
         sh:path         cim:PowerFlowSettings.switchedShuntControlPriority ;
         sh:severity     sh:Violation .

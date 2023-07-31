@@ -29,7 +29,7 @@ xml:base ="http://cim.ucaiug.io/ns"
 	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationSettings/1.0"/>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-301:ed-7:amd1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-302:ed-2</dcterms:conformsTo>
-	<dcterms:conformsTo>file://CIM_Grid18v04_Support14v00_Market04v14_TF13_Dynamics_Profiles.eap</dcterms:conformsTo>
+	<dcterms:conformsTo>file://CIM_Grid18v06_Support14v00_Market04v14_TF13_Profiles.eap</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-401:draft:ed-1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-501:draft:ed-2</dcterms:conformsTo>
 	<owl:versionInfo xml:lang ="en">1.0.0</owl:versionInfo>
@@ -38,7 +38,7 @@ xml:base ="http://cim.ucaiug.io/ns"
 	<dcterms:identifier>urn:uuid:cfbfed85-d526-46c8-94cc-efd75f525bd2</dcterms:identifier>
 	<dcterms:language>en-GB</dcterms:language>
 	<dcterms:license xml:lang ="en">https://www.apache.org/licenses/LICENSE-2.0</dcterms:license>
-	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-04-21</dcterms:modified>
+	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-07-10</dcterms:modified>
 	<dcterms:publisher xml:lang ="en">UCAIug</dcterms:publisher>
 	<dcterms:rightsHolder xml:lang ="en">UCAIug</dcterms:rightsHolder>
 	<dcterms:title xml:lang ="en">Simulation Settings Vocabulary</dcterms:title>
@@ -2372,6 +2372,33 @@ Allowed values are in the range [0,4].</rdfs:comment>
 	<cims:dataType rdf:resource="#Boolean"/>
 	<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1..1" />
 	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indicates if active power limits of the equipment are respected during power flow calculation. True means limits are respected. False means limits are ignored.</rdfs:comment>
+	<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+	 </rdf:Description>
+	 <rdf:Description rdf:about="#PowerFlowSettings.maxIterationsInnerLoop">
+	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#attribute"/>
+	<rdfs:label xml:lang="en">maxIterationsInnerLoop</rdfs:label>
+	<rdfs:domain rdf:resource="#PowerFlowSettings"/>
+	<cims:dataType rdf:resource="#Integer"/>
+	<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1..1" />
+	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maximum iterations of the power flow calculation algorithm inner loop.</rdfs:comment>
+	<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+	 </rdf:Description>
+	 <rdf:Description rdf:about="#PowerFlowSettings.maxIterationsOuterLoop">
+	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#attribute"/>
+	<rdfs:label xml:lang="en">maxIterationsOuterLoop</rdfs:label>
+	<rdfs:domain rdf:resource="#PowerFlowSettings"/>
+	<cims:dataType rdf:resource="#Integer"/>
+	<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1..1" />
+	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maximum iterations of the power flow calculation algorithm outer loop. This can refer to the maximum number of iterations when area interchange control is performed as part of an outer loop or when specific control actions are done in the outer loop.</rdfs:comment>
+	<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+	 </rdf:Description>
+	 <rdf:Description rdf:about="#PowerFlowSettings.loadResponseCharacteristicsEnabled">
+	<cims:stereotype rdf:resource="http://iec.ch/TC57/NonStandard/UML#attribute"/>
+	<rdfs:label xml:lang="en">loadResponseCharacteristicsEnabled</rdfs:label>
+	<rdfs:domain rdf:resource="#PowerFlowSettings"/>
+	<cims:dataType rdf:resource="#Boolean"/>
+	<cims:multiplicity rdf:resource="http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#M:1..1" />
+	<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">True means load response characteristics are considered, if present in the model. False, means that even if enabled, the load response characteristics are not taken into account by the power flow calculation algorithm.</rdfs:comment>
 	<rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
 	 </rdf:Description>
 	 <rdf:Description rdf:about="#SimulationSettings.PowerFlowSettings">

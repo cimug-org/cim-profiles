@@ -281,18 +281,6 @@ dmc:ParameterDescriptor.constraintKind-cardinality
         sh:path         cim:ParameterDescriptor.constraintKind ;
         sh:severity     sh:Violation .
 
-dmc:FunctionDescriptor.initialConditionsEquation-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        dmc:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "FunctionDescriptor.initialConditionsEquation-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        1 ;
-        sh:path         cim:FunctionDescriptor.initialConditionsEquation ;
-        sh:severity     sh:Violation .
-
 ido:IdentifiedObject.description-datatype
         rdf:type        sh:PropertyShape ;
         sh:datatype     xsd:string ;
@@ -303,6 +291,18 @@ ido:IdentifiedObject.description-datatype
         sh:nodeKind     sh:Literal ;
         sh:order        0.1 ;
         sh:path         cim:IdentifiedObject.description ;
+        sh:severity     sh:Violation .
+
+dmc:FunctionDescriptor.initialConditionsEquation-datatype
+        rdf:type        sh:PropertyShape ;
+        sh:datatype     xsd:string ;
+        sh:description  "This constraint validates the datatype of the property (attribute)." ;
+        sh:group        dmc:DatatypesGroup ;
+        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
+        sh:name         "FunctionDescriptor.initialConditionsEquation-datatype" ;
+        sh:nodeKind     sh:Literal ;
+        sh:order        1 ;
+        sh:path         cim:FunctionDescriptor.initialConditionsEquation ;
         sh:severity     sh:Violation .
 
 dmc:ParameterDescriptor.typicalValue-cardinality
@@ -470,6 +470,17 @@ dmc:FunctionDescriptor
         sh:property     dmc:FunctionDescriptor.describedByArtifact-datatype , ido:IdentifiedObject.mRID-datatype , dmc:FunctionDescriptor.describedByArtifact-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-cardinality , dmc:FunctionDescriptor.EquationDescriptorArtifact-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , dmc:FunctionDescriptor.equation-cardinality , dmc:FunctionDescriptor.initialConditionsEquation-cardinality , dmc:DetailedModelDescriptor.DetailedModelTypeDynamics-valueType , dmc:FunctionDescriptor.equation-datatype , ido:IdentifiedObject.name-cardinality , dmc:FunctionDescriptor.equationLanguageKind-datatype , ido:IdentifiedObject.name-datatype , dmc:FunctionDescriptor.EquationDescriptorArtifact-valueType , dmc:FunctionDescriptor.InputOutputDescriptor-valueType , dmc:FunctionDescriptor.LowerLimit-cardinality , dmc:FunctionDescriptor.InputOutputDescriptor-cardinality , dmc:FunctionDescriptor.UpperLimit-cardinality , dmc:FunctionDescriptor.equationLanguageKind-cardinality , ido:IdentifiedObject.mRID-cardinality , dmc:FunctionDescriptor.initialConditionsEquation-datatype ;
         sh:targetClass  cim:FunctionDescriptor .
 
+dmc:ParameterDescriptor.constraintValue-cardinality
+        rdf:type        sh:PropertyShape ;
+        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
+        sh:group        dmc:CardinalityGroup ;
+        sh:maxCount     1 ;
+        sh:message      "Cardinality violation. Upper bound shall be 1" ;
+        sh:name         "ParameterDescriptor.constraintValue-cardinality" ;
+        sh:order        9 ;
+        sh:path         cim:ParameterDescriptor.constraintValue ;
+        sh:severity     sh:Violation .
+
 dmc:OperatorDescriptor.InputOutputDescriptor-valueType
         rdf:type        sh:PropertyShape ;
         sh:description  "This constraint validates the value type of the association at the used direction." ;
@@ -480,17 +491,6 @@ dmc:OperatorDescriptor.InputOutputDescriptor-valueType
         sh:nodeKind     sh:IRI ;
         sh:order        2 ;
         sh:path         ( cim:OperatorDescriptor.InputOutputDescriptor rdf:type ) ;
-        sh:severity     sh:Violation .
-
-dmc:ParameterDescriptor.constraintValue-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        dmc:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ParameterDescriptor.constraintValue-cardinality" ;
-        sh:order        9 ;
-        sh:path         cim:ParameterDescriptor.constraintValue ;
         sh:severity     sh:Violation .
 
 ido:IdentifiedObject.mRID-cardinality
@@ -509,7 +509,7 @@ dmc:SignalDescriptor.DynamicsFunctionBlock-valueType
         rdf:type        sh:PropertyShape ;
         sh:description  "This constraint validates the value type of the association at the used direction." ;
         sh:group        dmc:AssociationsGroup ;
-        sh:in           ( cim:GovIEEEHydroDD cim:ExcIEEEST3C cim:WindGenTurbineType2IEC cim:LoadGenericNonLinear cim:PowerSystemStabilizerUserDefined cim:WeccREEC cim:ShuntCompensatorUserDefined cim:VCompIEEEType2 cim:ExcST6B cim:OverexcLimIEEEOEL4C cim:ExcAVR1 cim:ExcIEEEAC7B cim:LoadUserDefined cim:SynchronousMachineEquivalentCircuit cim:PssELIN2 cim:CSCUserDefined cim:PssIEEE1A cim:WeccREGCB cim:ExcCZ cim:ExcIEEEST7C cim:GovHydro3 cim:ExcIEEEDC1A cim:ExcIEEEAC6A cim:UnderexcLimX2 cim:VCompIEEEType1 cim:PssIEEE2C cim:ExcIEEEST6B cim:ExcIEEEAC11C cim:GovHydroR cim:ExcIEEEAC1C cim:Pss1A cim:LoadCompositeWECC cim:PssIEEE3C cim:WeccWTGIBFFRA cim:ExcIEEEST7B cim:ExcIEEEDC2C cim:AsynchronousMachineUserDefined cim:GovSteamIEEETGOV5 cim:ExcAC6A cim:PssIEEE2B cim:ExcAC1A cim:ExcRQB cim:ExcIEEEST3A cim:SVCUserDefined cim:WindGenTurbineType1bIEC2 cim:PssSH cim:UnderexcLimIEEE2 cim:Pss1 cim:WindPlantUserDefined cim:ExcREXS cim:GovHydroWPID cim:PFVArType2CIEEEPFController cim:GovGAST2 cim:ExcIEEEST4C cim:VAdjIEEE2 cim:StatorCurrentLimIEEESCL2C cim:GovHydro1 cim:GovSteamIEEEG1Aug cim:WindTurbineType4aIEC2 cim:WeccWTGTB cim:OverexcLimIEEEOEL5C cim:ExcIEEEST10C cim:GovGAST1 cim:GovGAST4 cim:GovSteamFV4 cim:ExcIEEEAC1A cim:OverexcLim2 cim:ExcAVR2 cim:ExcST7B cim:PFVArControllerType1UserDefined cim:GovIEEEGT1 cim:ExcIEEEAC2C cim:ExcIEEEST8C cim:SVSMO2 cim:SynchronousMachineSimplified cim:VAdjIEEE cim:ExcIEEEAC3C cim:ExcST3A cim:GovGAST3 cim:ExcST1A cim:UnderexcLimIEEEUEL2C cim:ExcAVR4 cim:SVSMO3 cim:ExcAC2A cim:TurbLCFB1 cim:WindTurbineType4bIEC2 cim:PssPTIST3 cim:TurbIEEEHydroWCNonLinear cim:GovGAST cim:ExcAC3A cim:GovSteamIEEE1 cim:ExcNI cim:WindGenTurbineType1bIEC cim:GovSteam2 cim:WindType3or4UserDefined cim:Pss2B cim:OverexcitationLimiterUserDefined cim:RateOfChangeOfPowerRelay cim:GovHydroPID2 cim:GovHydroIEEE0 cim:AsynchronousMachineTimeConstantReactance cim:DiscExcContIEEEDEC3A cim:UnderexcLimX1 cim:LoadComposite cim:WindGenTurbineType1aIEC2 cim:DiscontinuousExcitationControlUserDefined cim:PFVArType2Common1 cim:GovIEEEHydroPIDspt cim:PFVArType2IEEEPFController cim:TurbIEEEHydroWClinear cim:PFVArType1CIEEEPFController cim:GovSteamFV2 cim:ExcIEEEAC2A cim:GovHydroIEEE2 cim:WeccDERApvmod cim:WeccWTGWGOA cim:WeccREECC cim:WindTurbineType3IEC2 cim:WeccREECD cim:ExcSCRX cim:ExcIEEEAC3A cim:GovSteam1 cim:ExcIEEEAC8B cim:PssWECC cim:WeccREPCC cim:PssIEEE5C cim:WindType1or2UserDefined cim:UnderexcLim2Simplified cim:ExcIEEEAC8C cim:PFVArType1CIEEEVArController cim:ExcIEEEDC2A cim:TurbineLoadControllerUserDefined cim:PssPTIST1 cim:PssIEEE3B cim:StatcomIEC cim:GovHydroWEH cim:GovSteam0 cim:GovIEEEHydroMech cim:GovHydroDD cim:UnderexcitationLimiterUserDefined cim:DiscExcContIEEEDEC1A cim:MechanicalLoadUserDefined cim:ExcIEEEDC4C cim:WeccWT1PB cim:WeccWTGTA cim:OverexcLimIEEEOEL2C cim:WeccWTGTRQA cim:ExcELIN2 cim:WindTurbineType4bIEC cim:PssSK cim:UnderexcLimIEEE1 cim:WindTurbineType3IEC cim:WindGenTurbineType1aIEC cim:ExcDC3A1 cim:Pss2ST cim:ExcIEEEST2C cim:ExcIEEEST5C cim:GovSteamSGO cim:WeccWTGPB cim:OverexcLimIEEEOEL3C cim:ExcBBC cim:WeccREGCC cim:ExcIEEEST4B cim:WeccWTGPTA cim:StatorCurrentLimIEEESCL1C cim:GovHydro4 cim:SynchronousMachineTimeConstantReactance cim:VoltageCompensatorUserDefined cim:TurbIEEEHydroWCgen cim:TurbineGovernorUserDefined cim:ExcIEEEST6C cim:ExcIEEEST9C cim:ExcIEEEDC4B cim:ExcIEEEST5B cim:ExcDC3A cim:ExcHU cim:GovSteamFV3 cim:PssIEEE6C cim:PssIEEE4C cim:TurbCIGREHRSGST cim:GovGASTWD cim:PssSTAB2A cim:WindPlantBasicIEC cim:OverexcLimIEEE cim:ExcIEEEAC10C cim:WindTurbineType4aIEC cim:ExcIEEEAC5C cim:WeccDERA cim:ExcANS cim:PssIEEE7C cim:GovSteamBB cim:SVSMO1 cim:StatcomUserDefined cim:MechLoad1 cim:ExcAVR7 cim:PFVArControllerType2UserDefined cim:AsynchronousMachineEquivalentCircuit cim:ExcAC5A cim:PssIEEE4B cim:PssSB4 cim:OverexcLimX2 cim:GovIEEEHydroLL cim:VoltageAdjusterUserDefined cim:ExcIEEEAC9C cim:ExcIEEEST2A cim:SynchronousMachineUserDefined cim:ExcST4B cim:GovCT2 cim:GovSteamCC cim:ExcIEEEST1C cim:WeccREGCA cim:PFVArType2CIEEEVArController cim:RelayUserDefined cim:GovHydro2 cim:PFVArType1IEEEPFController cim:DiscExcContIEEEDEC2A cim:WeccWTGARA cim:WeccWT12T cim:GovCIGREGT cim:WindPlantIEC cim:ExcDC1A cim:WeccWT2E cim:ExcIEEEAC4A cim:TurbIEEEHydroWCNonLinearB cim:ExcSK cim:ExcAVR3 cim:GovCT1 cim:GovIEEEHydroPID cim:Pss5 cim:PFVArType2IEEEVArController cim:ExcDC2A cim:ExcSEXS cim:LoadAggregate cim:GovHydroFrancis cim:TurbIEEEGenericHRSGST cim:OverexcLimX1 cim:WeccREECB cim:DetailedModelDynamics cim:ExcIEEEAC5A cim:ExcPIC cim:StatorCurrentLimiterUserDefined cim:GovSteamEU cim:ExcIEEEDC1C cim:WeccREPCA cim:ExcIEEEAC6C cim:ExcIEEEAC4C cim:ExcIEEEDC3A cim:WeccTIOCRS cim:TurbIEEEHydroWCNonLinearA cim:VSCUserDefined cim:ExcAVR5 cim:HVDCInterconnectionUserDefined cim:SVSMO4 cim:ExcELIN1 cim:ExcitationSystemUserDefined cim:WeccBESS cim:ExcIEEEAC7C cim:PFVArType1IEEEVArController cim:DERIEEEType1 cim:WindGenTurbineType2IEC2 cim:ExcST2A cim:PssRQB cim:GovHydroPID cim:WeccREECA cim:ExcAC8B cim:WindPlantQCompensationIEC cim:ExcIEEEST1A cim:ExcAC4A cim:GovHydroPelton cim:WeccPVD1 cim:ExcOEX3T ) ;
+        sh:in           ( cim:GovIEEEHydroDD cim:ExcIEEEST3C cim:WindGenTurbineType2IEC cim:LoadGenericNonLinear cim:PowerSystemStabilizerUserDefined cim:WeccREEC cim:ShuntCompensatorUserDefined cim:VCompIEEEType2 cim:ExcST6B cim:OverexcLimIEEEOEL4C cim:ExcAVR1 cim:ExcIEEEAC7B cim:LoadUserDefined cim:SynchronousMachineEquivalentCircuit cim:PssELIN2 cim:CSCUserDefined cim:PssIEEE1A cim:WeccREGCB cim:ExcCZ cim:ExcIEEEST7C cim:GovHydro3 cim:ExcIEEEDC1A cim:ExcIEEEAC6A cim:UnderexcLimX2 cim:VCompIEEEType1 cim:PssIEEE2C cim:ExcIEEEST6B cim:ExcIEEEAC11C cim:GovHydroR cim:ExcIEEEAC1C cim:Pss1A cim:LoadCompositeWECC cim:PssIEEE3C cim:WeccWTGIBFFRA cim:ExcIEEEST7B cim:ExcIEEEDC2C cim:AsynchronousMachineUserDefined cim:GovSteamIEEETGOV5 cim:ExcAC6A cim:PssIEEE2B cim:ExcAC1A cim:ExcRQB cim:ExcIEEEST3A cim:SVCUserDefined cim:WindGenTurbineType1bIEC2 cim:PssSH cim:UnderexcLimIEEE2 cim:Pss1 cim:WindPlantUserDefined cim:ExcREXS cim:GovHydroWPID cim:PFVArType2CIEEEPFController cim:GovGAST2 cim:ExcIEEEST4C cim:VAdjIEEE2 cim:StatorCurrentLimIEEESCL2C cim:GovHydro1 cim:GovSteamIEEEG1Aug cim:WindTurbineType4aIEC2 cim:WeccWTGTB cim:OverexcLimIEEEOEL5C cim:ExcIEEEST10C cim:GovGAST1 cim:GovGAST4 cim:GovSteamFV4 cim:ExcIEEEAC1A cim:OverexcLim2 cim:ExcAVR2 cim:ExcST7B cim:PFVArControllerType1UserDefined cim:GovIEEEGT1 cim:ExcIEEEAC2C cim:ExcIEEEST8C cim:SVSMO2 cim:SynchronousMachineSimplified cim:VAdjIEEE cim:ExcIEEEAC3C cim:ExcST3A cim:GovGAST3 cim:ExcST1A cim:UnderexcLimIEEEUEL2C cim:ExcAVR4 cim:SVSMO3 cim:ExcAC2A cim:TurbLCFB1 cim:WindTurbineType4bIEC2 cim:PssPTIST3 cim:TurbIEEEHydroWCNonLinear cim:GovGAST cim:ExcAC3A cim:GovSteamIEEE1 cim:ExcNI cim:WindGenTurbineType1bIEC cim:GovSteam2 cim:WindType3or4UserDefined cim:Pss2B cim:OverexcitationLimiterUserDefined cim:RateOfChangeOfPowerRelay cim:GovHydroPID2 cim:GovHydroIEEE0 cim:AsynchronousMachineTimeConstantReactance cim:DiscExcContIEEEDEC3A cim:UnderexcLimX1 cim:LoadComposite cim:WindGenTurbineType1aIEC2 cim:DiscontinuousExcitationControlUserDefined cim:PFVArType2Common1 cim:GovIEEEHydroPIDspt cim:PFVArType2IEEEPFController cim:TurbIEEEHydroWClinear cim:PFVArType1CIEEEPFController cim:GovSteamFV2 cim:ExcIEEEAC2A cim:GovHydroIEEE2 cim:WeccDERApvmod cim:WeccWTGWGOA cim:WeccREECC cim:WindTurbineType3IEC2 cim:WeccREECD cim:ExcSCRX cim:ExcIEEEAC3A cim:GovSteam1 cim:ExcIEEEAC8B cim:PssWECC cim:WeccREPCC cim:PssIEEE5C cim:WindType1or2UserDefined cim:UnderexcLim2Simplified cim:ExcIEEEAC8C cim:PFVArType1CIEEEVArController cim:ExcIEEEDC2A cim:TurbineLoadControllerUserDefined cim:PssPTIST1 cim:PssIEEE3B cim:StatcomIEC cim:GovHydroWEH cim:GovSteam0 cim:GovIEEEHydroMech cim:GovHydroDD cim:UnderexcitationLimiterUserDefined cim:DiscExcContIEEEDEC1A cim:MechanicalLoadUserDefined cim:ExcIEEEDC4C cim:WeccWT1PB cim:WeccWTGTA cim:OverexcLimIEEEOEL2C cim:WeccWTGTRQA cim:ExcELIN2 cim:WindTurbineType4bIEC cim:PssSK cim:UnderexcLimIEEE1 cim:WindTurbineType3IEC cim:WindGenTurbineType1aIEC cim:ExcDC3A1 cim:Pss2ST cim:ExcIEEEST2C cim:ExcIEEEST5C cim:GovSteamSGO cim:WeccWTGPB cim:OverexcLimIEEEOEL3C cim:ExcBBC cim:WeccREGCC cim:ExcIEEEST4B cim:WeccWTGPTA cim:StatorCurrentLimIEEESCL1C cim:GovHydro4 cim:SynchronousMachineTimeConstantReactance cim:VoltageCompensatorUserDefined cim:TurbIEEEHydroWCgen cim:TurbineGovernorUserDefined cim:ExcIEEEST6C cim:ExcIEEEST9C cim:ExcIEEEDC4B cim:ExcIEEEST5B cim:ExcDC3A cim:ExcHU cim:GovSteamFV3 cim:PssIEEE6C cim:PssIEEE4C cim:TurbCIGREHRSGST cim:GovGASTWD cim:PssSTAB2A cim:WindPlantBasicIEC cim:OverexcLimIEEE cim:ExcIEEEAC10C cim:WindTurbineType4aIEC cim:ExcIEEEAC5C cim:WeccDERA cim:ExcANS cim:PssIEEE7C cim:GovSteamBB cim:SVSMO1 cim:StatcomUserDefined cim:MechLoad1 cim:ExcAVR7 cim:PFVArControllerType2UserDefined cim:AsynchronousMachineEquivalentCircuit cim:ExcAC5A cim:PssIEEE4B cim:PssSB4 cim:OverexcLimX2 cim:GovIEEEHydroLL cim:VoltageAdjusterUserDefined cim:ExcIEEEAC9C cim:ExcIEEEST2A cim:SynchronousMachineUserDefined cim:ExcST4B cim:GovCT2 cim:GovSteamCC cim:ExcIEEEST1C cim:WeccREGCA cim:PFVArType2CIEEEVArController cim:RelayUserDefined cim:GovHydro2 cim:PFVArType1IEEEPFController cim:DiscExcContIEEEDEC2A cim:WeccWTGARA cim:WeccWT12T cim:GovCIGREGT cim:WindPlantIEC cim:ExcDC1A cim:WeccWT2E cim:ExcIEEEAC4A cim:TurbIEEEHydroWCNonLinearB cim:ExcSK cim:ExcAVR3 cim:GovCT1 cim:GovIEEEHydroPID cim:Pss5 cim:PFVArType2IEEEVArController cim:ExcDC2A cim:ExcSEXS cim:LoadAggregate cim:GovHydroFrancis cim:OverexcLimX1 cim:TurbIEEEGenericHRSGST cim:WeccREECB cim:ExcIEEEAC5A cim:ExcPIC cim:StatorCurrentLimiterUserDefined cim:GovSteamEU cim:ExcIEEEDC1C cim:WeccREPCA cim:ExcIEEEAC6C cim:ExcIEEEAC4C cim:ExcIEEEDC3A cim:WeccTIOCRS cim:TurbIEEEHydroWCNonLinearA cim:VSCUserDefined cim:ExcAVR5 cim:HVDCInterconnectionUserDefined cim:SVSMO4 cim:ExcELIN1 cim:ExcitationSystemUserDefined cim:WeccBESS cim:ExcIEEEAC7C cim:PFVArType1IEEEVArController cim:DERIEEEType1 cim:WindGenTurbineType2IEC2 cim:ExcST2A cim:PssRQB cim:GovHydroPID cim:WeccREECA cim:ExcAC8B cim:WindPlantQCompensationIEC cim:ExcIEEEST1A cim:ExcAC4A cim:GovHydroPelton cim:WeccPVD1 cim:ExcOEX3T ) ;
         sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class." ;
         sh:name         "SignalDescriptor.DynamicsFunctionBlock-valueType" ;
         sh:nodeKind     sh:IRI ;

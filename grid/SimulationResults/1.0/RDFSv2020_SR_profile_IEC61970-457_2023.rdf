@@ -29,7 +29,7 @@ xml:base ="http://cim.ucaiug.io/ns"
 	<owl:versionIRI rdf:resource="http://cim-profile.ucaiug.io/grid/SimulationResults/1.0"/>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-301:ed-7:amd1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-302:ed-2</dcterms:conformsTo>
-	<dcterms:conformsTo>file://CIM_Grid18v04_Support14v00_Market04v14_TF13_Dynamics_Profiles.eap</dcterms:conformsTo>
+	<dcterms:conformsTo>file://CIM_Grid18v06_Support14v00_Market04v14_TF13_Profiles.eap</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-401:draft:ed-1</dcterms:conformsTo>
 	<dcterms:conformsTo>urn:iso:std:iec:61970-501:draft:ed-2</dcterms:conformsTo>
 	<owl:versionInfo xml:lang ="en">1.0.0</owl:versionInfo>
@@ -38,7 +38,7 @@ xml:base ="http://cim.ucaiug.io/ns"
 	<dcterms:identifier>urn:uuid:a2ea5a79-936b-48f1-b39c-87de2a96b5c6</dcterms:identifier>
 	<dcterms:language>en-GB</dcterms:language>
 	<dcterms:license xml:lang ="en">https://www.apache.org/licenses/LICENSE-2.0</dcterms:license>
-	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-04-21</dcterms:modified>
+	<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-07-10</dcterms:modified>
 	<dcterms:publisher xml:lang ="en">UCAIug</dcterms:publisher>
 	<dcterms:rightsHolder xml:lang ="en">UCAIug</dcterms:rightsHolder>
 	<dcterms:title xml:lang ="en">Simulation Results Vocabulary</dcterms:title>
