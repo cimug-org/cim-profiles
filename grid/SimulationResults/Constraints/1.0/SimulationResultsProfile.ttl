@@ -1,5 +1,6 @@
 @base          <http://cim-profile.ucaiug.io/grid/SimulationResults/Constraints> .
 @prefix cim:     <http://cim.ucaiug.io/ns#> .
+@prefix cim17:   <http://iec.ch/TC57/CIM100#> .
 @prefix cims:    <http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#> .
 @prefix dash:    <http://datashapes.org/dash#> .
 @prefix dc:      <http://purl.org/dc/elements/1.1/#> .
@@ -21,618 +22,640 @@
 @prefix sr:      <http://cim-profile.ucaiug.io/grid/SimulationResults/Constraints#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
-sr:CurveData.y1value-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "CurveData.y1value-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:CurveData.y1value ;
+sr:Ontology  rdf:type         owl:Ontology;
+        dcterms:conformsTo    "urn:iso:std:iec:61970-401:draft:ed-1" , "urn:iso:std:iec:61970-301:ed-7:amd1" , "file://CIM_Grid18v06_Support14v00_Market04v14_TF13_Profiles.eap" , "urn:iso:std:iec:61970-302:ed-2" , "urn:iso:std:iec:61970-501:draft:ed-2";
+        dcterms:description   "Describing constraints extracted from RDFS.";
+        dcterms:identifier    "urn:uuid87dd4f04-b33d-445e-bad4-6b6346fd6609";
+        dcterms:issued        "2023-10-22T07:56:11.147749800"^^xsd:dateTime;
+        dcterms:language      "en-GB";
+        dcterms:license       "https://www.apache.org/licenses/LICENSE-2.0"@en;
+        dcterms:modified      "2023-07-10"^^xsd:date;
+        dcterms:publisher     "UCAIug"@en;
+        dcterms:rightsHolder  "UCAIug"@en;
+        dcterms:title         "Simulation Results Vocabulary"@en;
+        owl:versionIRI        <Constraints/1.0>;
+        owl:versionInfo       "1.0.0"@en;
+        dcat:keyword          "SR";
+        dcat:theme            "constraint"@en .
+
+sr:SimulationResultCharacteristic.SimulationResult-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SimulationResult );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationResult";
+        sh:name         "SimulationResultCharacteristic.SimulationResult-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        1;
+        sh:path         ( cim:SimulationResultCharacteristic.SimulationResult rdf:type );
         sh:severity     sh:Violation .
 
-sr:CurveData.Curve-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SimulationResultCharacteristic ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationResultCharacteristic" ;
-        sh:name         "CurveData.Curve-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        3 ;
-        sh:path         ( cim:CurveData.Curve rdf:type ) ;
+sr:Curve.curveStyle-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.curveStyle-cardinality";
+        sh:order        8;
+        sh:path         cim:Curve.curveStyle;
         sh:severity     sh:Violation .
 
-sr:Curve.y2Multiplier-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.y2Multiplier-cardinality" ;
-        sh:order        10 ;
-        sh:path         cim:Curve.y2Multiplier ;
-        sh:severity     sh:Violation .
-
-sr:AssociationsGroup  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "Associations" ;
-        sh:order    2 .
-
-sr:SimulationResult  rdf:type  sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality , sr:SimulationResult.SignalConfiguration-valueType , sr:SimulationResult.SignalConfiguration-cardinality , ido:IdentifiedObject.description-datatype , sr:SimulationResult.SimulationEvents-valueType , ido:IdentifiedObject.description-cardinality , sr:SimulationResult.SimulationSettings-cardinality , sr:SimulationResult.SimulationEvents-cardinality , sr:SimulationResult.SimulationSettings-valueType ;
-        sh:targetClass  cim:SimulationResult .
-
-sr:Curve.xUnit-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.cd cim:UnitSymbol.rotPers cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.onePerHz cim:UnitSymbol.m3Pers cim:UnitSymbol.VPerm cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.F cim:UnitSymbol.mol cim:UnitSymbol.anglesec cim:UnitSymbol.sr cim:UnitSymbol.WPerm2sr cim:UnitSymbol.A2h cim:UnitSymbol.W cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.mPers cim:UnitSymbol.PaPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.m3Perh cim:UnitSymbol.H cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.VPerVA cim:UnitSymbol.kn cim:UnitSymbol.VArh cim:UnitSymbol.radPers2 cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.VPerVAr cim:UnitSymbol.Qh cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.mmHg cim:UnitSymbol.degC cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.ppm cim:UnitSymbol.CPerkg cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.JPerK cim:UnitSymbol.kgm2 cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.Q cim:UnitSymbol.JPerm2 cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.VAr cim:UnitSymbol.none cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.S cim:UnitSymbol.NPerm cim:UnitSymbol.WPersr cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.A2 cim:UnitSymbol.Pa ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.xUnit-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        6 ;
-        sh:path         cim:Curve.xUnit ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.SimulationResult-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationResultCharacteristic.SimulationResult-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:SimulationResultCharacteristic.SimulationResult ;
-        sh:severity     sh:Violation .
-
-sr:Curve.xUnit-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.xUnit-cardinality" ;
-        sh:order        6 ;
-        sh:path         cim:Curve.xUnit ;
-        sh:severity     sh:Violation .
-
-sr:CurveData.xvalue-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "CurveData.xvalue-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0 ;
-        sh:path         cim:CurveData.xvalue ;
-        sh:severity     sh:Violation .
-
-ido:CardinalityGroup  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "CardinalityIO" ;
-        sh:order    0 .
-
-sr:Curve.xMultiplier-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.xMultiplier-cardinality" ;
-        sh:order        9 ;
-        sh:path         cim:Curve.xMultiplier ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.name-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        ido:CardinalityIO ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "IdentifiedObject.name-cardinality" ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.name ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.name-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        ido:DatatypesGroupIO ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "IdentifiedObject.name-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.name ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y3Multiplier-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.y3Multiplier-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        11 ;
-        sh:path         cim:Curve.y3Multiplier ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y2Multiplier-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.y2Multiplier-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        10 ;
-        sh:path         cim:Curve.y2Multiplier ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y1Unit-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.cd cim:UnitSymbol.rotPers cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.onePerHz cim:UnitSymbol.m3Pers cim:UnitSymbol.VPerm cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.F cim:UnitSymbol.mol cim:UnitSymbol.anglesec cim:UnitSymbol.sr cim:UnitSymbol.WPerm2sr cim:UnitSymbol.A2h cim:UnitSymbol.W cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.mPers cim:UnitSymbol.PaPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.m3Perh cim:UnitSymbol.H cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.VPerVA cim:UnitSymbol.kn cim:UnitSymbol.VArh cim:UnitSymbol.radPers2 cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.VPerVAr cim:UnitSymbol.Qh cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.mmHg cim:UnitSymbol.degC cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.ppm cim:UnitSymbol.CPerkg cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.JPerK cim:UnitSymbol.kgm2 cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.Q cim:UnitSymbol.JPerm2 cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.VAr cim:UnitSymbol.none cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.S cim:UnitSymbol.NPerm cim:UnitSymbol.WPersr cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.A2 cim:UnitSymbol.Pa ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.y1Unit-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        13 ;
-        sh:path         cim:Curve.y1Unit ;
-        sh:severity     sh:Violation .
-
-sr:CurveData.y2value-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "CurveData.y2value-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        4 ;
-        sh:path         cim:CurveData.y2value ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y3Multiplier-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.y3Multiplier-cardinality" ;
-        sh:order        11 ;
-        sh:path         cim:Curve.y3Multiplier ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.Y2valueSignal-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SignalRecorder ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalRecorder" ;
-        sh:name         "SimulationResultCharacteristic.Y2valueSignal-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        3 ;
-        sh:path         ( cim:SimulationResultCharacteristic.Y2valueSignal rdf:type ) ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResult.SimulationEvents-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SimulationEvents ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents" ;
-        sh:name         "SimulationResult.SimulationEvents-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        0 ;
-        sh:path         ( cim:SimulationResult.SimulationEvents rdf:type ) ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.Y3valueSignal-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SimulationResultCharacteristic.Y3valueSignal-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:SimulationResultCharacteristic.Y3valueSignal ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.mRID-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        ido:DatatypesGroupIO ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "IdentifiedObject.mRID-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.mRID ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.resultReference-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SimulationResultCharacteristic.resultReference-cardinality" ;
-        sh:order        4 ;
-        sh:path         cim:SimulationResultCharacteristic.resultReference ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResult.SignalConfiguration-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SignalConfiguration ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalConfiguration" ;
-        sh:name         "SimulationResult.SignalConfiguration-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        2 ;
-        sh:path         ( cim:SimulationResult.SignalConfiguration rdf:type ) ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResult.SimulationEvents-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SimulationResult.SimulationEvents-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:SimulationResult.SimulationEvents ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.Y1valueSignal-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SignalRecorder ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalRecorder" ;
-        sh:name         "SimulationResultCharacteristic.Y1valueSignal-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        0 ;
-        sh:path         ( cim:SimulationResultCharacteristic.Y1valueSignal rdf:type ) ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.Y3valueSignal-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SignalRecorder ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalRecorder" ;
-        sh:name         "SimulationResultCharacteristic.Y3valueSignal-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        2 ;
-        sh:path         ( cim:SimulationResultCharacteristic.Y3valueSignal rdf:type ) ;
-        sh:severity     sh:Violation .
-
-sr:Curve.curveStyle-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:CurveStyle.constantYValue cim:CurveStyle.straightLineYValues ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.curveStyle-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        8 ;
-        sh:path         cim:Curve.curveStyle ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y1Multiplier-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.y1Multiplier-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        5 ;
-        sh:path         cim:Curve.y1Multiplier ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y3Unit-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.cd cim:UnitSymbol.rotPers cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.onePerHz cim:UnitSymbol.m3Pers cim:UnitSymbol.VPerm cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.F cim:UnitSymbol.mol cim:UnitSymbol.anglesec cim:UnitSymbol.sr cim:UnitSymbol.WPerm2sr cim:UnitSymbol.A2h cim:UnitSymbol.W cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.mPers cim:UnitSymbol.PaPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.m3Perh cim:UnitSymbol.H cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.VPerVA cim:UnitSymbol.kn cim:UnitSymbol.VArh cim:UnitSymbol.radPers2 cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.VPerVAr cim:UnitSymbol.Qh cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.mmHg cim:UnitSymbol.degC cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.ppm cim:UnitSymbol.CPerkg cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.JPerK cim:UnitSymbol.kgm2 cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.Q cim:UnitSymbol.JPerm2 cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.VAr cim:UnitSymbol.none cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.S cim:UnitSymbol.NPerm cim:UnitSymbol.WPersr cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.A2 cim:UnitSymbol.Pa ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.y3Unit-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        7 ;
-        sh:path         cim:Curve.y3Unit ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y2Unit-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.cd cim:UnitSymbol.rotPers cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.onePerHz cim:UnitSymbol.m3Pers cim:UnitSymbol.VPerm cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.F cim:UnitSymbol.mol cim:UnitSymbol.anglesec cim:UnitSymbol.sr cim:UnitSymbol.WPerm2sr cim:UnitSymbol.A2h cim:UnitSymbol.W cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.mPers cim:UnitSymbol.PaPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.m3Perh cim:UnitSymbol.H cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.VPerVA cim:UnitSymbol.kn cim:UnitSymbol.VArh cim:UnitSymbol.radPers2 cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.VPerVAr cim:UnitSymbol.Qh cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.mmHg cim:UnitSymbol.degC cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.ppm cim:UnitSymbol.CPerkg cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.JPerK cim:UnitSymbol.kgm2 cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.Q cim:UnitSymbol.JPerm2 cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.VAr cim:UnitSymbol.none cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.S cim:UnitSymbol.NPerm cim:UnitSymbol.WPersr cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.A2 cim:UnitSymbol.Pa ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.y2Unit-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        14 ;
-        sh:path         cim:Curve.y2Unit ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y3Unit-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.y3Unit-cardinality" ;
-        sh:order        7 ;
-        sh:path         cim:Curve.y3Unit ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.Y2valueSignal-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SimulationResultCharacteristic.Y2valueSignal-cardinality" ;
-        sh:order        3 ;
-        sh:path         cim:SimulationResultCharacteristic.Y2valueSignal ;
-        sh:severity     sh:Violation .
-
-sr:CardinalityGroup  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "Cardinality" ;
-        sh:order    0 .
-
-sr:SimulationResult.SignalConfiguration-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationResult.SignalConfiguration-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:SimulationResult.SignalConfiguration ;
-        sh:severity     sh:Violation .
-
-sr:CurveData.y3value-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "CurveData.y3value-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        2 ;
-        sh:path         cim:CurveData.y3value ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y2Unit-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.y2Unit-cardinality" ;
-        sh:order        14 ;
-        sh:path         cim:Curve.y2Unit ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic
-        rdf:type        sh:NodeShape ;
-        sh:property     sr:Curve.y2Multiplier-cardinality , sr:Curve.curveStyle-cardinality , sr:SimulationResultCharacteristic.Y3valueSignal-cardinality , sr:Curve.y1Unit-datatype , sr:Curve.y3Multiplier-datatype , sr:SimulationResultCharacteristic.resultReference-datatype , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , sr:SimulationResultCharacteristic.Y1valueSignal-valueType , sr:Curve.curveStyle-datatype , ido:IdentifiedObject.name-datatype , sr:SimulationResultCharacteristic.Y3valueSignal-valueType , sr:Curve.y2Multiplier-datatype , sr:Curve.y3Multiplier-cardinality , sr:Curve.xUnit-cardinality , ido:IdentifiedObject.description-cardinality , sr:Curve.xMultiplier-datatype , sr:SimulationResultCharacteristic.Y2valueSignal-valueType , sr:Curve.y3Unit-datatype , sr:Curve.y2Unit-cardinality , sr:SimulationResultCharacteristic.SimulationResult-cardinality , sr:Curve.y2Unit-datatype , sr:SimulationResultCharacteristic.Y2valueSignal-cardinality , sr:Curve.y1Multiplier-cardinality , sr:Curve.y1Multiplier-datatype , sr:SimulationResultCharacteristic.resultReference-cardinality , ido:IdentifiedObject.description-datatype , sr:Curve.y1Unit-cardinality , sr:SimulationResultCharacteristic.Y1valueSignal-cardinality , ido:IdentifiedObject.name-cardinality , sr:Curve.y3Unit-cardinality , sr:SimulationResultCharacteristic.SimulationResult-valueType , sr:Curve.xUnit-datatype , sr:Curve.xMultiplier-cardinality ;
-        sh:targetClass  cim:SimulationResultCharacteristic .
-
-sr:Curve.y1Unit-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.y1Unit-cardinality" ;
-        sh:order        13 ;
-        sh:path         cim:Curve.y1Unit ;
-        sh:severity     sh:Violation .
-
-sr:DatatypesGroup  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "Datatypes" ;
+ido:DatatypesGroupIO  rdf:type  sh:PropertyGroup;
+        rdfs:label  "DatatypesIO";
         sh:order    1 .
 
-ido:IdentifiedObject.description-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        ido:CardinalityIO ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "IdentifiedObject.description-cardinality" ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.description ;
-        sh:severity     sh:Violation .
-
-sr:CurveData.y3value-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "CurveData.y3value-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:CurveData.y3value ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResult.SimulationSettings-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationResult.SimulationSettings-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:SimulationResult.SimulationSettings ;
-        sh:severity     sh:Violation .
-
-sr:Curve.xMultiplier-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Curve.xMultiplier-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        9 ;
-        sh:path         cim:Curve.xMultiplier ;
-        sh:severity     sh:Violation .
-
-sr:CurveData.Curve-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "CurveData.Curve-cardinality" ;
-        sh:order        3 ;
-        sh:path         cim:CurveData.Curve ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResultCharacteristic.resultReference-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:anyURI ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "SimulationResultCharacteristic.resultReference-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        4 ;
-        sh:path         cim:SimulationResultCharacteristic.resultReference ;
-        sh:severity     sh:Violation .
-
-sr:SimulationResult.SimulationSettings-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SimulationSettings ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationSettings" ;
-        sh:name         "SimulationResult.SimulationSettings-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        1 ;
-        sh:path         ( cim:SimulationResult.SimulationSettings rdf:type ) ;
-        sh:severity     sh:Violation .
-
-sr:Curve.y1Multiplier-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.y1Multiplier-cardinality" ;
-        sh:order        5 ;
-        sh:path         cim:Curve.y1Multiplier ;
-        sh:severity     sh:Violation .
-
-sr:CurveData.y1value-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        sr:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "CurveData.y1value-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        1 ;
-        sh:path         cim:CurveData.y1value ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.description-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        ido:DatatypesGroupIO ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "IdentifiedObject.description-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.description ;
-        sh:severity     sh:Violation .
-
-sr:CurveData  rdf:type  sh:NodeShape ;
-        sh:property     sr:CurveData.y3value-datatype , sr:CurveData.xvalue-datatype , sr:CurveData.Curve-cardinality , sr:CurveData.y3value-cardinality , sr:CurveData.Curve-valueType , sr:CurveData.y2value-datatype , sr:CurveData.y1value-cardinality , sr:CurveData.y2value-cardinality , sr:CurveData.y1value-datatype , sr:CurveData.xvalue-cardinality ;
-        sh:targetClass  cim:CurveData .
-
-sr:CurveData.xvalue-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "CurveData.xvalue-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:CurveData.xvalue ;
-        sh:severity     sh:Violation .
-
-sr:CurveData.y2value-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "CurveData.y2value-cardinality" ;
-        sh:order        4 ;
-        sh:path         cim:CurveData.y2value ;
+ido:IdentifiedObject.mRID-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        ido:CardinalityIO;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "IdentifiedObject.mRID-cardinality";
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.mRID;
         sh:severity     sh:Violation .
 
 sr:SimulationResultCharacteristic.Y1valueSignal-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationResultCharacteristic.Y1valueSignal-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:SimulationResultCharacteristic.Y1valueSignal ;
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "SimulationResultCharacteristic.Y1valueSignal-cardinality";
+        sh:order        0;
+        sh:path         cim:SimulationResultCharacteristic.Y1valueSignal;
         sh:severity     sh:Violation .
 
-ido:IdentifiedObject.mRID-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        ido:CardinalityIO ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "IdentifiedObject.mRID-cardinality" ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.mRID ;
+sr:CurveData.y2value-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "CurveData.y2value-cardinality";
+        sh:order        4;
+        sh:path         cim:CurveData.y2value;
         sh:severity     sh:Violation .
 
-ido:DatatypesGroupIO  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "DatatypesIO" ;
+sr:CurveData.xvalue-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "CurveData.xvalue-cardinality";
+        sh:order        0;
+        sh:path         cim:CurveData.xvalue;
+        sh:severity     sh:Violation .
+
+sr:CurveData  rdf:type  sh:NodeShape;
+        sh:property     sr:CurveData.xvalue-cardinality , sr:CurveData.y1value-datatype , sr:CurveData.y2value-cardinality , sr:CurveData.y1value-cardinality , sr:CurveData.y2value-datatype , sr:CurveData.y3value-cardinality , sr:CurveData.Curve-cardinality , sr:CurveData.xvalue-datatype , sr:CurveData.y3value-datatype;
+        sh:targetClass  cim:CurveData .
+
+ido:IdentifiedObject.description-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        ido:DatatypesGroupIO;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "IdentifiedObject.description-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.description;
+        sh:severity     sh:Violation .
+
+sr:CurveData.y1value-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "CurveData.y1value-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        1;
+        sh:path         cim:CurveData.y1value;
+        sh:severity     sh:Violation .
+
+sr:Curve.y1Multiplier-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.y1Multiplier-cardinality";
+        sh:order        5;
+        sh:path         cim:Curve.y1Multiplier;
+        sh:severity     sh:Violation .
+
+sr:SimulationResult.SimulationSettings-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SimulationSettings );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationSettings";
+        sh:name         "SimulationResult.SimulationSettings-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        1;
+        sh:path         ( cim:SimulationResult.SimulationSettings rdf:type );
+        sh:severity     sh:Violation .
+
+sr:SimulationResultCharacteristic.resultReference-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:anyURI;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "SimulationResultCharacteristic.resultReference-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        4;
+        sh:path         cim:SimulationResultCharacteristic.resultReference;
+        sh:severity     sh:Violation .
+
+sr:CurveData.Curve-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "CurveData.Curve-cardinality";
+        sh:order        3;
+        sh:path         cim:CurveData.Curve;
+        sh:severity     sh:Violation .
+
+sr:Curve.xMultiplier-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.xMultiplier-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        9;
+        sh:path         cim:Curve.xMultiplier;
+        sh:severity     sh:Violation .
+
+sr:SimulationResult.SimulationSettings-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "SimulationResult.SimulationSettings-cardinality";
+        sh:order        1;
+        sh:path         cim:SimulationResult.SimulationSettings;
+        sh:severity     sh:Violation .
+
+
+sr:CurveData.y3value-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "CurveData.y3value-cardinality";
+        sh:order        2;
+        sh:path         cim:CurveData.y3value;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.description-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        ido:CardinalityIO;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "IdentifiedObject.description-cardinality";
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.description;
+        sh:severity     sh:Violation .
+
+sr:DatatypesGroup  rdf:type  sh:PropertyGroup;
+        rdfs:label  "Datatypes";
         sh:order    1 .
 
-sr:Curve.curveStyle-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        sr:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Curve.curveStyle-cardinality" ;
-        sh:order        8 ;
-        sh:path         cim:Curve.curveStyle ;
+sr:Curve.y1Unit-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.y1Unit-cardinality";
+        sh:order        12;
+        sh:path         cim:Curve.y1Unit;
         sh:severity     sh:Violation .
 
-sr:SimulationResultCharacteristic.SimulationResult-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        sr:AssociationsGroup ;
-        sh:in           ( cim:SimulationResult ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationResult" ;
-        sh:name         "SimulationResultCharacteristic.SimulationResult-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        1 ;
-        sh:path         ( cim:SimulationResultCharacteristic.SimulationResult rdf:type ) ;
+sr:SimulationResultCharacteristic
+        rdf:type        sh:NodeShape;
+        sh:property     sr:Curve.xMultiplier-cardinality , sr:Curve.xUnit-datatype , sr:SimulationResultCharacteristic.SimulationResult-valueType , sr:Curve.y3Unit-cardinality , ido:IdentifiedObject.name-cardinality , sr:SimulationResultCharacteristic.Y1valueSignal-cardinality , sr:Curve.y1Unit-cardinality , ido:IdentifiedObject.description-datatype , sr:SimulationResultCharacteristic.resultReference-cardinality , sr:Curve.y1Multiplier-datatype , sr:Curve.y1Multiplier-cardinality , sr:SimulationResultCharacteristic.Y2valueSignal-cardinality , sr:Curve.y2Unit-datatype , sr:SimulationResultCharacteristic.SimulationResult-cardinality , sr:Curve.y2Unit-cardinality , sr:Curve.y3Unit-datatype , sr:SimulationResultCharacteristic.Y2valueSignal-valueType , sr:Curve.xMultiplier-datatype , ido:IdentifiedObject.description-cardinality , sr:Curve.xUnit-cardinality , sr:Curve.y3Multiplier-cardinality , sr:Curve.y2Multiplier-datatype , sr:SimulationResultCharacteristic.Y3valueSignal-valueType , ido:IdentifiedObject.name-datatype , sr:Curve.curveStyle-datatype , sr:SimulationResultCharacteristic.Y1valueSignal-valueType , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.mRID-datatype , sr:SimulationResultCharacteristic.resultReference-datatype , sr:Curve.y3Multiplier-datatype , sr:Curve.y1Unit-datatype , sr:SimulationResultCharacteristic.Y3valueSignal-cardinality , sr:Curve.curveStyle-cardinality , sr:Curve.y2Multiplier-cardinality;
+        sh:targetClass  cim:SimulationResultCharacteristic .
+
+sr:Curve.y2Unit-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.y2Unit-cardinality";
+        sh:order        14;
+        sh:path         cim:Curve.y2Unit;
+        sh:severity     sh:Violation .
+
+sr:CurveData.y3value-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "CurveData.y3value-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        2;
+        sh:path         cim:CurveData.y3value;
+        sh:severity     sh:Violation .
+
+sr:SimulationResult.SignalConfiguration-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "SimulationResult.SignalConfiguration-cardinality";
+        sh:order        2;
+        sh:path         cim:SimulationResult.SignalConfiguration;
+        sh:severity     sh:Violation .
+
+sr:CardinalityGroup  rdf:type  sh:PropertyGroup;
+        rdfs:label  "Cardinality";
+        sh:order    0 .
+
+sr:SimulationResultCharacteristic.Y2valueSignal-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SimulationResultCharacteristic.Y2valueSignal-cardinality";
+        sh:order        3;
+        sh:path         cim:SimulationResultCharacteristic.Y2valueSignal;
+        sh:severity     sh:Violation .
+
+sr:Curve.y3Unit-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.y3Unit-cardinality";
+        sh:order        7;
+        sh:path         cim:Curve.y3Unit;
+        sh:severity     sh:Violation .
+
+sr:Curve.y2Unit-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.rotPers cim:UnitSymbol.cd cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.VPerm cim:UnitSymbol.m3Pers cim:UnitSymbol.onePerHz cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.mol cim:UnitSymbol.F cim:UnitSymbol.sr cim:UnitSymbol.anglesec cim:UnitSymbol.WPerm2sr cim:UnitSymbol.W cim:UnitSymbol.A2h cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.PaPers cim:UnitSymbol.mPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.H cim:UnitSymbol.m3Perh cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.kn cim:UnitSymbol.VPerVA cim:UnitSymbol.radPers2 cim:UnitSymbol.VArh cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.Qh cim:UnitSymbol.VPerVAr cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.degC cim:UnitSymbol.mmHg cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.CPerkg cim:UnitSymbol.ppm cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.kgm2 cim:UnitSymbol.JPerK cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.JPerm2 cim:UnitSymbol.Q cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.none cim:UnitSymbol.VAr cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.WPersr cim:UnitSymbol.NPerm cim:UnitSymbol.S cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.Pa cim:UnitSymbol.A2 );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.y2Unit-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        14;
+        sh:path         cim:Curve.y2Unit;
+        sh:severity     sh:Violation .
+
+sr:Curve.y3Unit-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.rotPers cim:UnitSymbol.cd cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.VPerm cim:UnitSymbol.m3Pers cim:UnitSymbol.onePerHz cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.mol cim:UnitSymbol.F cim:UnitSymbol.sr cim:UnitSymbol.anglesec cim:UnitSymbol.WPerm2sr cim:UnitSymbol.W cim:UnitSymbol.A2h cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.PaPers cim:UnitSymbol.mPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.H cim:UnitSymbol.m3Perh cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.kn cim:UnitSymbol.VPerVA cim:UnitSymbol.radPers2 cim:UnitSymbol.VArh cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.Qh cim:UnitSymbol.VPerVAr cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.degC cim:UnitSymbol.mmHg cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.CPerkg cim:UnitSymbol.ppm cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.kgm2 cim:UnitSymbol.JPerK cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.JPerm2 cim:UnitSymbol.Q cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.none cim:UnitSymbol.VAr cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.WPersr cim:UnitSymbol.NPerm cim:UnitSymbol.S cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.Pa cim:UnitSymbol.A2 );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.y3Unit-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        7;
+        sh:path         cim:Curve.y3Unit;
+        sh:severity     sh:Violation .
+
+sr:Curve.y1Multiplier-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.y1Multiplier-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        5;
+        sh:path         cim:Curve.y1Multiplier;
+        sh:severity     sh:Violation .
+
+sr:Curve.curveStyle-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:CurveStyle.constantYValue cim:CurveStyle.straightLineYValues );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.curveStyle-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        8;
+        sh:path         cim:Curve.curveStyle;
+        sh:severity     sh:Violation .
+
+sr:SimulationResultCharacteristic.Y3valueSignal-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SignalRecorder );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalRecorder";
+        sh:name         "SimulationResultCharacteristic.Y3valueSignal-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        2;
+        sh:path         ( cim:SimulationResultCharacteristic.Y3valueSignal rdf:type );
+        sh:severity     sh:Violation .
+
+sr:SimulationResultCharacteristic.Y1valueSignal-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SignalRecorder );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalRecorder";
+        sh:name         "SimulationResultCharacteristic.Y1valueSignal-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        0;
+        sh:path         ( cim:SimulationResultCharacteristic.Y1valueSignal rdf:type );
+        sh:severity     sh:Violation .
+
+sr:SimulationResult.SimulationEvents-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SimulationResult.SimulationEvents-cardinality";
+        sh:order        0;
+        sh:path         cim:SimulationResult.SimulationEvents;
+        sh:severity     sh:Violation .
+
+sr:SimulationResult.SignalConfiguration-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SignalConfiguration );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalConfiguration";
+        sh:name         "SimulationResult.SignalConfiguration-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        2;
+        sh:path         ( cim:SimulationResult.SignalConfiguration rdf:type );
+        sh:severity     sh:Violation .
+
+sr:SimulationResultCharacteristic.resultReference-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SimulationResultCharacteristic.resultReference-cardinality";
+        sh:order        4;
+        sh:path         cim:SimulationResultCharacteristic.resultReference;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.mRID-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        ido:DatatypesGroupIO;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "IdentifiedObject.mRID-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.mRID;
+        sh:severity     sh:Violation .
+
+sr:SimulationResultCharacteristic.Y3valueSignal-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SimulationResultCharacteristic.Y3valueSignal-cardinality";
+        sh:order        2;
+        sh:path         cim:SimulationResultCharacteristic.Y3valueSignal;
+        sh:severity     sh:Violation .
+
+sr:SimulationResult.SimulationEvents-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SimulationEvents );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents";
+        sh:name         "SimulationResult.SimulationEvents-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        0;
+        sh:path         ( cim:SimulationResult.SimulationEvents rdf:type );
+        sh:severity     sh:Violation .
+
+sr:CurveData.Curve-valueTypeNodeShape
+        rdf:type        sh:NodeShape;
+        sh:property     sr:CurveData.Curve-valueType;
+        sh:targetClass  cim:CurveData .
+
+sr:SimulationResultCharacteristic.Y2valueSignal-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SignalRecorder );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalRecorder";
+        sh:name         "SimulationResultCharacteristic.Y2valueSignal-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        3;
+        sh:path         ( cim:SimulationResultCharacteristic.Y2valueSignal rdf:type );
+        sh:severity     sh:Violation .
+
+sr:Curve.y3Multiplier-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.y3Multiplier-cardinality";
+        sh:order        11;
+        sh:path         cim:Curve.y3Multiplier;
+        sh:severity     sh:Violation .
+
+sr:CurveData.y2value-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "CurveData.y2value-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        4;
+        sh:path         cim:CurveData.y2value;
+        sh:severity     sh:Violation .
+
+sr:Curve.y1Unit-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.rotPers cim:UnitSymbol.cd cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.VPerm cim:UnitSymbol.m3Pers cim:UnitSymbol.onePerHz cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.mol cim:UnitSymbol.F cim:UnitSymbol.sr cim:UnitSymbol.anglesec cim:UnitSymbol.WPerm2sr cim:UnitSymbol.W cim:UnitSymbol.A2h cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.PaPers cim:UnitSymbol.mPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.H cim:UnitSymbol.m3Perh cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.kn cim:UnitSymbol.VPerVA cim:UnitSymbol.radPers2 cim:UnitSymbol.VArh cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.Qh cim:UnitSymbol.VPerVAr cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.degC cim:UnitSymbol.mmHg cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.CPerkg cim:UnitSymbol.ppm cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.kgm2 cim:UnitSymbol.JPerK cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.JPerm2 cim:UnitSymbol.Q cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.none cim:UnitSymbol.VAr cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.WPersr cim:UnitSymbol.NPerm cim:UnitSymbol.S cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.Pa cim:UnitSymbol.A2 );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.y1Unit-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        12;
+        sh:path         cim:Curve.y1Unit;
+        sh:severity     sh:Violation .
+
+sr:Curve.y2Multiplier-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.y2Multiplier-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        10;
+        sh:path         cim:Curve.y2Multiplier;
+        sh:severity     sh:Violation .
+
+sr:Curve.y3Multiplier-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitMultiplier.c cim:UnitMultiplier.T cim:UnitMultiplier.d cim:UnitMultiplier.f cim:UnitMultiplier.E cim:UnitMultiplier.h cim:UnitMultiplier.y cim:UnitMultiplier.G cim:UnitMultiplier.none cim:UnitMultiplier.z cim:UnitMultiplier.Y cim:UnitMultiplier.k cim:UnitMultiplier.Z cim:UnitMultiplier.da cim:UnitMultiplier.m cim:UnitMultiplier.n cim:UnitMultiplier.M cim:UnitMultiplier.p cim:UnitMultiplier.P cim:UnitMultiplier.a cim:UnitMultiplier.micro );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.y3Multiplier-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        11;
+        sh:path         cim:Curve.y3Multiplier;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.name-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        ido:DatatypesGroupIO;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "IdentifiedObject.name-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.name;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.name-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        ido:CardinalityIO;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "IdentifiedObject.name-cardinality";
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.name;
+        sh:severity     sh:Violation .
+
+sr:Curve.xMultiplier-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.xMultiplier-cardinality";
+        sh:order        9;
+        sh:path         cim:Curve.xMultiplier;
+        sh:severity     sh:Violation .
+
+ido:CardinalityGroup  rdf:type  sh:PropertyGroup;
+        rdfs:label  "CardinalityIO";
+        sh:order    0 .
+
+sr:CurveData.xvalue-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "CurveData.xvalue-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0;
+        sh:path         cim:CurveData.xvalue;
+        sh:severity     sh:Violation .
+
+sr:Curve.xUnit-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.xUnit-cardinality";
+        sh:order        6;
+        sh:path         cim:Curve.xUnit;
+        sh:severity     sh:Violation .
+
+sr:SimulationResultCharacteristic.SimulationResult-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "SimulationResultCharacteristic.SimulationResult-cardinality";
+        sh:order        1;
+        sh:path         cim:SimulationResultCharacteristic.SimulationResult;
+        sh:severity     sh:Violation .
+
+sr:Curve.xUnit-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        sr:DatatypesGroup;
+        sh:in           ( cim:UnitSymbol.WPerW cim:UnitSymbol.Mx cim:UnitSymbol.molPerm3 cim:UnitSymbol.VAh cim:UnitSymbol.CPerm2 cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.V cim:UnitSymbol.ohmm cim:UnitSymbol.CPerm3 cim:UnitSymbol.m3Perkg cim:UnitSymbol.rotPers cim:UnitSymbol.cd cim:UnitSymbol.WPermK cim:UnitSymbol.rad cim:UnitSymbol.bar cim:UnitSymbol.lPerl cim:UnitSymbol.JPermolK cim:UnitSymbol.G cim:UnitSymbol.h cim:UnitSymbol.charPers cim:UnitSymbol.m3 cim:UnitSymbol.VPerm cim:UnitSymbol.m3Pers cim:UnitSymbol.onePerHz cim:UnitSymbol.anglemin cim:UnitSymbol.dB cim:UnitSymbol.V2h cim:UnitSymbol.Vh cim:UnitSymbol.kgPerJ cim:UnitSymbol.Bq cim:UnitSymbol.mol cim:UnitSymbol.F cim:UnitSymbol.sr cim:UnitSymbol.anglesec cim:UnitSymbol.WPerm2sr cim:UnitSymbol.W cim:UnitSymbol.A2h cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.VPerHz cim:UnitSymbol.PaPers cim:UnitSymbol.mPers cim:UnitSymbol.gPerg cim:UnitSymbol.JPers cim:UnitSymbol.Gy cim:UnitSymbol.Wh cim:UnitSymbol.H cim:UnitSymbol.m3Perh cim:UnitSymbol.JPerkg cim:UnitSymbol.m2 cim:UnitSymbol.HzPerHz cim:UnitSymbol.cosPhi cim:UnitSymbol.lPerh cim:UnitSymbol.K cim:UnitSymbol.l cim:UnitSymbol.radPers cim:UnitSymbol.V2 cim:UnitSymbol.deg cim:UnitSymbol.J cim:UnitSymbol.kn cim:UnitSymbol.VPerVA cim:UnitSymbol.radPers2 cim:UnitSymbol.VArh cim:UnitSymbol.count cim:UnitSymbol.ohm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.Hz cim:UnitSymbol.sPers cim:UnitSymbol.SPerm cim:UnitSymbol.VPerV cim:UnitSymbol.Ah cim:UnitSymbol.M cim:UnitSymbol.lm cim:UnitSymbol.Qh cim:UnitSymbol.VPerVAr cim:UnitSymbol.molPermol cim:UnitSymbol.FPerm cim:UnitSymbol.VA cim:UnitSymbol.ft3 cim:UnitSymbol.m cim:UnitSymbol.molPerkg cim:UnitSymbol.Vs cim:UnitSymbol.mPerm3 cim:UnitSymbol.Oe cim:UnitSymbol.WPerm2 cim:UnitSymbol.kgm cim:UnitSymbol.degC cim:UnitSymbol.mmHg cim:UnitSymbol.JPerkgK cim:UnitSymbol.m2Pers cim:UnitSymbol.character cim:UnitSymbol.APerA cim:UnitSymbol.gal cim:UnitSymbol.Wb cim:UnitSymbol.CPerkg cim:UnitSymbol.ppm cim:UnitSymbol.N cim:UnitSymbol.WPerA cim:UnitSymbol.kgm2 cim:UnitSymbol.JPerK cim:UnitSymbol.lPers cim:UnitSymbol.A cim:UnitSymbol.katPerm3 cim:UnitSymbol.APerm cim:UnitSymbol.s cim:UnitSymbol.kg cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.WPers cim:UnitSymbol.JPermol cim:UnitSymbol.JPerm3 cim:UnitSymbol.mPers2 cim:UnitSymbol.KPers cim:UnitSymbol.JPerm2 cim:UnitSymbol.Q cim:UnitSymbol.HzPers cim:UnitSymbol.GyPers cim:UnitSymbol.Btu cim:UnitSymbol.dBm cim:UnitSymbol.ohmPerm cim:UnitSymbol.A2s cim:UnitSymbol.C cim:UnitSymbol.d cim:UnitSymbol.Sv cim:UnitSymbol.kat cim:UnitSymbol.none cim:UnitSymbol.VAr cim:UnitSymbol.T cim:UnitSymbol.Pas cim:UnitSymbol.min cim:UnitSymbol.As cim:UnitSymbol.lx cim:UnitSymbol.rev cim:UnitSymbol.Nm cim:UnitSymbol.WPersr cim:UnitSymbol.NPerm cim:UnitSymbol.S cim:UnitSymbol.m3Compensated cim:UnitSymbol.HPerm cim:UnitSymbol.Pa cim:UnitSymbol.A2 );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Curve.xUnit-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        6;
+        sh:path         cim:Curve.xUnit;
+        sh:severity     sh:Violation .
+
+sr:SimulationResult  rdf:type  sh:NodeShape;
+        sh:property     sr:SimulationResult.SimulationSettings-valueType , sr:SimulationResult.SimulationEvents-cardinality , sr:SimulationResult.SimulationSettings-cardinality , ido:IdentifiedObject.description-cardinality , sr:SimulationResult.SimulationEvents-valueType , ido:IdentifiedObject.description-datatype , sr:SimulationResult.SignalConfiguration-cardinality , sr:SimulationResult.SignalConfiguration-valueType , ido:IdentifiedObject.name-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality;
+        sh:targetClass  cim:SimulationResult .
+
+sr:AssociationsGroup  rdf:type  sh:PropertyGroup;
+        rdfs:label  "Associations";
+        sh:order    2 .
+
+sr:Curve.y2Multiplier-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Curve.y2Multiplier-cardinality";
+        sh:order        10;
+        sh:path         cim:Curve.y2Multiplier;
+        sh:severity     sh:Violation .
+
+sr:CurveData.Curve-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        sr:AssociationsGroup;
+        sh:in           ( cim:SimulationResultCharacteristic cim:GrossToNetActivePowerCurve cim:VsCapabilityCurve cim:ReactiveCapabilityCurve cim17:ReactiveCapabilityCurve cim17:VsCapabilityCurve cim17:GrossToNetActivePowerCurve );
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class.";
+        sh:name         "CurveData.Curve-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        3;
+        sh:path         ( cim:CurveData.Curve rdf:type );
+        sh:severity     sh:Violation .
+
+sr:CurveData.y1value-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        sr:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "CurveData.y1value-cardinality";
+        sh:order        1;
+        sh:path         cim:CurveData.y1value;
         sh:severity     sh:Violation .

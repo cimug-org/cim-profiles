@@ -1,5 +1,6 @@
 @base          <http://cim-profile.ucaiug.io/grid/SimulationSettings/Constraints> .
 @prefix cim:     <http://cim.ucaiug.io/ns#> .
+@prefix cim17:   <http://iec.ch/TC57/CIM100#> .
 @prefix cims:    <http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#> .
 @prefix dash:    <http://datashapes.org/dash#> .
 @prefix dc:      <http://purl.org/dc/elements/1.1/#> .
@@ -21,1438 +22,1500 @@
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
-set:EquipmentFault.Terminal-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:Terminal ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:Terminal" ;
-        sh:name         "EquipmentFault.Terminal-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        0 ;
-        sh:path         ( cim:EquipmentFault.Terminal rdf:type ) ;
-        sh:severity     sh:Violation .
 
-set:SignalRecorder  rdf:type  sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.description-cardinality , set:SignalRecorder.SimulationConfiguration-valueType , set:SignalRecorder.RecordedSignalOf-cardinality , ido:IdentifiedObject.description-datatype , set:SignalRecorder.SimulationConfiguration-cardinality , set:SignalRecorder.signalKind-cardinality , set:SignalRecorder.RecordedSignal-cardinality , set:SignalRecorder.signalKind-datatype , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.name-datatype , set:SignalRecorder.RecordedSignalAt-cardinality , set:SignalRecorder.RecordedSignal-valueType , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.name-cardinality ;
-        sh:targetClass  cim:SignalRecorder .
+set:Ontology  rdf:type        owl:Ontology;
+        dcterms:conformsTo    "urn:iso:std:iec:61970-501:draft:ed-2" , "urn:iso:std:iec:61970-401:draft:ed-1" , "urn:iso:std:iec:61970-301:ed-7:amd1" , "file://CIM_Grid18v06_Support14v00_Market04v14_TF13_Profiles.eap" , "urn:iso:std:iec:61970-302:ed-2";
+        dcterms:description   "Describing constraints extracted from RDFS.";
+        dcterms:identifier    "urn:uuid0b4e0e47-c789-40ca-baa4-a5309c873784";
+        dcterms:issued        "2023-10-22T07:55:56.020653300"^^xsd:dateTime;
+        dcterms:language      "en-GB";
+        dcterms:license       "https://www.apache.org/licenses/LICENSE-2.0"@en;
+        dcterms:modified      "2023-07-10"^^xsd:date;
+        dcterms:publisher     "UCAIug"@en;
+        dcterms:rightsHolder  "UCAIug"@en;
+        dcterms:title         "Simulation Settings Vocabulary"@en;
+        owl:versionIRI        <Constraints/1.0>;
+        owl:versionInfo       "1.0.0"@en;
+        dcat:keyword          "SET";
+        dcat:theme            "constraint"@en .
 
-set:SimulationSettings.minimumIntegrationStepSize-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "SimulationSettings.minimumIntegrationStepSize-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        6 ;
-        sh:path         cim:SimulationSettings.minimumIntegrationStepSize ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.signalKind-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "SignalRecorder.signalKind-cardinality" ;
-        sh:order        3 ;
-        sh:path         cim:SignalRecorder.signalKind ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.switchedShuntControlPriority-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.switchedShuntControlPriority-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        17 ;
-        sh:path         cim:PowerFlowSettings.switchedShuntControlPriority ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.RecordedSignalOf-valueTypeNodeShape
-        rdf:type        sh:NodeShape ;
-        sh:property     set:SignalRecorder.RecordedSignalOf-valueType ;
-        sh:targetClass  cim:SignalRecorder .
-
-set:PowerFlowSettings.maxIterationsOuterLoop-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.maxIterationsOuterLoop-cardinality" ;
-        sh:order        14 ;
-        sh:path         cim:PowerFlowSettings.maxIterationsOuterLoop ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:PowerFlowSettings.loadResponseCharacteristicsEnabled ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.integerParameterValue-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ParameterEvent.integerParameterValue-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0 ;
-        sh:path         cim:ParameterEvent.integerParameterValue ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.reactivePowerTolerance-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.reactivePowerTolerance-cardinality" ;
-        sh:order        6 ;
-        sh:path         cim:PowerFlowSettings.reactivePowerTolerance ;
-        sh:severity     sh:Violation .
-
-set:ClearSimulationEvent
-        rdf:type        sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.description-datatype , set:ClearSimulationEvent.SimulationEvents-valueType , set:ClearSimulationEvent.ClearedParameterEvent-valueType , set:ClearSimulationEvent.ClearedParameterEvent-cardinality , set:ClearSimulationEvent.eventTime-cardinality , set:ClearSimulationEvent.eventTime-datatype , set:ClearSimulationEvent.ClearedFaultEvent-cardinality , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-cardinality , set:ClearSimulationEvent.SimulationEvents-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality ;
-        sh:targetClass  cim:ClearSimulationEvent .
-
-set:SignalRecorder.SimulationConfiguration-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SignalRecorder.SimulationConfiguration-cardinality" ;
-        sh:order        4 ;
-        sh:path         cim:SignalRecorder.SimulationConfiguration ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.RecordedSignal-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SignalRecorder.RecordedSignal-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:SignalRecorder.RecordedSignal ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent  rdf:type  sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.description-cardinality , set:ParameterEvent.parameterIRI-cardinality , set:ParameterEvent.rampDuration-cardinality , set:ParameterEvent.rampDuration-datatype , set:ParameterEvent.eventTime-datatype , set:ParameterEvent.changeKind-datatype , ido:IdentifiedObject.name-datatype , set:ParameterEvent.integerParameterValue-datatype , ido:IdentifiedObject.name-cardinality , set:ParameterEvent.parameterName-cardinality , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.description-datatype , set:ParameterEvent.eventTime-cardinality , set:ParameterEvent.UsesParameterOf-cardinality , set:ParameterEvent.parameterName-datatype , ido:IdentifiedObject.mRID-cardinality , set:ParameterEvent.booleanParameterValue-datatype , set:ParameterEvent.integerParameterValue-cardinality , set:ParameterEvent.changeKind-cardinality , set:ParameterEvent.floatParementerValue-cardinality , set:ParameterEvent.floatParementerValue-datatype , set:ParameterEvent.booleanParameterValue-cardinality , set:ParameterEvent.SimulationEvents-valueType , set:ParameterEvent.SimulationEvents-cardinality , set:ParameterEvent.parameterIRI-datatype ;
-        sh:targetClass  cim:ParameterEvent .
-
-set:ParameterEvent.SimulationEvents-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "ParameterEvent.SimulationEvents-cardinality" ;
-        sh:order        3 ;
-        sh:path         cim:ParameterEvent.SimulationEvents ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.isIntegrationStepSizeVariable-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "SimulationSettings.isIntegrationStepSizeVariable-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        2 ;
-        sh:path         cim:SimulationSettings.isIntegrationStepSizeVariable ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.shiftKind-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:PowerShiftKind.conformLoadShift cim:PowerShiftKind.allLoadShift cim:PowerShiftKind.generationAndLoadShiftKey cim:PowerShiftKind.generationShift ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "PowerFlowSettings.shiftKind-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        11 ;
-        sh:path         cim:PowerFlowSettings.shiftKind ;
-        sh:severity     sh:Violation .
-
-set:SimulationEvents  rdf:type  sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality ;
-        sh:targetClass  cim:SimulationEvents .
-
-set:PowerFlowSettings.staticVarCompensatorControlPriority-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.staticVarCompensatorControlPriority-cardinality" ;
-        sh:order        4 ;
-        sh:path         cim:PowerFlowSettings.staticVarCompensatorControlPriority ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.PowerFlowSettings-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:PowerFlowSettings ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:PowerFlowSettings" ;
-        sh:name         "SimulationSettings.PowerFlowSettings-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        0 ;
-        sh:path         ( cim:SimulationSettings.PowerFlowSettings rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:DatatypesGroup  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "Datatypes" ;
-        sh:order    1 .
-
-set:LineFault.ACLineSegment-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:ACLineSegment ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:ACLineSegment" ;
-        sh:name         "LineFault.ACLineSegment-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        1 ;
-        sh:path         ( cim:LineFault.ACLineSegment rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.flatStart-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.flatStart-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        15 ;
-        sh:path         cim:PowerFlowSettings.flatStart ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.integrationStepSize-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationSettings.integrationStepSize-cardinality" ;
-        sh:order        3 ;
-        sh:path         cim:SimulationSettings.integrationStepSize ;
-        sh:severity     sh:Violation .
-
-set:Fault.phases-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "Fault.phases-cardinality" ;
-        sh:order        4 ;
-        sh:path         cim:Fault.phases ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.interchangeControlEnabled-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.interchangeControlEnabled-cardinality" ;
-        sh:order        9 ;
-        sh:path         cim:PowerFlowSettings.interchangeControlEnabled ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.isIntegrationStepSizeVariable-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationSettings.isIntegrationStepSizeVariable-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:SimulationSettings.isIntegrationStepSizeVariable ;
-        sh:severity     sh:Violation .
-
-set:ClearSimulationEvent.SimulationEvents-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:SimulationEvents ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents" ;
-        sh:name         "ClearSimulationEvent.SimulationEvents-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        1 ;
-        sh:path         ( cim:ClearSimulationEvent.SimulationEvents rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.booleanParameterValue-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ParameterEvent.booleanParameterValue-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        5 ;
-        sh:path         cim:ParameterEvent.booleanParameterValue ;
-        sh:severity     sh:Violation .
-
-set:EquipmentFault.Terminal-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "EquipmentFault.Terminal-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:EquipmentFault.Terminal ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings
-        rdf:type        sh:NodeShape ;
-        sh:property     set:PowerFlowSettings.transformerRatioTapControlPriority-datatype , set:PowerFlowSettings.transformerRatioTapControlPriority-cardinality , ido:IdentifiedObject.description-datatype , set:PowerFlowSettings.maxIterationsOuterLoop-datatype , set:PowerFlowSettings.flatStart-cardinality , set:PowerFlowSettings.switchedShuntControlPriority-cardinality , ido:IdentifiedObject.description-cardinality , set:PowerFlowSettings.shiftKind-datatype , set:PowerFlowSettings.maxIterationsOuterLoop-cardinality , set:PowerFlowSettings.slackDistributionKind-datatype , set:PowerFlowSettings.activePowerTolerance-cardinality , set:PowerFlowSettings.slackDistributionKind-cardinality , ido:IdentifiedObject.name-datatype , set:PowerFlowSettings.respectReactivePowerLimits-datatype , set:PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype , set:PowerFlowSettings.interchangeControlEnabled-datatype , set:PowerFlowSettings.voltageTolerance-datatype , set:PowerFlowSettings.activePowerTolerance-datatype , set:PowerFlowSettings.voltageTolerance-cardinality , set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype , ido:IdentifiedObject.name-cardinality , set:PowerFlowSettings.transformerPhaseTapControlPriority-datatype , ido:IdentifiedObject.mRID-datatype , set:PowerFlowSettings.voltageAngleLimit-datatype , set:PowerFlowSettings.maxIterationsInnerLoop-cardinality , set:PowerFlowSettings.shiftKind-cardinality , set:PowerFlowSettings.algorithmKind-cardinality , set:PowerFlowSettings.impedanceThreshold-datatype , set:PowerFlowSettings.reactivePowerTolerance-cardinality , set:PowerFlowSettings.loadVoltageDependency-datatype , set:PowerFlowSettings.respectReactivePowerLimits-cardinality , set:PowerFlowSettings.transformerPhaseTapControlPriority-cardinality , set:PowerFlowSettings.impedanceThreshold-cardinality , set:PowerFlowSettings.voltageAngleLimit-cardinality , set:PowerFlowSettings.loadVoltageDependency-cardinality , set:PowerFlowSettings.interchangeControlEnabled-cardinality , set:PowerFlowSettings.reactivePowerTolerance-datatype , ido:IdentifiedObject.mRID-cardinality , set:PowerFlowSettings.maxIterationsInnerLoop-datatype , set:PowerFlowSettings.staticVarCompensatorControlPriority-cardinality , set:PowerFlowSettings.algorithmKind-datatype , set:PowerFlowSettings.respectActivePowerLimits-datatype , set:PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality , set:PowerFlowSettings.flatStart-datatype , set:PowerFlowSettings.respectActivePowerLimits-cardinality , set:PowerFlowSettings.switchedShuntControlPriority-datatype ;
-        sh:targetClass  cim:PowerFlowSettings .
-
-set:Fault.FaultyEquipment-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:DCShunt cim:Cut cim:ExternalNetworkInjection cim:DCSwitch cim:DisconnectingCircuitBreaker cim:Breaker cim:GroundingImpedance cim:SynchronousMachine cim:PetersenCoil cim:ConformLoad cim:EnergyConsumer cim:DCDisconnector cim:VsConverter cim:NuclearGeneratingUnit cim:PowerTransformer cim:ACLineSegment cim:NonConformLoad cim:Jumper cim:WaveTrap cim:DCSeriesDevice cim:BusbarSection cim:SurgeArrester cim:EquivalentBranch cim:PostLineSensor cim:LinearShuntCompensator cim:CurrentTransformer cim:NonlinearShuntCompensator cim:Ground cim:Fuse cim:CsConverter cim:Junction cim:WindGeneratingUnit cim:DCGround cim:HydroPump cim:StaticVarCompensator cim:DCLineSegment cim:PowerElectronicsConnection cim:Switch cim:PhotoVoltaicUnit cim:ThermalGeneratingUnit cim:DCChopper cim:BatteryUnit cim:DCBreaker cim:LoadBreakSwitch cim:EquivalentShunt cim:VariableShuntCompensator cim:Clamp cim:SolarGeneratingUnit cim:StationSupply cim:FaultIndicator cim:EquivalentInjection cim:AsynchronousMachine cim:GeneratingUnit cim:Disconnector cim:SeriesCompensator cim:HydroGeneratingUnit cim:GroundDisconnector cim:DCBusbar cim:EnergySource cim:PotentialTransformer cim:PowerElectronicsWindUnit ) ;
-        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class." ;
-        sh:name         "Fault.FaultyEquipment-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        6 ;
-        sh:path         ( cim:Fault.FaultyEquipment rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.interchangeControlEnabled-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.interchangeControlEnabled-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        9 ;
-        sh:path         cim:PowerFlowSettings.interchangeControlEnabled ;
-        sh:severity     sh:Violation .
-
-set:Fault.FaultCauseTypes-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:FaultCauseType ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:FaultCauseType" ;
-        sh:name         "Fault.FaultCauseTypes-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        3 ;
-        sh:path         ( cim:Fault.FaultCauseTypes rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings
-        rdf:type        sh:NodeShape ;
-        sh:property     set:SimulationSettings.integrationStepSize-cardinality , set:SimulationSettings.minimumIntegrationStepSize-cardinality , ido:IdentifiedObject.name-cardinality , set:SimulationSettings.maximumIntegrationStepSize-cardinality , ido:IdentifiedObject.description-datatype , set:SimulationSettings.maximumIntegrationStepSize-datatype , set:SimulationSettings.integrationStepSize-datatype , set:SimulationSettings.simulationResultsRecordedEvery-datatype , ido:IdentifiedObject.mRID-datatype , set:SimulationSettings.PowerFlowSettings-valueType , set:SimulationSettings.duration-datatype , set:SimulationSettings.isIntegrationStepSizeVariable-cardinality , set:SimulationSettings.isIntegrationStepSizeVariable-datatype , set:SimulationSettings.minimumIntegrationStepSize-datatype , set:SimulationSettings.simulationResultsRecordedEvery-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-cardinality , set:SimulationSettings.PowerFlowSettings-cardinality , set:SimulationSettings.duration-cardinality ;
-        sh:targetClass  cim:SimulationSettings .
-
-set:SimulationSettings.maximumIntegrationStepSize-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "SimulationSettings.maximumIntegrationStepSize-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        5 ;
-        sh:path         cim:SimulationSettings.maximumIntegrationStepSize ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.duration-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:duration ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "SimulationSettings.duration-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        4 ;
-        sh:path         cim:SimulationSettings.duration ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.activePowerTolerance-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.activePowerTolerance-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        20 ;
-        sh:path         cim:PowerFlowSettings.activePowerTolerance ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.description-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        ido:DatatypesGroupIO ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "IdentifiedObject.description-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.description ;
-        sh:severity     sh:Violation .
-
-set:Fault.occurredDateTime-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "Fault.occurredDateTime-cardinality" ;
-        sh:order        7 ;
-        sh:path         cim:Fault.occurredDateTime ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.floatParementerValue-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ParameterEvent.floatParementerValue-cardinality" ;
-        sh:order        8 ;
-        sh:path         cim:ParameterEvent.floatParementerValue ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.flatStart-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.flatStart-cardinality" ;
-        sh:order        15 ;
-        sh:path         cim:PowerFlowSettings.flatStart ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.loadVoltageDependency-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.loadVoltageDependency-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        18 ;
-        sh:path         cim:PowerFlowSettings.loadVoltageDependency ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.changeKind-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:ParameterChangeKind.step cim:ParameterChangeKind.ramp ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "ParameterEvent.changeKind-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        1 ;
-        sh:path         cim:ParameterEvent.changeKind ;
-        sh:severity     sh:Violation .
-
-set:LineFault.lengthFromTerminal1-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "LineFault.lengthFromTerminal1-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:LineFault.lengthFromTerminal1 ;
-        sh:severity     sh:Violation .
-
-set:ClearSimulationEvent.eventTime-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ClearSimulationEvent.eventTime-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0 ;
-        sh:path         cim:ClearSimulationEvent.eventTime ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.integrationStepSize-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "SimulationSettings.integrationStepSize-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        3 ;
-        sh:path         cim:SimulationSettings.integrationStepSize ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.parameterIRI-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ParameterEvent.parameterIRI-cardinality" ;
-        sh:order        7 ;
-        sh:path         cim:ParameterEvent.parameterIRI ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.description-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        ido:CardinalityIO ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "IdentifiedObject.description-cardinality" ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.description ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.transformerRatioTapControlPriority-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.transformerRatioTapControlPriority-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        2 ;
-        sh:path         cim:PowerFlowSettings.transformerRatioTapControlPriority ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.eventTime-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "ParameterEvent.eventTime-cardinality" ;
-        sh:order        9 ;
-        sh:path         cim:ParameterEvent.eventTime ;
-        sh:severity     sh:Violation .
-
-set:ClearSimulationEvent.ClearedParameterEvent-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:ParameterEvent ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:ParameterEvent" ;
-        sh:name         "ClearSimulationEvent.ClearedParameterEvent-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        2 ;
-        sh:path         ( cim:ClearSimulationEvent.ClearedParameterEvent rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.voltageAngleLimit-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.voltageAngleLimit-cardinality" ;
-        sh:order        8 ;
-        sh:path         cim:PowerFlowSettings.voltageAngleLimit ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.minimumIntegrationStepSize-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SimulationSettings.minimumIntegrationStepSize-cardinality" ;
-        sh:order        6 ;
-        sh:path         cim:SimulationSettings.minimumIntegrationStepSize ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.simulationResultsRecordedEvery-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationSettings.simulationResultsRecordedEvery-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:SimulationSettings.simulationResultsRecordedEvery ;
-        sh:severity     sh:Violation .
-
-set:AssociationsGroup
-        rdf:type    sh:PropertyGroup ;
-        rdfs:label  "Associations" ;
-        sh:order    2 .
-
-set:ParameterEvent.parameterIRI-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ParameterEvent.parameterIRI-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        7 ;
-        sh:path         cim:ParameterEvent.parameterIRI ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.maxIterationsOuterLoop-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.maxIterationsOuterLoop-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        14 ;
-        sh:path         cim:PowerFlowSettings.maxIterationsOuterLoop ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.respectActivePowerLimits-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.respectActivePowerLimits-cardinality" ;
-        sh:order        3 ;
-        sh:path         cim:PowerFlowSettings.respectActivePowerLimits ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.name-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        ido:DatatypesGroupIO ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "IdentifiedObject.name-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.name ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.mRID-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        ido:DatatypesGroupIO ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "IdentifiedObject.mRID-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.mRID ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.integerParameterValue-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ParameterEvent.integerParameterValue-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:ParameterEvent.integerParameterValue ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.RecordedSignalOf-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:GovIEEEHydroDD cim:ExcIEEEST3C cim:WindGenTurbineType2IEC cim:LoadGenericNonLinear cim:PowerSystemStabilizerUserDefined cim:WeccREEC cim:ShuntCompensatorUserDefined cim:VCompIEEEType2 cim:ExcST6B cim:OverexcLimIEEEOEL4C cim:ExcAVR1 cim:ExcIEEEAC7B cim:LoadUserDefined cim:SynchronousMachineEquivalentCircuit cim:PssELIN2 cim:CSCUserDefined cim:PssIEEE1A cim:WeccREGCB cim:ExcCZ cim:ExcIEEEST7C cim:GovHydro3 cim:ExcIEEEDC1A cim:ExcIEEEAC6A cim:UnderexcLimX2 cim:VCompIEEEType1 cim:PssIEEE2C cim:ExcIEEEST6B cim:ExcIEEEAC11C cim:GovHydroR cim:ExcIEEEAC1C cim:Pss1A cim:LoadCompositeWECC cim:PssIEEE3C cim:WeccWTGIBFFRA cim:ExcIEEEST7B cim:ExcIEEEDC2C cim:AsynchronousMachineUserDefined cim:GovSteamIEEETGOV5 cim:ExcAC6A cim:PssIEEE2B cim:ExcAC1A cim:ExcRQB cim:ExcIEEEST3A cim:SVCUserDefined cim:WindGenTurbineType1bIEC2 cim:PssSH cim:UnderexcLimIEEE2 cim:Pss1 cim:WindPlantUserDefined cim:ExcREXS cim:GovHydroWPID cim:PFVArType2CIEEEPFController cim:GovGAST2 cim:ExcIEEEST4C cim:VAdjIEEE2 cim:StatorCurrentLimIEEESCL2C cim:GovHydro1 cim:GovSteamIEEEG1Aug cim:WindTurbineType4aIEC2 cim:WeccWTGTB cim:OverexcLimIEEEOEL5C cim:ExcIEEEST10C cim:GovGAST1 cim:GovGAST4 cim:GovSteamFV4 cim:ExcIEEEAC1A cim:OverexcLim2 cim:ExcAVR2 cim:ExcST7B cim:PFVArControllerType1UserDefined cim:GovIEEEGT1 cim:ExcIEEEAC2C cim:ExcIEEEST8C cim:SVSMO2 cim:SynchronousMachineSimplified cim:VAdjIEEE cim:ExcIEEEAC3C cim:ExcST3A cim:GovGAST3 cim:ExcST1A cim:UnderexcLimIEEEUEL2C cim:ExcAVR4 cim:SVSMO3 cim:ExcAC2A cim:TurbLCFB1 cim:WindTurbineType4bIEC2 cim:PssPTIST3 cim:TurbIEEEHydroWCNonLinear cim:GovGAST cim:ExcAC3A cim:GovSteamIEEE1 cim:ExcNI cim:WindGenTurbineType1bIEC cim:GovSteam2 cim:WindType3or4UserDefined cim:Pss2B cim:OverexcitationLimiterUserDefined cim:RateOfChangeOfPowerRelay cim:GovHydroPID2 cim:GovHydroIEEE0 cim:AsynchronousMachineTimeConstantReactance cim:DiscExcContIEEEDEC3A cim:UnderexcLimX1 cim:LoadComposite cim:WindGenTurbineType1aIEC2 cim:DiscontinuousExcitationControlUserDefined cim:PFVArType2Common1 cim:GovIEEEHydroPIDspt cim:PFVArType2IEEEPFController cim:TurbIEEEHydroWClinear cim:PFVArType1CIEEEPFController cim:GovSteamFV2 cim:ExcIEEEAC2A cim:GovHydroIEEE2 cim:WeccDERApvmod cim:WeccWTGWGOA cim:WeccREECC cim:WindTurbineType3IEC2 cim:WeccREECD cim:ExcSCRX cim:ExcIEEEAC3A cim:GovSteam1 cim:ExcIEEEAC8B cim:PssWECC cim:WeccREPCC cim:PssIEEE5C cim:WindType1or2UserDefined cim:UnderexcLim2Simplified cim:ExcIEEEAC8C cim:PFVArType1CIEEEVArController cim:ExcIEEEDC2A cim:TurbineLoadControllerUserDefined cim:PssPTIST1 cim:PssIEEE3B cim:StatcomIEC cim:GovHydroWEH cim:GovSteam0 cim:GovIEEEHydroMech cim:GovHydroDD cim:UnderexcitationLimiterUserDefined cim:DiscExcContIEEEDEC1A cim:MechanicalLoadUserDefined cim:ExcIEEEDC4C cim:WeccWT1PB cim:WeccWTGTA cim:OverexcLimIEEEOEL2C cim:WeccWTGTRQA cim:ExcELIN2 cim:WindTurbineType4bIEC cim:PssSK cim:UnderexcLimIEEE1 cim:WindTurbineType3IEC cim:WindGenTurbineType1aIEC cim:ExcDC3A1 cim:Pss2ST cim:ExcIEEEST2C cim:ExcIEEEST5C cim:GovSteamSGO cim:WeccWTGPB cim:OverexcLimIEEEOEL3C cim:ExcBBC cim:WeccREGCC cim:ExcIEEEST4B cim:WeccWTGPTA cim:StatorCurrentLimIEEESCL1C cim:GovHydro4 cim:SynchronousMachineTimeConstantReactance cim:VoltageCompensatorUserDefined cim:TurbIEEEHydroWCgen cim:TurbineGovernorUserDefined cim:ExcIEEEST6C cim:ExcIEEEST9C cim:ExcIEEEDC4B cim:ExcIEEEST5B cim:ExcDC3A cim:ExcHU cim:GovSteamFV3 cim:PssIEEE6C cim:PssIEEE4C cim:TurbCIGREHRSGST cim:GovGASTWD cim:PssSTAB2A cim:WindPlantBasicIEC cim:OverexcLimIEEE cim:ExcIEEEAC10C cim:WindTurbineType4aIEC cim:ExcIEEEAC5C cim:WeccDERA cim:ExcANS cim:PssIEEE7C cim:GovSteamBB cim:SVSMO1 cim:StatcomUserDefined cim:MechLoad1 cim:ExcAVR7 cim:PFVArControllerType2UserDefined cim:AsynchronousMachineEquivalentCircuit cim:ExcAC5A cim:PssIEEE4B cim:PssSB4 cim:OverexcLimX2 cim:GovIEEEHydroLL cim:VoltageAdjusterUserDefined cim:ExcIEEEAC9C cim:ExcIEEEST2A cim:SynchronousMachineUserDefined cim:ExcST4B cim:GovCT2 cim:GovSteamCC cim:ExcIEEEST1C cim:WeccREGCA cim:PFVArType2CIEEEVArController cim:RelayUserDefined cim:GovHydro2 cim:PFVArType1IEEEPFController cim:DiscExcContIEEEDEC2A cim:WeccWTGARA cim:WeccWT12T cim:GovCIGREGT cim:WindPlantIEC cim:ExcDC1A cim:WeccWT2E cim:ExcIEEEAC4A cim:TurbIEEEHydroWCNonLinearB cim:ExcSK cim:ExcAVR3 cim:GovCT1 cim:GovIEEEHydroPID cim:Pss5 cim:PFVArType2IEEEVArController cim:ExcDC2A cim:ExcSEXS cim:LoadAggregate cim:GovHydroFrancis cim:OverexcLimX1 cim:TurbIEEEGenericHRSGST cim:WeccREECB cim:ExcIEEEAC5A cim:ExcPIC cim:StatorCurrentLimiterUserDefined cim:GovSteamEU cim:ExcIEEEDC1C cim:WeccREPCA cim:ExcIEEEAC6C cim:ExcIEEEAC4C cim:ExcIEEEDC3A cim:WeccTIOCRS cim:TurbIEEEHydroWCNonLinearA cim:VSCUserDefined cim:ExcAVR5 cim:HVDCInterconnectionUserDefined cim:SVSMO4 cim:ExcELIN1 cim:ExcitationSystemUserDefined cim:WeccBESS cim:ExcIEEEAC7C cim:PFVArType1IEEEVArController cim:DERIEEEType1 cim:WindGenTurbineType2IEC2 cim:ExcST2A cim:PssRQB cim:GovHydroPID cim:WeccREECA cim:ExcAC8B cim:WindPlantQCompensationIEC cim:ExcIEEEST1A cim:ExcAC4A cim:GovHydroPelton cim:WeccPVD1 cim:ExcOEX3T ) ;
-        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class." ;
-        sh:name         "SignalRecorder.RecordedSignalOf-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        2 ;
-        sh:path         ( cim:SignalRecorder.RecordedSignalOf rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.parameterName-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:string ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ParameterEvent.parameterName-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        10 ;
-        sh:path         cim:ParameterEvent.parameterName ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.transformerPhaseTapControlPriority-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.transformerPhaseTapControlPriority-cardinality" ;
-        sh:order        10 ;
-        sh:path         cim:PowerFlowSettings.transformerPhaseTapControlPriority ;
-        sh:severity     sh:Violation .
-
-set:FaultCauseType  rdf:type  sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality ;
-        sh:targetClass  cim:FaultCauseType .
-
-set:PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        1 ;
-        sh:path         cim:PowerFlowSettings.loadResponseCharacteristicsEnabled ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.staticVarCompensatorControlPriority-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        4 ;
-        sh:path         cim:PowerFlowSettings.staticVarCompensatorControlPriority ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.floatParementerValue-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ParameterEvent.floatParementerValue-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        8 ;
-        sh:path         cim:ParameterEvent.floatParementerValue ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.impedanceThreshold-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.impedanceThreshold-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        5 ;
-        sh:path         cim:PowerFlowSettings.impedanceThreshold ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.duration-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationSettings.duration-cardinality" ;
-        sh:order        4 ;
-        sh:path         cim:SimulationSettings.duration ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.signalKind-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:SignalKind.powerSystemSignal cim:SignalKind.standardModelInternal cim:SignalKind.detailedModel ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "SignalRecorder.signalKind-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        3 ;
-        sh:path         cim:SignalRecorder.signalKind ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.eventTime-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ParameterEvent.eventTime-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        9 ;
-        sh:path         cim:ParameterEvent.eventTime ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.voltageTolerance-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.voltageTolerance-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        7 ;
-        sh:path         cim:PowerFlowSettings.voltageTolerance ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.respectReactivePowerLimits-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.respectReactivePowerLimits-cardinality" ;
-        sh:order        12 ;
-        sh:path         cim:PowerFlowSettings.respectReactivePowerLimits ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.mRID-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        ido:CardinalityIO ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "IdentifiedObject.mRID-cardinality" ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.mRID ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.RecordedSignalAt-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SignalRecorder.RecordedSignalAt-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:SignalRecorder.RecordedSignalAt ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.impedanceThreshold-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.impedanceThreshold-cardinality" ;
-        sh:order        5 ;
-        sh:path         cim:PowerFlowSettings.impedanceThreshold ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.RecordedSignal-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:SignalDescriptor ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalDescriptor" ;
-        sh:name         "SignalRecorder.RecordedSignal-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        0 ;
-        sh:path         ( cim:SignalRecorder.RecordedSignal rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:Fault.kind-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:PhaseConnectedFaultKind.lineToGround cim:PhaseConnectedFaultKind.lineToLine cim:PhaseConnectedFaultKind.lineOpen cim:PhaseConnectedFaultKind.lineToLineToGround ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Fault.kind-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        8 ;
-        sh:path         cim:Fault.kind ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.slackDistributionKind-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:SlackDistributionKind.singleReferenceMachine cim:SlackDistributionKind.generationDistributionActivePowerAndVoltageNodesOnly cim:SlackDistributionKind.generationDistributionParticipationFactor cim:SlackDistributionKind.loadDistribution ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "PowerFlowSettings.slackDistributionKind-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        13 ;
-        sh:path         cim:PowerFlowSettings.slackDistributionKind ;
-        sh:severity     sh:Violation .
-
-set:Fault.SimulationEvents-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "Fault.SimulationEvents-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:Fault.SimulationEvents ;
-        sh:severity     sh:Violation .
-
-set:Fault.occurredDateTime-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:dateTime ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "Fault.occurredDateTime-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        7 ;
-        sh:path         cim:Fault.occurredDateTime ;
-        sh:severity     sh:Violation .
-
-set:EquipmentFault  rdf:type  sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.description-datatype , set:Fault.FaultyEquipment-cardinality , set:Fault.SimulationEvents-cardinality , set:EquipmentFault.Terminal-valueType , set:Fault.kind-datatype , ido:IdentifiedObject.description-cardinality , set:EquipmentFault.Terminal-cardinality , ido:IdentifiedObject.mRID-datatype , set:Fault.occurredDateTime-cardinality , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.name-cardinality , set:Fault.impedance-datatype , set:Fault.phases-datatype , set:Fault.FaultCauseTypes-cardinality , set:Fault.phases-cardinality , ido:IdentifiedObject.name-datatype , set:Fault.occurredDateTime-datatype , set:Fault.kind-cardinality , set:Fault.impedance-cardinality , set:Fault.FaultCauseTypes-valueType , set:Fault.SimulationEvents-valueType ;
-        sh:targetClass  cim:EquipmentFault .
-
-set:PowerFlowSettings.maxIterationsInnerLoop-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.maxIterationsInnerLoop-cardinality" ;
-        sh:order        19 ;
-        sh:path         cim:PowerFlowSettings.maxIterationsInnerLoop ;
-        sh:severity     sh:Violation .
-
-ido:DatatypesGroupIO  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "DatatypesIO" ;
-        sh:order    1 .
-
-set:SimulationSettings.maximumIntegrationStepSize-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SimulationSettings.maximumIntegrationStepSize-cardinality" ;
-        sh:order        5 ;
-        sh:path         cim:SimulationSettings.maximumIntegrationStepSize ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.respectReactivePowerLimits-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.respectReactivePowerLimits-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        12 ;
-        sh:path         cim:PowerFlowSettings.respectReactivePowerLimits ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.SimulationEvents-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:SimulationEvents ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents" ;
-        sh:name         "ParameterEvent.SimulationEvents-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        3 ;
-        sh:path         ( cim:ParameterEvent.SimulationEvents rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:Fault.FaultyEquipment-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Fault.FaultyEquipment-cardinality" ;
-        sh:order        6 ;
-        sh:path         cim:Fault.FaultyEquipment ;
-        sh:severity     sh:Violation .
-
-set:SimulationSettings.simulationResultsRecordedEvery-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "SimulationSettings.simulationResultsRecordedEvery-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        1 ;
-        sh:path         cim:SimulationSettings.simulationResultsRecordedEvery ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.reactivePowerTolerance-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.reactivePowerTolerance-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        6 ;
-        sh:path         cim:PowerFlowSettings.reactivePowerTolerance ;
-        sh:severity     sh:Violation .
 
 set:PowerFlowSettings.loadVoltageDependency-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.loadVoltageDependency-cardinality" ;
-        sh:order        18 ;
-        sh:path         cim:PowerFlowSettings.loadVoltageDependency ;
-        sh:severity     sh:Violation .
-
-set:Fault.kind-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "Fault.kind-cardinality" ;
-        sh:order        8 ;
-        sh:path         cim:Fault.kind ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.activePowerTolerance-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.activePowerTolerance-cardinality" ;
-        sh:order        20 ;
-        sh:path         cim:PowerFlowSettings.activePowerTolerance ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.shiftKind-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "PowerFlowSettings.shiftKind-cardinality" ;
-        sh:order        11 ;
-        sh:path         cim:PowerFlowSettings.shiftKind ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.rampDuration-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ParameterEvent.rampDuration-cardinality" ;
-        sh:order        6 ;
-        sh:path         cim:ParameterEvent.rampDuration ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.rampDuration-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "ParameterEvent.rampDuration-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        6 ;
-        sh:path         cim:ParameterEvent.rampDuration ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.algorithmKind-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.algorithmKind-cardinality" ;
-        sh:order        16 ;
-        sh:path         cim:PowerFlowSettings.algorithmKind ;
-        sh:severity     sh:Violation .
-
-ido:IdentifiedObject.name-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        ido:CardinalityIO ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "IdentifiedObject.name-cardinality" ;
-        sh:order        0.1 ;
-        sh:path         cim:IdentifiedObject.name ;
-        sh:severity     sh:Violation .
-
-set:Fault.phases-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:PhaseCode.ABCN cim:PhaseCode.s2N cim:PhaseCode.AB cim:PhaseCode.XN cim:PhaseCode.BC cim:PhaseCode.s2 cim:PhaseCode.C cim:PhaseCode.none cim:PhaseCode.B cim:PhaseCode.s1 cim:PhaseCode.AN cim:PhaseCode.ACN cim:PhaseCode.BCN cim:PhaseCode.BN cim:PhaseCode.X cim:PhaseCode.ABN cim:PhaseCode.XY cim:PhaseCode.N cim:PhaseCode.CN cim:PhaseCode.s12 cim:PhaseCode.A cim:PhaseCode.ABC cim:PhaseCode.s1N cim:PhaseCode.s12N cim:PhaseCode.XYN cim:PhaseCode.AC ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "Fault.phases-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        4 ;
-        sh:path         cim:Fault.phases ;
-        sh:severity     sh:Violation .
-
-set:LineFault  rdf:type  sh:NodeShape ;
-        sh:property     set:Fault.FaultyEquipment-cardinality , set:Fault.occurredDateTime-datatype , set:Fault.kind-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.mRID-datatype , set:LineFault.ACLineSegment-valueType , set:Fault.impedance-cardinality , set:Fault.phases-cardinality , set:Fault.phases-datatype , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.name-cardinality , set:Fault.SimulationEvents-cardinality , set:Fault.FaultCauseTypes-valueType , set:LineFault.lengthFromTerminal1-cardinality , set:Fault.impedance-datatype , set:Fault.SimulationEvents-valueType , set:LineFault.ACLineSegment-cardinality , set:LineFault.lengthFromTerminal1-datatype , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.description-cardinality , set:Fault.occurredDateTime-cardinality , set:Fault.kind-cardinality , set:Fault.FaultCauseTypes-cardinality ;
-        sh:targetClass  cim:LineFault .
-
-set:ClearSimulationEvent.ClearedFaultEvent-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the inverse direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ClearSimulationEvent.ClearedFaultEvent-cardinality" ;
-        sh:order        3 ;
-        sh:path         [ sh:inversePath  cim:Fault.ClearSimulationEvent ] ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.UsesParameterOf-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "ParameterEvent.UsesParameterOf-cardinality" ;
-        sh:order        4 ;
-        sh:path         cim:ParameterEvent.UsesParameterOf ;
-        sh:severity     sh:Violation .
-
-set:Fault.SimulationEvents-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:SimulationEvents ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents" ;
-        sh:name         "Fault.SimulationEvents-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        2 ;
-        sh:path         ( cim:Fault.SimulationEvents rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:CardinalityGroup  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "Cardinality" ;
-        sh:order    0 .
-
-set:SimulationSettings.PowerFlowSettings-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "SimulationSettings.PowerFlowSettings-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:SimulationSettings.PowerFlowSettings ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.booleanParameterValue-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ParameterEvent.booleanParameterValue-cardinality" ;
-        sh:order        5 ;
-        sh:path         cim:ParameterEvent.booleanParameterValue ;
-        sh:severity     sh:Violation .
-
-set:LineFault.ACLineSegment-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "LineFault.ACLineSegment-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:LineFault.ACLineSegment ;
-        sh:severity     sh:Violation .
-
-set:ClearSimulationEvent.eventTime-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "ClearSimulationEvent.eventTime-cardinality" ;
-        sh:order        0 ;
-        sh:path         cim:ClearSimulationEvent.eventTime ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.slackDistributionKind-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.slackDistributionKind-cardinality" ;
-        sh:order        13 ;
-        sh:path         cim:PowerFlowSettings.slackDistributionKind ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.RecordedSignalOf-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "SignalRecorder.RecordedSignalOf-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:SignalRecorder.RecordedSignalOf ;
-        sh:severity     sh:Violation .
-
-set:SignalRecorder.SimulationConfiguration-valueType
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the value type of the association at the used direction." ;
-        sh:group        set:AssociationsGroup ;
-        sh:in           ( cim:SignalConfiguration ) ;
-        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalConfiguration" ;
-        sh:name         "SignalRecorder.SimulationConfiguration-valueType" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        4 ;
-        sh:path         ( cim:SignalRecorder.SimulationConfiguration rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:Fault.FaultyEquipment-valueTypeNodeShape
-        rdf:type        sh:NodeShape ;
-        sh:property     set:Fault.FaultyEquipment-valueType ;
-        sh:targetClass  cim:EquipmentFault , cim:LineFault .
-
-set:PowerFlowSettings.voltageAngleLimit-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.voltageAngleLimit-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        8 ;
-        sh:path         cim:PowerFlowSettings.voltageAngleLimit ;
-        sh:severity     sh:Violation .
-
-set:Fault.impedance-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:FaultImpedance ) ;
-        sh:message      "Blank node (compound datatype) violation. Either it is not a blank node (nested structure, compound datatype) or it is not the right class." ;
-        sh:name         "Fault.impedance-datatype" ;
-        sh:nodeKind     sh:BlankNode ;
-        sh:order        9 ;
-        sh:path         ( cim:Fault.impedance rdf:type ) ;
-        sh:severity     sh:Violation .
-
-set:ClearSimulationEvent.SimulationEvents-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Association with cardinality violation at the used direction." ;
-        sh:minCount     1 ;
-        sh:name         "ClearSimulationEvent.SimulationEvents-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:ClearSimulationEvent.SimulationEvents ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.transformerPhaseTapControlPriority-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.transformerPhaseTapControlPriority-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        10 ;
-        sh:path         cim:PowerFlowSettings.transformerPhaseTapControlPriority ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.algorithmKind-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:in           ( cim:PowerFlowAlgorithmKind.fastDecoupled cim:PowerFlowAlgorithmKind.fullNewtonRaphson cim:PowerFlowAlgorithmKind.dcPowerFlow cim:PowerFlowAlgorithmKind.gaussSeidel cim:PowerFlowAlgorithmKind.fixedSlopeNewtonRaphson cim:PowerFlowAlgorithmKind.modifiedGaussSeidel ) ;
-        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile." ;
-        sh:name         "PowerFlowSettings.algorithmKind-datatype" ;
-        sh:nodeKind     sh:IRI ;
-        sh:order        16 ;
-        sh:path         cim:PowerFlowSettings.algorithmKind ;
-        sh:severity     sh:Violation .
-
-set:ClearSimulationEvent.ClearedParameterEvent-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ClearSimulationEvent.ClearedParameterEvent-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:ClearSimulationEvent.ClearedParameterEvent ;
-        sh:severity     sh:Violation .
-
-set:PowerFlowSettings.maxIterationsInnerLoop-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:integer ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.maxIterationsInnerLoop-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        19 ;
-        sh:path         cim:PowerFlowSettings.maxIterationsInnerLoop ;
-        sh:severity     sh:Violation .
-
-set:ParameterEvent.changeKind-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "ParameterEvent.changeKind-cardinality" ;
-        sh:order        1 ;
-        sh:path         cim:ParameterEvent.changeKind ;
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.loadVoltageDependency-cardinality";
+        sh:order        18;
+        sh:path         cim:PowerFlowSettings.loadVoltageDependency;
         sh:severity     sh:Violation .
 
 set:ParameterEvent.parameterName-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "ParameterEvent.parameterName-cardinality" ;
-        sh:order        10 ;
-        sh:path         cim:ParameterEvent.parameterName ;
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ParameterEvent.parameterName-cardinality";
+        sh:order        10;
+        sh:path         cim:ParameterEvent.parameterName;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.integrationStepSize-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "SimulationSettings.integrationStepSize-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        3;
+        sh:path         cim:SimulationSettings.integrationStepSize;
+        sh:severity     sh:Violation .
+
+ido:DatatypesGroupIO  rdf:type  sh:PropertyGroup;
+        rdfs:label  "DatatypesIO";
+        sh:order    1 .
+
+ido:IdentifiedObject.mRID-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        ido:CardinalityIO;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "IdentifiedObject.mRID-cardinality";
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.mRID;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.voltageAngleLimit-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.voltageAngleLimit-cardinality";
+        sh:order        8;
+        sh:path         cim:PowerFlowSettings.voltageAngleLimit;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.respectReactivePowerLimits-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.respectReactivePowerLimits-cardinality";
+        sh:order        12;
+        sh:path         cim:PowerFlowSettings.respectReactivePowerLimits;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.RecordedSignalAt-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SignalRecorder.RecordedSignalAt-cardinality";
+        sh:order        1;
+        sh:path         cim:SignalRecorder.RecordedSignalAt;
+        sh:severity     sh:Violation .
+
+set:EquipmentFault.Terminal-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:Terminal cim17:Terminal );
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class.";
+        sh:name         "EquipmentFault.Terminal-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        0;
+        sh:path         ( cim:EquipmentFault.Terminal rdf:type );
+        sh:severity     sh:Violation .
+
+set:ClearSimulationEvent.eventTime-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "ClearSimulationEvent.eventTime-cardinality";
+        sh:order        0;
+        sh:path         cim:ClearSimulationEvent.eventTime;
+        sh:severity     sh:Violation .
+
+set:EquipmentFault  rdf:type  sh:NodeShape;
+        sh:property     set:Fault.SimulationEvents-valueType , set:Fault.FaultCauseTypes-valueType , set:Fault.impedance-cardinality , set:Fault.kind-cardinality , set:Fault.occurredDateTime-datatype , ido:IdentifiedObject.name-datatype , set:Fault.phases-cardinality , set:Fault.FaultCauseTypes-cardinality , set:Fault.phases-datatype , set:Fault.impedance-datatype , ido:IdentifiedObject.name-cardinality , ido:IdentifiedObject.mRID-cardinality , set:Fault.occurredDateTime-cardinality , ido:IdentifiedObject.mRID-datatype , set:EquipmentFault.Terminal-cardinality , ido:IdentifiedObject.description-cardinality , set:Fault.kind-datatype , set:Fault.SimulationEvents-cardinality , set:Fault.FaultyEquipment-cardinality , ido:IdentifiedObject.description-datatype;
+        sh:targetClass  cim:EquipmentFault .
+
+set:SignalRecorder  rdf:type  sh:NodeShape;
+        sh:property     ido:IdentifiedObject.name-cardinality , ido:IdentifiedObject.mRID-cardinality , set:SignalRecorder.RecordedSignal-valueType , set:SignalRecorder.RecordedSignalAt-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.mRID-datatype , set:SignalRecorder.signalKind-datatype , set:SignalRecorder.RecordedSignal-cardinality , set:SignalRecorder.signalKind-cardinality , set:SignalRecorder.SimulationConfiguration-cardinality , ido:IdentifiedObject.description-datatype , set:SignalRecorder.RecordedSignalOf-cardinality , set:SignalRecorder.SimulationConfiguration-valueType , ido:IdentifiedObject.description-cardinality;
+        sh:targetClass  cim:SignalRecorder .
+
+set:PowerFlowSettings.impedanceThreshold-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.impedanceThreshold-cardinality";
+        sh:order        4;
+        sh:path         cim:PowerFlowSettings.impedanceThreshold;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.switchedShuntControlPriority-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.switchedShuntControlPriority-cardinality";
+        sh:order        17;
+        sh:path         cim:PowerFlowSettings.switchedShuntControlPriority;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.booleanParameterValue-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ParameterEvent.booleanParameterValue-cardinality";
+        sh:order        5;
+        sh:path         cim:ParameterEvent.booleanParameterValue;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.description-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        ido:DatatypesGroupIO;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "IdentifiedObject.description-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.description;
+        sh:severity     sh:Violation .
+
+set:Fault.occurredDateTime-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "Fault.occurredDateTime-cardinality";
+        sh:order        7;
+        sh:path         cim:Fault.occurredDateTime;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.simulationResultsRecordedEvery-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "SimulationSettings.simulationResultsRecordedEvery-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        1;
+        sh:path         cim:SimulationSettings.simulationResultsRecordedEvery;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.isIntegrationStepSizeVariable-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "SimulationSettings.isIntegrationStepSizeVariable-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        2;
+        sh:path         cim:SimulationSettings.isIntegrationStepSizeVariable;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.maxIterationsOuterLoop-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.maxIterationsOuterLoop-cardinality";
+        sh:order        14;
+        sh:path         cim:PowerFlowSettings.maxIterationsOuterLoop;
+        sh:severity     sh:Violation .
+
+set:Fault.SimulationEvents-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "Fault.SimulationEvents-cardinality";
+        sh:order        3;
+        sh:path         cim:Fault.SimulationEvents;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.eventTime-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "ParameterEvent.eventTime-cardinality";
+        sh:order        9;
+        sh:path         cim:ParameterEvent.eventTime;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.integerParameterValue-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:integer;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ParameterEvent.integerParameterValue-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0;
+        sh:path         cim:ParameterEvent.integerParameterValue;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.simulationResultsRecordedEvery-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "SimulationSettings.simulationResultsRecordedEvery-cardinality";
+        sh:order        1;
+        sh:path         cim:SimulationSettings.simulationResultsRecordedEvery;
+        sh:severity     sh:Violation .
+
+set:Fault.phases-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:PhaseCode.ABCN cim:PhaseCode.s2N cim:PhaseCode.AB cim:PhaseCode.XN cim:PhaseCode.BC cim:PhaseCode.s2 cim:PhaseCode.C cim:PhaseCode.none cim:PhaseCode.B cim:PhaseCode.s1 cim:PhaseCode.AN cim:PhaseCode.ACN cim:PhaseCode.BCN cim:PhaseCode.BN cim:PhaseCode.X cim:PhaseCode.ABN cim:PhaseCode.XY cim:PhaseCode.N cim:PhaseCode.CN cim:PhaseCode.s12 cim:PhaseCode.A cim:PhaseCode.ABC cim:PhaseCode.s1N cim:PhaseCode.s12N cim:PhaseCode.XYN cim:PhaseCode.AC );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Fault.phases-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        4;
+        sh:path         cim:Fault.phases;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.RecordedSignalAt-valueTypeNodeShape
+        rdf:type        sh:NodeShape;
+        sh:property     set:SignalRecorder.RecordedSignalAt-valueType;
+        sh:targetClass  cim:SignalRecorder .
+
+set:PowerFlowSettings.transformerRatioTapControlPriority-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:integer;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.transformerRatioTapControlPriority-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        2;
+        sh:path         cim:PowerFlowSettings.transformerRatioTapControlPriority;
+        sh:severity     sh:Violation .
+
+set:LineFault.ACLineSegment-valueTypeNodeShape
+        rdf:type        sh:NodeShape;
+        sh:property     set:LineFault.ACLineSegment-valueType;
+        sh:targetClass  cim:LineFault .
+
+set:ParameterEvent.floatParementerValue-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ParameterEvent.floatParementerValue-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        8;
+        sh:path         cim:ParameterEvent.floatParementerValue;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.RecordedSignal-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:SignalDescriptor );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalDescriptor";
+        sh:name         "SignalRecorder.RecordedSignal-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        0;
+        sh:path         ( cim:SignalRecorder.RecordedSignal rdf:type );
         sh:severity     sh:Violation .
 
 set:PowerFlowSettings.respectActivePowerLimits-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:boolean ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "PowerFlowSettings.respectActivePowerLimits-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        3 ;
-        sh:path         cim:PowerFlowSettings.respectActivePowerLimits ;
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.respectActivePowerLimits-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        3;
+        sh:path         cim:PowerFlowSettings.respectActivePowerLimits;
         sh:severity     sh:Violation .
 
-set:Fault.FaultCauseTypes-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the association at the used direction." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Cardinality violation. Upper bound shall be 1" ;
-        sh:name         "Fault.FaultCauseTypes-cardinality" ;
-        sh:order        3 ;
-        sh:path         cim:Fault.FaultCauseTypes ;
+set:SimulationSettings.duration-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:duration;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "SimulationSettings.duration-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        4;
+        sh:path         cim:SimulationSettings.duration;
         sh:severity     sh:Violation .
 
-set:Fault.impedance-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "Fault.impedance-cardinality" ;
-        sh:order        9 ;
-        sh:path         cim:Fault.impedance ;
+set:SimulationSettings
+        rdf:type        sh:NodeShape;
+        sh:property     set:SimulationSettings.duration-cardinality , set:SimulationSettings.PowerFlowSettings-cardinality , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.name-datatype , set:SimulationSettings.simulationResultsRecordedEvery-cardinality , set:SimulationSettings.minimumIntegrationStepSize-datatype , set:SimulationSettings.isIntegrationStepSizeVariable-datatype , set:SimulationSettings.isIntegrationStepSizeVariable-cardinality , set:SimulationSettings.duration-datatype , set:SimulationSettings.PowerFlowSettings-valueType , ido:IdentifiedObject.mRID-datatype , set:SimulationSettings.simulationResultsRecordedEvery-datatype , set:SimulationSettings.integrationStepSize-datatype , set:SimulationSettings.maximumIntegrationStepSize-datatype , ido:IdentifiedObject.description-datatype , set:SimulationSettings.maximumIntegrationStepSize-cardinality , ido:IdentifiedObject.name-cardinality , set:SimulationSettings.minimumIntegrationStepSize-cardinality , set:SimulationSettings.integrationStepSize-cardinality;
+        sh:targetClass  cim:SimulationSettings .
+
+set:ParameterEvent.floatParementerValue-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ParameterEvent.floatParementerValue-cardinality";
+        sh:order        8;
+        sh:path         cim:ParameterEvent.floatParementerValue;
         sh:severity     sh:Violation .
 
-set:LineFault.lengthFromTerminal1-datatype
-        rdf:type        sh:PropertyShape ;
-        sh:datatype     xsd:float ;
-        sh:description  "This constraint validates the datatype of the property (attribute)." ;
-        sh:group        set:DatatypesGroup ;
-        sh:message      "The datatype is not literal or it violates the xsd datatype." ;
-        sh:name         "LineFault.lengthFromTerminal1-datatype" ;
-        sh:nodeKind     sh:Literal ;
-        sh:order        0 ;
-        sh:path         cim:LineFault.lengthFromTerminal1 ;
+set:Fault.kind-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:PhaseConnectedFaultKind.lineToGround cim:PhaseConnectedFaultKind.lineToLine cim:PhaseConnectedFaultKind.lineOpen cim:PhaseConnectedFaultKind.lineToLineToGround );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "Fault.kind-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        8;
+        sh:path         cim:Fault.kind;
         sh:severity     sh:Violation .
 
-set:SignalConfiguration
-        rdf:type        sh:NodeShape ;
-        sh:property     ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality ;
-        sh:targetClass  cim:SignalConfiguration .
+set:PowerFlowSettings.reactivePowerTolerance-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.reactivePowerTolerance-cardinality";
+        sh:order        6;
+        sh:path         cim:PowerFlowSettings.reactivePowerTolerance;
+        sh:severity     sh:Violation .
 
-set:PowerFlowSettings.transformerRatioTapControlPriority-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.transformerRatioTapControlPriority-cardinality" ;
-        sh:order        2 ;
-        sh:path         cim:PowerFlowSettings.transformerRatioTapControlPriority ;
+set:PowerFlowSettings.interchangeControlEnabled-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.interchangeControlEnabled-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        9;
+        sh:path         cim:PowerFlowSettings.interchangeControlEnabled;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.description-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        ido:CardinalityIO;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "IdentifiedObject.description-cardinality";
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.description;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.transformerPhaseTapControlPriority-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.transformerPhaseTapControlPriority-cardinality";
+        sh:order        10;
+        sh:path         cim:PowerFlowSettings.transformerPhaseTapControlPriority;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.UsesParameterOf-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:PowerFlowSettings cim:SimulationSettings cim:SignalConfiguration cim:FaultCauseType cim:ClearSimulationEvent cim:SignalRecorder cim:ParameterEvent cim:SimulationEvents cim:EquipmentFault cim:LineFault cim:ExcIEEEST2A cim:VAdjIEEE2 cim:DCDisconnector cim:VoltageAdjusterUserDefined cim:WindContPitchAngleIEC2 cim:DCBreaker cim:ExcAC3A cim:ExcIEEEDC4B cim:LoadCompositeWECC cim:RateOfChangeOfPowerRelay cim:WindContCurrLimIEC cim:SVSMO4 cim:CogenerationPlant cim:HydroGeneratingUnit cim:DCLine cim:ExcST6B cim:SwitchSchedule cim:PssIEEE5C cim:PowerLimitSettings cim:PostLineSensor cim:HydroPump cim:WindPitchContPowerIEC cim:WindContPType4aIEC2 cim:PowerTransformer cim:WindContPType3IEC cim:TurbIEEEGenericHRSGST cim:PssIEEE1A cim:UnderexcitationLimiterUserDefined cim:ExcSK cim:LoadAirCoWECC cim:RegulationSchedule cim:LoadComposite cim:ExcIEEEAC5A cim:PotentialTransformer cim:SynchronousMachineEquivalentCircuit cim:GovIEEEHydroMech cim:GovHydro4 cim:WindPlantReactiveControlIEC cim:WeccREGCB cim:GovSteamFV3 cim:WindAeroTwoDimIEC cim:Pss1 cim:ExcIEEEST8C cim:SynchronousMachineTimeConstantReactance cim:GroundingImpedance cim:ExcAVR3 cim:GovSteamSGO cim:VsConverter cim:PssRQB cim:WindContPType4bIEC2 cim:PhaseTapChangerTabular cim:Jumper cim:LoadUserDefined cim:LoadElectronicWECC cim:ExcAVR4 cim:ExcOEX3T cim:TieFlow cim:VoltWattSettings cim:WeccREECB cim:GovHydroWEH cim:PssIEEE4B cim:ExcIEEEST5B cim:GovGAST2 cim:DCBusbar cim:ACLineSegment cim:ExcELIN1 cim:GovIEEEHydroPID cim:WeccREGCA cim:GovSteamFV2 cim:PssSB4 cim:ThermalGeneratingUnit cim:RelayUserDefined cim:WindGenTurbineType1bIEC cim:ConformLoad cim:GovIEEEGT1 cim:SVCUserDefined cim:PhotoVoltaicUnit cim:LimiterDescriptor cim:DetailedModelDocumentationArtifact cim:ExcDC3A cim:WindContPType4bIEC cim:GroundDisconnector cim:StatcomUserDefined cim:RatioTapChangerTable cim:DiscExcContIEEEDEC2A cim:LoadResponseCharacteristic cim:Ground cim:DCChopper cim:StaticVarCompensator cim:ExcIEEEAC1C cim:StatorCurrentLimIEEESCL2C cim:GovGAST3 cim:UnderexcLimX2 cim:ExcIEEEDC1C cim:ServiceSettings cim:SurgeArrester cim:WindGenType3bIEC cim:WindContPType3IEC2 cim:DCLineSegment cim:ExcDC1A cim:PhaseTapChangerTable cim:WindGenTurbineType1aIEC2 cim:TapSchedule cim:DERIEEEType1 cim:TurbineGovernorUserDefined cim:ExcIEEEAC8C cim:WindGenType3aIEC2 cim:ExcIEEEDC2A cim:DetailedModelDescriptorArtifact cim:Clamp cim:Disconnector cim:Switch cim:WindPlantUserDefined cim:OverexcLimIEEE cim:GovSteamCC cim:LoadAggregate cim:VoltVarSettings cim:RemoteInputSignal cim:ExcIEEEST6C cim:ExcAC5A cim:ExcRQB cim:EnergyConsumer cim:DCGround cim:VoltageCompensatorUserDefined cim:ExcNI cim:WindContQPQULimIEC cim:SimulationResult cim:ExcST3A cim:WindPlantFreqPcontrolIEC cim:ControlAreaGeneratingUnit cim:HydroPowerPlant cim:TurbIEEEHydroWCgen cim:PFVArType2IEEEPFController cim:CurrentTransformer cim:VAdjIEEE cim:WeccREPCC cim:OverexcLimIEEEOEL5C cim:LinearShuntCompensator cim:ExcAC1A cim:PetersenCoil cim:VCompIEEEType2 cim:GovGASTWD cim:GovSteamIEEETGOV5 cim:NonConformLoad cim:GovHydroDD cim:PssWECC cim:WeccWTGWGOA cim:LoadBreakSwitch cim:GeographicalRegion cim:PssIEEE2B cim:TurbIEEEHydroWCNonLinearB cim:ExcCZ cim:GovSteam2 cim:GovHydroIEEE0 cim:EnergySchedulingType cim:SeriesCompensator cim:Substation cim:ExcAVR7 cim:ExcBBC cim:PowerElectronicsConnection cim:PssIEEE3C cim:LoadStatic cim:ConformLoadGroup cim:Pss2ST cim:BaseVoltage cim:WindTurbineType4bIEC cim:WindPlantIEC cim:UnderexcLimIEEE1 cim:ConnectivityNode cim:ExcSCRX cim:DetailedModelTypeDynamics cim:WeccWTGPTA cim:ExcIEEEAC4C cim:LoadArea cim:WeccWTGARA cim:ExcIEEEAC3A cim:WindTurbineType4aIEC2 cim:WindTurbineType3IEC2 cim:StatorCurrentLimiterUserDefined cim:PssIEEE6C cim:WeccPVD1 cim:MechanicalLoadUserDefined cim:PhaseTapChangerSymmetrical cim:AsynchronousMachineEquivalentCircuit cim:FossilFuel cim:ExcIEEEAC6C cim:StationSupply cim:SVSMO3 cim:ExcIEEEST4C cim:ExcIEEEST3A cim:WindContQIEC cim:DayType cim:GovSteam1 cim:PFVArType2CIEEEPFController cim:GovHydroFrancis cim:CsConverter cim:WindContQPQULimIEC2 cim:WindPitchContPowerIEC2 cim:WindContRotorRIEC cim:UnderexcLimX1 cim:EquivalentNetwork cim:LoadStaticWECC cim:WindElectricalSystemGamma cim:HVDCInterconnectionUserDefined cim:DERNameplateData cim:PFVArType1CIEEEVArController cim:ConformLoadSchedule cim:GovHydroIEEE2 cim:SimulationResultCharacteristic cim:ExcANS cim:ConstantReactivePowerSettings cim:CAESPlant cim:ExcIEEEAC8B cim:GovHydro3 cim:ExcIEEEAC10C cim:GovHydroWPID cim:WindAeroConstIEC cim:WindDynamicsLookupTable2 cim:WeccDERApvmod cim:WindAeroOneDimIEC cim:WindPlantQControlIEC cim:WindProtectionIEC cim:ExcAVR2 cim:ConstantPowerFactorSettings cim:OverexcLimIEEEOEL3C cim:WindMechIEC cim:ExcAC4A cim:OverexcLimX2 cim:WeccBESS cim:NonConformLoadSchedule cim:WindGenTurbineType2IEC2 cim:ExcIEEEST9C cim:Cut cim:LoadMotorWECC cim:PssPTIST3 cim:UnderexcLim2Simplified cim:ACDCConverterDCTerminal cim:MomentaryCessationSettings cim:WeccWTGIBFFRA cim:WindTurbineType4aIEC cim:PssSH cim:VariableShuntCompensator cim:NonConformLoadGroup cim:WindRefFrameRotIEC2 cim:GovGAST1 cim:OperationalLimitType cim:Breaker cim:GovHydro2 cim:GrossToNetActivePowerCurve cim:AsynchronousMachine cim:VoltageTripSettings cim:ExcIEEEAC2C cim:SignalDescriptor cim:GovCIGREGT cim:ControlArea cim:PowerTransformerEnd cim:WindMechIEC2 cim:EnergySource cim:ExcAVR1 cim:Line cim:TurbCIGREHRSGST cim:WeccWT12T cim:TurbIEEEHydroWCNonLinear cim:OverexcLimX1 cim:PhaseTapChangerLinear cim:SynchronousMachineUserDefined cim:WeccDERA cim:DCShunt cim:ExcST7B cim:ExcIEEEST2C cim:WeccWTGTRQA cim:PowerSystemStabilizerUserDefined cim:VoltageLevel cim:OverexcitationLimiterUserDefined cim:WeccREECD cim:DetailedModelDynamics cim:WindDynamicsLookupTable cim:Pss1A cim:GovCT2 cim:WindGenTurbineType1aIEC cim:WeccREEC cim:GovGAST cim:VsCapabilityCurve cim:WindType3or4UserDefined cim:Junction cim:WindContPType4aIEC cim:SVSMO2 cim:ExcDC2A cim:NonlinearShuntCompensator cim:EquivalentShunt cim:WindGenTurbineType1bIEC2 cim:ExcIEEEST6B cim:FunctionDescriptor cim:TapChangerControl cim:ExcIEEEDC3A cim:WindAeroTwoDimIEC2 cim:WeccTIOCRS cim:ExcIEEEAC5C cim:DisconnectingCircuitBreaker cim:BusNameMarker cim:ExcST4B cim:ExcAC2A cim:OverexcLim2 cim:WindPowerPlant cim:DiscExcContIEEEDEC3A cim:ExcIEEEST7C cim:SynchronousMachine cim:ExcAC6A cim:ExcIEEEAC1A cim:RatioTapChanger cim:PowerElectronicsWindUnit cim:OperationalLimitSet cim:WindGenType4IEC cim:ExcIEEEDC2C cim:ExcIEEEDC1A cim:WindTurbineType3IEC cim:VCompIEEEType1 cim:BusbarSection cim:ExcIEEEST1A cim:WindContQIEC2 cim:DiscExcContIEEEDEC1A cim:ExcST1A cim:MechLoad1 cim:ExcIEEEAC4A cim:TurbineLoadControllerUserDefined cim:TurbIEEEHydroWCNonLinearA cim:WindGenType3aIEC cim:WattVarSettings cim:PFVArType1IEEEVArController cim:EquivalentInjection cim:PssSK cim:WindContRotorRIEC2 cim:WeccWT1PB cim:ReportingGroup cim:PhaseTapChangerAsymmetrical cim:PssIEEE3B cim:WindProtectionIEC2 cim:FaultIndicator cim:WeccREGCC cim:DCNode cim:LoadGenericNonLinear cim:GovSteamFV4 cim:WindGeneratingUnit cim:GovIEEEHydroLL cim:EquivalentBranch cim:WindGenType3bIEC2 cim:ExcIEEEST10C cim:Pss5 cim:DCSwitch cim:DCConverterUnit cim:WeccWTGTB cim:CombinedCyclePlant cim:ExcIEEEAC9C cim:WindPlantQCompensationIEC cim:StatorCurrentLimIEEESCL1C cim:SolarGeneratingUnit cim:ExcIEEEST4B cim:WindContCurrLimIEC2 cim:WindContQLimIEC2 cim:PssIEEE7C cim:GovSteam0 cim:ApparentPowerLimit cim:ShuntCompensatorUserDefined cim:ExcIEEEST1C cim:ExcAVR5 cim:PFVArType1IEEEPFController cim:WeccREECC cim:ExcIEEEAC7C cim:FrequencyDroopSettings cim:DCTerminal cim:ExcIEEEST5C cim:PssIEEE4C cim:WeccWTGPB cim:WindContQLimIEC cim:ExcREXS cim:PFVArType2IEEEVArController cim:ParameterDescriptor cim:DERNameplateDataApplied cim:PFVArType2CIEEEVArController cim:LinearCommunicationIEC cim:InputOutputDescriptor cim:DiscontinuousExcitationControlUserDefined cim:OperatorDescriptor cim:ExcSEXS cim:GovHydroPelton cim:DCSeriesDevice cim:WindRefFrameRotIEC cim:Terminal cim:WindAeroConstIEC2 cim:StatcomIEC cim:FrequencyTripSettings cim:GovIEEEHydroDD cim:GenICompensationForGenJ cim:SubLoadArea cim:PFVArType2Common1 cim:CurrentLimit cim:LoadMotor cim:GovHydroR cim:SubGeographicalRegion cim:ExcIEEEAC11C cim:GovGAST4 cim:WindGenType4IEC2 cim:ExcDC3A1 cim:ExcIEEEAC6A cim:AsynchronousMachineTimeConstantReactance cim:GovIEEEHydroPIDspt cim:OverexcLimIEEEOEL4C cim:TurbLCFB1 cim:VoltageLimit cim:ReactiveCapabilityCurve cim:PFVArType1CIEEEPFController cim:Bay cim:ExcitationSystemUserDefined cim:ExcIEEEAC7B cim:TurbIEEEHydroWClinear cim:GovSteamIEEEG1Aug cim:WeccREPCA cim:NuclearGeneratingUnit cim:WindPlantPControlIEC cim:RegulatingControl cim:PFVArControllerType1UserDefined cim:UnderexcLimIEEEUEL2C cim:ExcST2A cim:WindPlantControlCommIEC cim:SynchronousMachineSimplified cim:GovHydro1 cim:Pss2B cim:ActivePowerLimit cim:WindContPitchAngleIEC cim:CommunicationDelayIEC cim:BatteryUnit cim:WindGenTurbineType2IEC cim:ExternalNetworkInjection cim:WaveTrap cim:BoundaryPoint cim:PssELIN2 cim:GovHydroPID cim:WindType1or2UserDefined cim:ExcIEEEAC3C cim:ExcPIC cim:WindAeroOneDimIEC2 cim:WindTurbineType4bIEC2 cim:AsynchronousMachineUserDefined cim:PFVArControllerType2UserDefined cim:VSCUserDefined cim:ExcIEEEDC4C cim:WeccREECA cim:PssPTIST1 cim:ExcELIN2 cim:Season cim:PssIEEE2C cim:ExcIEEEST3C cim:WindGridMeasurement cim:GovCT1 cim:GovSteamEU cim:CSCUserDefined cim:WeccWTGTA cim:GovHydroPID2 cim:ExcHU cim:GeneratingUnit cim:WeccWT2E cim:Fuse cim:SVSMO1 cim:ExcIEEEAC2A cim:WindPlantBasicIEC cim:SolarPowerPlant cim:UnderexcLimIEEE2 cim:OverexcLimIEEEOEL2C cim:PssSTAB2A cim:GovSteamBB cim:ExcAC8B cim:GovSteamIEEE1 cim:ExcIEEEST7B cim17:DisconnectingCircuitBreaker cim17:DCBusbar cim17:EquivalentInjection cim17:CogenerationPlant cim17:ControlArea cim17:TieFlow cim17:DCSwitch cim17:EquivalentNetwork cim17:VoltageLevel cim17:PowerElectronicsConnection cim17:PowerElectronicsWindUnit cim17:HydroPowerPlant cim17:NonlinearShuntCompensator cim17:CAESPlant cim17:VsConverter cim17:ACLineSegment cim17:CsConverter cim17:DCSeriesDevice cim17:PhaseTapChangerAsymmetrical eu:BoundaryPoint cim17:EnergyConsumer cim17:SurgeArrester cim17:PowerTransformer cim17:RatioTapChanger cim17:ApparentPowerLimit cim17:GroundDisconnector cim17:ThermalGeneratingUnit cim17:Cut cim17:Disconnector eu:SolarPowerPlant cim17:GroundingImpedance cim17:BaseVoltage cim17:ConformLoadGroup cim17:EquivalentBranch cim17:SynchronousMachine cim17:Season cim17:Switch cim17:Clamp cim17:ACDCConverterDCTerminal cim17:DCNode cim17:DCLineSegment cim17:NuclearGeneratingUnit cim17:VoltageLimit cim17:PhaseTapChangerLinear cim17:Terminal cim17:DCBreaker cim17:OperationalLimitType cim17:RegulationSchedule cim17:DCShunt cim17:BusbarSection cim17:EnergySource cim17:TapChangerControl cim17:FaultIndicator cim17:LoadArea cim17:LinearShuntCompensator cim17:BatteryUnit cim17:RegulatingControl cim17:SeriesCompensator cim17:DCDisconnector cim17:StaticVarCompensator cim17:WindGeneratingUnit cim17:SolarGeneratingUnit cim17:CurrentLimit cim17:ConnectivityNode cim17:FossilFuel cim17:DayType cim17:PotentialTransformer cim17:LoadResponseCharacteristic cim17:SubGeographicalRegion cim17:DCGround cim17:Fuse cim17:DCChopper cim17:DCLine cim17:DCTerminal cim17:Breaker cim17:NonConformLoadGroup eu:WindPowerPlant cim17:HydroPump cim17:ConformLoad cim17:EquivalentShunt cim17:RatioTapChangerTable cim17:PostLineSensor cim17:GeographicalRegion cim17:PetersenCoil cim17:Jumper cim17:Line cim17:SubLoadArea cim17:SwitchSchedule cim17:CombinedCyclePlant cim17:GeneratingUnit cim17:ConformLoadSchedule cim17:VsCapabilityCurve cim17:OperationalLimitSet cim17:Bay cim17:DCConverterUnit cim17:HydroGeneratingUnit cim17:Substation cim17:AsynchronousMachine cim17:GrossToNetActivePowerCurve cim17:PhaseTapChangerTabular cim17:ControlAreaGeneratingUnit cim17:ExternalNetworkInjection cim17:PhaseTapChangerTable cim17:NonConformLoadSchedule cim17:NonConformLoad cim17:PhaseTapChangerSymmetrical cim17:EnergySchedulingType cim17:TapSchedule cim17:Junction cim17:PowerTransformerEnd cim17:ReactiveCapabilityCurve cim17:WaveTrap cim17:ReportingGroup cim17:CurrentTransformer cim17:StationSupply cim17:LoadBreakSwitch cim17:PhotoVoltaicUnit cim17:Ground cim17:BusNameMarker cim17:ActivePowerLimit );
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class.";
+        sh:name         "ParameterEvent.UsesParameterOf-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        4;
+        sh:path         ( cim:ParameterEvent.UsesParameterOf rdf:type );
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.booleanParameterValue-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ParameterEvent.booleanParameterValue-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        5;
+        sh:path         cim:ParameterEvent.booleanParameterValue;
+        sh:severity     sh:Violation .
+
+set:ClearSimulationEvent.SimulationEvents-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:SimulationEvents );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents";
+        sh:name         "ClearSimulationEvent.SimulationEvents-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        1;
+        sh:path         ( cim:ClearSimulationEvent.SimulationEvents rdf:type );
+        sh:severity     sh:Violation .
+
+set:Fault.FaultyEquipment-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Fault.FaultyEquipment-cardinality";
+        sh:order        6;
+        sh:path         cim:Fault.FaultyEquipment;
         sh:severity     sh:Violation .
 
 set:PowerFlowSettings.voltageTolerance-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.voltageTolerance-cardinality" ;
-        sh:order        7 ;
-        sh:path         cim:PowerFlowSettings.voltageTolerance ;
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.voltageTolerance-cardinality";
+        sh:order        7;
+        sh:path         cim:PowerFlowSettings.voltageTolerance;
         sh:severity     sh:Violation .
 
-ido:CardinalityGroup  rdf:type  sh:PropertyGroup ;
-        rdfs:label  "CardinalityIO" ;
+set:PowerFlowSettings.respectActivePowerLimits-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.respectActivePowerLimits-cardinality";
+        sh:order        3;
+        sh:path         cim:PowerFlowSettings.respectActivePowerLimits;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.minimumIntegrationStepSize-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SimulationSettings.minimumIntegrationStepSize-cardinality";
+        sh:order        6;
+        sh:path         cim:SimulationSettings.minimumIntegrationStepSize;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.UsesParameterOf-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "ParameterEvent.UsesParameterOf-cardinality";
+        sh:order        4;
+        sh:path         cim:ParameterEvent.UsesParameterOf;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.RecordedSignalOf-valueTypeNodeShape
+        rdf:type        sh:NodeShape;
+        sh:property     set:SignalRecorder.RecordedSignalOf-valueType;
+        sh:targetClass  cim:SignalRecorder .
+
+set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:integer;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.staticVarCompensatorControlPriority-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        5;
+        sh:path         cim:PowerFlowSettings.staticVarCompensatorControlPriority;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.signalKind-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:SignalKind.powerSystemSignal cim:SignalKind.standardModelInternal cim:SignalKind.detailedModel );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "SignalRecorder.signalKind-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        3;
+        sh:path         cim:SignalRecorder.signalKind;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.shiftKind-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:PowerShiftKind.conformLoadShift cim:PowerShiftKind.allLoadShift cim:PowerShiftKind.generationAndLoadShiftKey cim:PowerShiftKind.generationShift );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "PowerFlowSettings.shiftKind-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        11;
+        sh:path         cim:PowerFlowSettings.shiftKind;
+        sh:severity     sh:Violation .
+
+set:ClearSimulationEvent.ClearedFaultEvent-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the inverse direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ClearSimulationEvent.ClearedFaultEvent-cardinality";
+        sh:order        3;
+        sh:path         [ sh:inversePath  cim:Fault.ClearSimulationEvent ];
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.rampDuration-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ParameterEvent.rampDuration-cardinality";
+        sh:order        6;
+        sh:path         cim:ParameterEvent.rampDuration;
+        sh:severity     sh:Violation .
+
+set:Fault.impedance-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "Fault.impedance-cardinality";
+        sh:order        9;
+        sh:path         cim:Fault.impedance;
+        sh:severity     sh:Violation .
+
+set:SimulationEvents  rdf:type  sh:NodeShape;
+        sh:property     ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality;
+        sh:targetClass  cim:SimulationEvents .
+
+set:LineFault.ACLineSegment-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "LineFault.ACLineSegment-cardinality";
+        sh:order        1;
+        sh:path         cim:LineFault.ACLineSegment;
+        sh:severity     sh:Violation .
+
+set:Fault.FaultyEquipment-valueTypeNodeShape
+        rdf:type        sh:NodeShape;
+        sh:property     set:Fault.FaultyEquipment-valueType;
+        sh:targetClass  cim:EquipmentFault , cim:LineFault .
+
+set:PowerFlowSettings.shiftKind-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "PowerFlowSettings.shiftKind-cardinality";
+        sh:order        11;
+        sh:path         cim:PowerFlowSettings.shiftKind;
+        sh:severity     sh:Violation .
+
+set:LineFault.lengthFromTerminal1-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "LineFault.lengthFromTerminal1-cardinality";
+        sh:order        0;
+        sh:path         cim:LineFault.lengthFromTerminal1;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.RecordedSignal-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SignalRecorder.RecordedSignal-cardinality";
+        sh:order        0;
+        sh:path         cim:SignalRecorder.RecordedSignal;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.flatStart-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.flatStart-cardinality";
+        sh:order        15;
+        sh:path         cim:PowerFlowSettings.flatStart;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.maxIterationsInnerLoop-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:integer;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.maxIterationsInnerLoop-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        19;
+        sh:path         cim:PowerFlowSettings.maxIterationsInnerLoop;
+        sh:severity     sh:Violation .
+
+set:EquipmentFault.Terminal-valueTypeNodeShape
+        rdf:type        sh:NodeShape;
+        sh:property     set:EquipmentFault.Terminal-valueType;
+        sh:targetClass  cim:EquipmentFault .
+
+set:PowerFlowSettings.respectReactivePowerLimits-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.respectReactivePowerLimits-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        12;
+        sh:path         cim:PowerFlowSettings.respectReactivePowerLimits;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.reactivePowerTolerance-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.reactivePowerTolerance-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        6;
+        sh:path         cim:PowerFlowSettings.reactivePowerTolerance;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.PowerFlowSettings-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:PowerFlowSettings );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:PowerFlowSettings";
+        sh:name         "SimulationSettings.PowerFlowSettings-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        0;
+        sh:path         ( cim:SimulationSettings.PowerFlowSettings rdf:type );
+        sh:severity     sh:Violation .
+
+set:SignalConfiguration
+        rdf:type        sh:NodeShape;
+        sh:property     ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality;
+        sh:targetClass  cim:SignalConfiguration .
+
+set:PowerFlowSettings.impedanceThreshold-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.impedanceThreshold-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        4;
+        sh:path         cim:PowerFlowSettings.impedanceThreshold;
+        sh:severity     sh:Violation .
+
+set:Fault.phases-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "Fault.phases-cardinality";
+        sh:order        4;
+        sh:path         cim:Fault.phases;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.changeKind-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:ParameterChangeKind.step cim:ParameterChangeKind.ramp );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "ParameterEvent.changeKind-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        1;
+        sh:path         cim:ParameterEvent.changeKind;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.activePowerTolerance-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.activePowerTolerance-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        20;
+        sh:path         cim:PowerFlowSettings.activePowerTolerance;
+        sh:severity     sh:Violation .
+
+set:Fault.occurredDateTime-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:dateTime;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "Fault.occurredDateTime-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        7;
+        sh:path         cim:Fault.occurredDateTime;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.duration-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "SimulationSettings.duration-cardinality";
+        sh:order        4;
+        sh:path         cim:SimulationSettings.duration;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.transformerRatioTapControlPriority-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.transformerRatioTapControlPriority-cardinality";
+        sh:order        2;
+        sh:path         cim:PowerFlowSettings.transformerRatioTapControlPriority;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.PowerFlowSettings-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "SimulationSettings.PowerFlowSettings-cardinality";
+        sh:order        0;
+        sh:path         cim:SimulationSettings.PowerFlowSettings;
+        sh:severity     sh:Violation .
+
+set:EquipmentFault.Terminal-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "EquipmentFault.Terminal-cardinality";
+        sh:order        0;
+        sh:path         cim:EquipmentFault.Terminal;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.algorithmKind-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.algorithmKind-cardinality";
+        sh:order        16;
+        sh:path         cim:PowerFlowSettings.algorithmKind;
+        sh:severity     sh:Violation .
+
+set:LineFault.lengthFromTerminal1-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "LineFault.lengthFromTerminal1-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0;
+        sh:path         cim:LineFault.lengthFromTerminal1;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.SimulationEvents-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "ParameterEvent.SimulationEvents-cardinality";
+        sh:order        3;
+        sh:path         cim:ParameterEvent.SimulationEvents;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.integerParameterValue-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ParameterEvent.integerParameterValue-cardinality";
+        sh:order        0;
+        sh:path         cim:ParameterEvent.integerParameterValue;
+        sh:severity     sh:Violation .
+
+ido:IdentifiedObject.mRID-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        ido:DatatypesGroupIO;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "IdentifiedObject.mRID-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.mRID;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.SimulationConfiguration-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:SignalConfiguration );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SignalConfiguration";
+        sh:name         "SignalRecorder.SimulationConfiguration-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        4;
+        sh:path         ( cim:SignalRecorder.SimulationConfiguration rdf:type );
+        sh:severity     sh:Violation .
+
+set:FaultCauseType  rdf:type  sh:NodeShape;
+        sh:property     ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , ido:IdentifiedObject.name-cardinality;
+        sh:targetClass  cim:FaultCauseType .
+
+set:SimulationSettings.minimumIntegrationStepSize-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "SimulationSettings.minimumIntegrationStepSize-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        6;
+        sh:path         cim:SimulationSettings.minimumIntegrationStepSize;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.transformerPhaseTapControlPriority-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:integer;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.transformerPhaseTapControlPriority-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        10;
+        sh:path         cim:PowerFlowSettings.transformerPhaseTapControlPriority;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.eventTime-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ParameterEvent.eventTime-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        9;
+        sh:path         cim:ParameterEvent.eventTime;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.maximumIntegrationStepSize-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SimulationSettings.maximumIntegrationStepSize-cardinality";
+        sh:order        5;
+        sh:path         cim:SimulationSettings.maximumIntegrationStepSize;
+        sh:severity     sh:Violation .
+
+set:Fault.FaultCauseTypes-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:FaultCauseType );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:FaultCauseType";
+        sh:name         "Fault.FaultCauseTypes-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        2;
+        sh:path         ( cim:Fault.FaultCauseTypes rdf:type );
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.maximumIntegrationStepSize-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "SimulationSettings.maximumIntegrationStepSize-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        5;
+        sh:path         cim:SimulationSettings.maximumIntegrationStepSize;
+        sh:severity     sh:Violation .
+
+set:LineFault.ACLineSegment-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:ACLineSegment cim17:ACLineSegment );
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class.";
+        sh:name         "LineFault.ACLineSegment-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        1;
+        sh:path         ( cim:LineFault.ACLineSegment rdf:type );
+        sh:severity     sh:Violation .
+
+set:Fault.impedance-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:FaultImpedance );
+        sh:message      "Blank node (compound datatype) violation. Either it is not a blank node (nested structure, compound datatype) or it is not the right class.";
+        sh:name         "Fault.impedance-datatype";
+        sh:nodeKind     sh:BlankNode;
+        sh:order        9;
+        sh:path         ( cim:Fault.impedance rdf:type );
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.algorithmKind-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:PowerFlowAlgorithmKind.fastDecoupled cim:PowerFlowAlgorithmKind.fullNewtonRaphson cim:PowerFlowAlgorithmKind.dcPowerFlow cim:PowerFlowAlgorithmKind.gaussSeidel cim:PowerFlowAlgorithmKind.fixedSlopeNewtonRaphson cim:PowerFlowAlgorithmKind.modifiedGaussSeidel );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "PowerFlowSettings.algorithmKind-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        16;
+        sh:path         cim:PowerFlowSettings.algorithmKind;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.UsesParameterOf-valueTypeNodeShape
+        rdf:type        sh:NodeShape;
+        sh:property     set:ParameterEvent.UsesParameterOf-valueType;
+        sh:targetClass  cim:ParameterEvent .
+
+set:PowerFlowSettings.flatStart-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.flatStart-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        15;
+        sh:path         cim:PowerFlowSettings.flatStart;
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.integrationStepSize-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "SimulationSettings.integrationStepSize-cardinality";
+        sh:order        3;
+        sh:path         cim:SimulationSettings.integrationStepSize;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings
+        rdf:type        sh:NodeShape;
+        sh:property     set:PowerFlowSettings.switchedShuntControlPriority-datatype , set:PowerFlowSettings.respectActivePowerLimits-cardinality , set:PowerFlowSettings.flatStart-datatype , set:PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality , set:PowerFlowSettings.respectActivePowerLimits-datatype , set:PowerFlowSettings.algorithmKind-datatype , set:PowerFlowSettings.staticVarCompensatorControlPriority-cardinality , set:PowerFlowSettings.maxIterationsInnerLoop-datatype , ido:IdentifiedObject.mRID-cardinality , set:PowerFlowSettings.reactivePowerTolerance-datatype , set:PowerFlowSettings.interchangeControlEnabled-cardinality , set:PowerFlowSettings.loadVoltageDependency-cardinality , set:PowerFlowSettings.voltageAngleLimit-cardinality , set:PowerFlowSettings.impedanceThreshold-cardinality , set:PowerFlowSettings.transformerPhaseTapControlPriority-cardinality , set:PowerFlowSettings.respectReactivePowerLimits-cardinality , set:PowerFlowSettings.loadVoltageDependency-datatype , set:PowerFlowSettings.reactivePowerTolerance-cardinality , set:PowerFlowSettings.impedanceThreshold-datatype , set:PowerFlowSettings.algorithmKind-cardinality , set:PowerFlowSettings.shiftKind-cardinality , set:PowerFlowSettings.maxIterationsInnerLoop-cardinality , set:PowerFlowSettings.voltageAngleLimit-datatype , ido:IdentifiedObject.mRID-datatype , set:PowerFlowSettings.transformerPhaseTapControlPriority-datatype , ido:IdentifiedObject.name-cardinality , set:PowerFlowSettings.staticVarCompensatorControlPriority-datatype , set:PowerFlowSettings.voltageTolerance-cardinality , set:PowerFlowSettings.activePowerTolerance-datatype , set:PowerFlowSettings.voltageTolerance-datatype , set:PowerFlowSettings.interchangeControlEnabled-datatype , set:PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype , set:PowerFlowSettings.respectReactivePowerLimits-datatype , ido:IdentifiedObject.name-datatype , set:PowerFlowSettings.slackDistributionKind-cardinality , set:PowerFlowSettings.activePowerTolerance-cardinality , set:PowerFlowSettings.slackDistributionKind-datatype , set:PowerFlowSettings.maxIterationsOuterLoop-cardinality , set:PowerFlowSettings.shiftKind-datatype , ido:IdentifiedObject.description-cardinality , set:PowerFlowSettings.switchedShuntControlPriority-cardinality , set:PowerFlowSettings.flatStart-cardinality , set:PowerFlowSettings.maxIterationsOuterLoop-datatype , ido:IdentifiedObject.description-datatype , set:PowerFlowSettings.transformerRatioTapControlPriority-cardinality , set:PowerFlowSettings.transformerRatioTapControlPriority-datatype;
+        sh:targetClass  cim:PowerFlowSettings .
+
+set:ClearSimulationEvent.SimulationEvents-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Association with cardinality violation at the used direction.";
+        sh:minCount     1;
+        sh:name         "ClearSimulationEvent.SimulationEvents-cardinality";
+        sh:order        1;
+        sh:path         cim:ClearSimulationEvent.SimulationEvents;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.RecordedSignalAt-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:Terminal cim:ACDCConverterDCTerminal cim:DCTerminal cim17:Terminal cim17:DCTerminal cim17:ACDCConverterDCTerminal );
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class.";
+        sh:name         "SignalRecorder.RecordedSignalAt-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        1;
+        sh:path         ( cim:SignalRecorder.RecordedSignalAt rdf:type );
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.interchangeControlEnabled-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.interchangeControlEnabled-cardinality";
+        sh:order        9;
+        sh:path         cim:PowerFlowSettings.interchangeControlEnabled;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.RecordedSignalOf-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SignalRecorder.RecordedSignalOf-cardinality";
+        sh:order        2;
+        sh:path         cim:SignalRecorder.RecordedSignalOf;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.maxIterationsInnerLoop-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.maxIterationsInnerLoop-cardinality";
+        sh:order        19;
+        sh:path         cim:PowerFlowSettings.maxIterationsInnerLoop;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.staticVarCompensatorControlPriority-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.staticVarCompensatorControlPriority-cardinality";
+        sh:order        5;
+        sh:path         cim:PowerFlowSettings.staticVarCompensatorControlPriority;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.loadResponseCharacteristicsEnabled-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        1;
+        sh:path         cim:PowerFlowSettings.loadResponseCharacteristicsEnabled;
+        sh:severity     sh:Violation .
+
+set:ClearSimulationEvent.ClearedParameterEvent-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:ParameterEvent );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:ParameterEvent";
+        sh:name         "ClearSimulationEvent.ClearedParameterEvent-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        2;
+        sh:path         ( cim:ClearSimulationEvent.ClearedParameterEvent rdf:type );
+        sh:severity     sh:Violation .
+
+set:Fault.FaultCauseTypes-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "Fault.FaultCauseTypes-cardinality";
+        sh:order        2;
+        sh:path         cim:Fault.FaultCauseTypes;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.rampDuration-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ParameterEvent.rampDuration-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        6;
+        sh:path         cim:ParameterEvent.rampDuration;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.parameterName-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ParameterEvent.parameterName-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        10;
+        sh:path         cim:ParameterEvent.parameterName;
+        sh:severity     sh:Violation .
+
+set:ClearSimulationEvent
+        rdf:type        sh:NodeShape;
+        sh:property     ido:IdentifiedObject.name-cardinality , ido:IdentifiedObject.name-datatype , set:ClearSimulationEvent.SimulationEvents-cardinality , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.mRID-cardinality , ido:IdentifiedObject.mRID-datatype , set:ClearSimulationEvent.ClearedFaultEvent-cardinality , set:ClearSimulationEvent.eventTime-datatype , set:ClearSimulationEvent.eventTime-cardinality , set:ClearSimulationEvent.ClearedParameterEvent-cardinality , set:ClearSimulationEvent.ClearedParameterEvent-valueType , set:ClearSimulationEvent.SimulationEvents-valueType , ido:IdentifiedObject.description-datatype;
+        sh:targetClass  cim:ClearSimulationEvent .
+
+ido:IdentifiedObject.name-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        ido:DatatypesGroupIO;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "IdentifiedObject.name-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.name;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.SimulationConfiguration-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "SignalRecorder.SimulationConfiguration-cardinality";
+        sh:order        4;
+        sh:path         cim:SignalRecorder.SimulationConfiguration;
+        sh:severity     sh:Violation .
+
+set:Fault.kind-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "Fault.kind-cardinality";
+        sh:order        8;
+        sh:path         cim:Fault.kind;
+        sh:severity     sh:Violation .
+
+set:CardinalityGroup  rdf:type  sh:PropertyGroup;
+        rdfs:label  "Cardinality";
         sh:order    0 .
 
-set:PowerFlowSettings.switchedShuntControlPriority-cardinality
-        rdf:type        sh:PropertyShape ;
-        sh:description  "This constraint validates the cardinality of the property (attribute)." ;
-        sh:group        set:CardinalityGroup ;
-        sh:maxCount     1 ;
-        sh:message      "Missing required property (attribute)." ;
-        sh:minCount     1 ;
-        sh:name         "PowerFlowSettings.switchedShuntControlPriority-cardinality" ;
-        sh:order        17 ;
-        sh:path         cim:PowerFlowSettings.switchedShuntControlPriority ;
+ido:IdentifiedObject.name-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        ido:CardinalityIO;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "IdentifiedObject.name-cardinality";
+        sh:order        0.1;
+        sh:path         cim:IdentifiedObject.name;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.maxIterationsOuterLoop-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:integer;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.maxIterationsOuterLoop-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        14;
+        sh:path         cim:PowerFlowSettings.maxIterationsOuterLoop;
+        sh:severity     sh:Violation .
+
+set:DatatypesGroup  rdf:type  sh:PropertyGroup;
+        rdfs:label  "Datatypes";
+        sh:order    1 .
+
+set:PowerFlowSettings.loadVoltageDependency-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:boolean;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.loadVoltageDependency-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        18;
+        sh:path         cim:PowerFlowSettings.loadVoltageDependency;
+        sh:severity     sh:Violation .
+
+set:SignalRecorder.signalKind-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "SignalRecorder.signalKind-cardinality";
+        sh:order        3;
+        sh:path         cim:SignalRecorder.signalKind;
+        sh:severity     sh:Violation .
+
+ido:CardinalityGroup  rdf:type  sh:PropertyGroup;
+        rdfs:label  "CardinalityIO";
+        sh:order    0 .
+
+set:Fault.FaultyEquipment-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:PowerElectronicsWindUnit cim:PotentialTransformer cim:EnergySource cim:DCBusbar cim:GroundDisconnector cim:HydroGeneratingUnit cim:SeriesCompensator cim:Disconnector cim:GeneratingUnit cim:AsynchronousMachine cim:EquivalentInjection cim:FaultIndicator cim:StationSupply cim:SolarGeneratingUnit cim:Clamp cim:VariableShuntCompensator cim:EquivalentShunt cim:LoadBreakSwitch cim:DCBreaker cim:BatteryUnit cim:DCChopper cim:ThermalGeneratingUnit cim:PhotoVoltaicUnit cim:Switch cim:PowerElectronicsConnection cim:DCLineSegment cim:StaticVarCompensator cim:HydroPump cim:DCGround cim:WindGeneratingUnit cim:CsConverter cim:Junction cim:Fuse cim:Ground cim:NonlinearShuntCompensator cim:CurrentTransformer cim:LinearShuntCompensator cim:PostLineSensor cim:EquivalentBranch cim:SurgeArrester cim:BusbarSection cim:DCSeriesDevice cim:WaveTrap cim:Jumper cim:NonConformLoad cim:ACLineSegment cim:PowerTransformer cim:NuclearGeneratingUnit cim:VsConverter cim:DCDisconnector cim:EnergyConsumer cim:ConformLoad cim:PetersenCoil cim:SynchronousMachine cim:GroundingImpedance cim:Breaker cim:DisconnectingCircuitBreaker cim:DCSwitch cim:ExternalNetworkInjection cim:Cut cim:DCShunt cim17:EquivalentInjection cim17:Clamp cim17:StationSupply cim17:GroundingImpedance cim17:NuclearGeneratingUnit cim17:EnergySource cim17:PowerElectronicsConnection cim17:Junction cim17:PetersenCoil cim17:GroundDisconnector cim17:DisconnectingCircuitBreaker cim17:LinearShuntCompensator cim17:PowerTransformer cim17:GeneratingUnit cim17:Disconnector cim17:BusbarSection cim17:DCLineSegment cim17:LoadBreakSwitch cim17:VsConverter cim17:DCBreaker cim17:FaultIndicator cim17:HydroGeneratingUnit cim17:ACLineSegment cim17:NonConformLoad cim17:DCGround cim17:StaticVarCompensator cim17:SolarGeneratingUnit cim17:Fuse cim17:SurgeArrester cim17:SeriesCompensator cim17:DCSwitch cim17:Breaker cim17:Cut cim17:CsConverter cim17:DCBusbar cim17:Switch cim17:DCDisconnector cim17:PostLineSensor cim17:ThermalGeneratingUnit cim17:NonlinearShuntCompensator cim17:DCSeriesDevice cim17:EquivalentBranch cim17:SynchronousMachine cim17:DCShunt cim17:EquivalentShunt cim17:WindGeneratingUnit cim17:BatteryUnit cim17:CurrentTransformer cim17:Jumper cim17:AsynchronousMachine cim17:ExternalNetworkInjection cim17:PhotoVoltaicUnit cim17:PowerElectronicsWindUnit cim17:DCChopper cim17:EnergyConsumer cim17:WaveTrap cim17:HydroPump cim17:Ground cim17:PotentialTransformer cim17:ConformLoad );
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class.";
+        sh:name         "Fault.FaultyEquipment-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        6;
+        sh:path         ( cim:Fault.FaultyEquipment rdf:type );
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.voltageAngleLimit-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.voltageAngleLimit-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        8;
+        sh:path         cim:PowerFlowSettings.voltageAngleLimit;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.changeKind-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "ParameterEvent.changeKind-cardinality";
+        sh:order        1;
+        sh:path         cim:ParameterEvent.changeKind;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.parameterIRI-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:string;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ParameterEvent.parameterIRI-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        7;
+        sh:path         cim:ParameterEvent.parameterIRI;
+        sh:severity     sh:Violation .
+
+set:ClearSimulationEvent.ClearedParameterEvent-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the association at the used direction.";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ClearSimulationEvent.ClearedParameterEvent-cardinality";
+        sh:order        2;
+        sh:path         cim:ClearSimulationEvent.ClearedParameterEvent;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent  rdf:type  sh:NodeShape;
+        sh:property     set:ParameterEvent.parameterIRI-datatype , set:ParameterEvent.SimulationEvents-cardinality , set:ParameterEvent.SimulationEvents-valueType , set:ParameterEvent.booleanParameterValue-cardinality , set:ParameterEvent.floatParementerValue-datatype , set:ParameterEvent.floatParementerValue-cardinality , set:ParameterEvent.changeKind-cardinality , set:ParameterEvent.integerParameterValue-cardinality , set:ParameterEvent.booleanParameterValue-datatype , ido:IdentifiedObject.mRID-cardinality , set:ParameterEvent.parameterName-datatype , set:ParameterEvent.UsesParameterOf-cardinality , set:ParameterEvent.eventTime-cardinality , ido:IdentifiedObject.description-datatype , ido:IdentifiedObject.mRID-datatype , set:ParameterEvent.parameterName-cardinality , ido:IdentifiedObject.name-cardinality , set:ParameterEvent.integerParameterValue-datatype , ido:IdentifiedObject.name-datatype , set:ParameterEvent.changeKind-datatype , set:ParameterEvent.eventTime-datatype , set:ParameterEvent.rampDuration-datatype , set:ParameterEvent.rampDuration-cardinality , set:ParameterEvent.parameterIRI-cardinality , ido:IdentifiedObject.description-cardinality;
+        sh:targetClass  cim:ParameterEvent .
+
+set:PowerFlowSettings.activePowerTolerance-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.activePowerTolerance-cardinality";
+        sh:order        20;
+        sh:path         cim:PowerFlowSettings.activePowerTolerance;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.slackDistributionKind-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.slackDistributionKind-cardinality";
+        sh:order        13;
+        sh:path         cim:PowerFlowSettings.slackDistributionKind;
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.parameterIRI-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Cardinality violation. Upper bound shall be 1";
+        sh:name         "ParameterEvent.parameterIRI-cardinality";
+        sh:order        7;
+        sh:path         cim:ParameterEvent.parameterIRI;
+        sh:severity     sh:Violation .
+
+set:AssociationsGroup
+        rdf:type    sh:PropertyGroup;
+        rdfs:label  "Associations";
+        sh:order    2 .
+
+set:SignalRecorder.RecordedSignalOf-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:ExcOEX3T cim:WeccPVD1 cim:GovHydroPelton cim:ExcAC4A cim:ExcIEEEST1A cim:WindPlantQCompensationIEC cim:ExcAC8B cim:WeccREECA cim:GovHydroPID cim:PssRQB cim:ExcST2A cim:WindGenTurbineType2IEC2 cim:DERIEEEType1 cim:PFVArType1IEEEVArController cim:ExcIEEEAC7C cim:WeccBESS cim:ExcitationSystemUserDefined cim:ExcELIN1 cim:SVSMO4 cim:HVDCInterconnectionUserDefined cim:ExcAVR5 cim:VSCUserDefined cim:TurbIEEEHydroWCNonLinearA cim:WeccTIOCRS cim:ExcIEEEDC3A cim:ExcIEEEAC4C cim:ExcIEEEAC6C cim:WeccREPCA cim:ExcIEEEDC1C cim:GovSteamEU cim:StatorCurrentLimiterUserDefined cim:ExcPIC cim:ExcIEEEAC5A cim:DetailedModelDynamics cim:WeccREECB cim:OverexcLimX1 cim:TurbIEEEGenericHRSGST cim:GovHydroFrancis cim:LoadAggregate cim:ExcSEXS cim:ExcDC2A cim:PFVArType2IEEEVArController cim:Pss5 cim:GovIEEEHydroPID cim:GovCT1 cim:ExcAVR3 cim:ExcSK cim:TurbIEEEHydroWCNonLinearB cim:ExcIEEEAC4A cim:WeccWT2E cim:ExcDC1A cim:WindPlantIEC cim:GovCIGREGT cim:WeccWT12T cim:WeccWTGARA cim:DiscExcContIEEEDEC2A cim:PFVArType1IEEEPFController cim:GovHydro2 cim:RelayUserDefined cim:PFVArType2CIEEEVArController cim:WeccREGCA cim:ExcIEEEST1C cim:GovSteamCC cim:GovCT2 cim:ExcST4B cim:SynchronousMachineUserDefined cim:ExcIEEEST2A cim:ExcIEEEAC9C cim:VoltageAdjusterUserDefined cim:GovIEEEHydroLL cim:OverexcLimX2 cim:PssSB4 cim:PssIEEE4B cim:ExcAC5A cim:AsynchronousMachineEquivalentCircuit cim:PFVArControllerType2UserDefined cim:ExcAVR7 cim:MechLoad1 cim:StatcomUserDefined cim:SVSMO1 cim:GovSteamBB cim:PssIEEE7C cim:ExcANS cim:WeccDERA cim:ExcIEEEAC5C cim:WindTurbineType4aIEC cim:ExcIEEEAC10C cim:OverexcLimIEEE cim:WindPlantBasicIEC cim:PssSTAB2A cim:GovGASTWD cim:TurbCIGREHRSGST cim:PssIEEE4C cim:PssIEEE6C cim:GovSteamFV3 cim:ExcHU cim:ExcDC3A cim:ExcIEEEST5B cim:ExcIEEEDC4B cim:ExcIEEEST9C cim:ExcIEEEST6C cim:TurbineGovernorUserDefined cim:TurbIEEEHydroWCgen cim:VoltageCompensatorUserDefined cim:SynchronousMachineTimeConstantReactance cim:GovHydro4 cim:StatorCurrentLimIEEESCL1C cim:WeccWTGPTA cim:ExcIEEEST4B cim:WeccREGCC cim:ExcBBC cim:OverexcLimIEEEOEL3C cim:WeccWTGPB cim:GovSteamSGO cim:ExcIEEEST5C cim:ExcIEEEST2C cim:Pss2ST cim:ExcDC3A1 cim:WindGenTurbineType1aIEC cim:WindTurbineType3IEC cim:UnderexcLimIEEE1 cim:PssSK cim:WindTurbineType4bIEC cim:ExcELIN2 cim:WeccWTGTRQA cim:OverexcLimIEEEOEL2C cim:WeccWTGTA cim:WeccWT1PB cim:ExcIEEEDC4C cim:MechanicalLoadUserDefined cim:DiscExcContIEEEDEC1A cim:UnderexcitationLimiterUserDefined cim:GovHydroDD cim:GovIEEEHydroMech cim:GovSteam0 cim:GovHydroWEH cim:StatcomIEC cim:PssIEEE3B cim:PssPTIST1 cim:TurbineLoadControllerUserDefined cim:ExcIEEEDC2A cim:PFVArType1CIEEEVArController cim:ExcIEEEAC8C cim:UnderexcLim2Simplified cim:WindType1or2UserDefined cim:PssIEEE5C cim:WeccREPCC cim:PssWECC cim:ExcIEEEAC8B cim:GovSteam1 cim:ExcIEEEAC3A cim:ExcSCRX cim:WeccREECD cim:WindTurbineType3IEC2 cim:WeccREECC cim:WeccWTGWGOA cim:WeccDERApvmod cim:GovHydroIEEE2 cim:ExcIEEEAC2A cim:GovSteamFV2 cim:PFVArType1CIEEEPFController cim:TurbIEEEHydroWClinear cim:PFVArType2IEEEPFController cim:GovIEEEHydroPIDspt cim:PFVArType2Common1 cim:DiscontinuousExcitationControlUserDefined cim:WindGenTurbineType1aIEC2 cim:LoadComposite cim:UnderexcLimX1 cim:DiscExcContIEEEDEC3A cim:AsynchronousMachineTimeConstantReactance cim:GovHydroIEEE0 cim:GovHydroPID2 cim:RateOfChangeOfPowerRelay cim:OverexcitationLimiterUserDefined cim:Pss2B cim:WindType3or4UserDefined cim:GovSteam2 cim:WindGenTurbineType1bIEC cim:ExcNI cim:GovSteamIEEE1 cim:ExcAC3A cim:GovGAST cim:TurbIEEEHydroWCNonLinear cim:PssPTIST3 cim:WindTurbineType4bIEC2 cim:TurbLCFB1 cim:ExcAC2A cim:SVSMO3 cim:ExcAVR4 cim:UnderexcLimIEEEUEL2C cim:ExcST1A cim:GovGAST3 cim:ExcST3A cim:ExcIEEEAC3C cim:VAdjIEEE cim:SynchronousMachineSimplified cim:SVSMO2 cim:ExcIEEEST8C cim:ExcIEEEAC2C cim:GovIEEEGT1 cim:PFVArControllerType1UserDefined cim:ExcST7B cim:ExcAVR2 cim:OverexcLim2 cim:ExcIEEEAC1A cim:GovSteamFV4 cim:GovGAST4 cim:GovGAST1 cim:ExcIEEEST10C cim:OverexcLimIEEEOEL5C cim:WeccWTGTB cim:WindTurbineType4aIEC2 cim:GovSteamIEEEG1Aug cim:GovHydro1 cim:StatorCurrentLimIEEESCL2C cim:VAdjIEEE2 cim:ExcIEEEST4C cim:GovGAST2 cim:PFVArType2CIEEEPFController cim:GovHydroWPID cim:ExcREXS cim:WindPlantUserDefined cim:Pss1 cim:UnderexcLimIEEE2 cim:PssSH cim:WindGenTurbineType1bIEC2 cim:SVCUserDefined cim:ExcIEEEST3A cim:ExcRQB cim:ExcAC1A cim:PssIEEE2B cim:ExcAC6A cim:GovSteamIEEETGOV5 cim:AsynchronousMachineUserDefined cim:ExcIEEEDC2C cim:ExcIEEEST7B cim:WeccWTGIBFFRA cim:PssIEEE3C cim:LoadCompositeWECC cim:Pss1A cim:ExcIEEEAC1C cim:GovHydroR cim:ExcIEEEAC11C cim:ExcIEEEST6B cim:PssIEEE2C cim:VCompIEEEType1 cim:UnderexcLimX2 cim:ExcIEEEAC6A cim:ExcIEEEDC1A cim:GovHydro3 cim:ExcIEEEST7C cim:ExcCZ cim:WeccREGCB cim:PssIEEE1A cim:CSCUserDefined cim:PssELIN2 cim:SynchronousMachineEquivalentCircuit cim:LoadUserDefined cim:ExcIEEEAC7B cim:ExcAVR1 cim:OverexcLimIEEEOEL4C cim:ExcST6B cim:VCompIEEEType2 cim:ShuntCompensatorUserDefined cim:WeccREEC cim:PowerSystemStabilizerUserDefined cim:LoadGenericNonLinear cim:WindGenTurbineType2IEC cim:ExcIEEEST3C cim:GovIEEEHydroDD );
+        sh:message      "One of the following occurs: 1) The value type is not IRI; 2) The value type is not the right class.";
+        sh:name         "SignalRecorder.RecordedSignalOf-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        2;
+        sh:path         ( cim:SignalRecorder.RecordedSignalOf rdf:type );
+        sh:severity     sh:Violation .
+
+set:Fault.SimulationEvents-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:SimulationEvents );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents";
+        sh:name         "Fault.SimulationEvents-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        3;
+        sh:path         ( cim:Fault.SimulationEvents rdf:type );
+        sh:severity     sh:Violation .
+
+set:ParameterEvent.SimulationEvents-valueType
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the value type of the association at the used direction.";
+        sh:group        set:AssociationsGroup;
+        sh:in           ( cim:SimulationEvents );
+        sh:message      "One of the following does not conform: 1) The value type shall be IRI; 2) The value type shall be an instance of the class: cim:SimulationEvents";
+        sh:name         "ParameterEvent.SimulationEvents-valueType";
+        sh:nodeKind     sh:IRI;
+        sh:order        3;
+        sh:path         ( cim:ParameterEvent.SimulationEvents rdf:type );
+        sh:severity     sh:Violation .
+
+set:SimulationSettings.isIntegrationStepSizeVariable-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "SimulationSettings.isIntegrationStepSizeVariable-cardinality";
+        sh:order        2;
+        sh:path         cim:SimulationSettings.isIntegrationStepSizeVariable;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the cardinality of the property (attribute).";
+        sh:group        set:CardinalityGroup;
+        sh:maxCount     1;
+        sh:message      "Missing required property (attribute).";
+        sh:minCount     1;
+        sh:name         "PowerFlowSettings.loadResponseCharacteristicsEnabled-cardinality";
+        sh:order        1;
+        sh:path         cim:PowerFlowSettings.loadResponseCharacteristicsEnabled;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.voltageTolerance-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.voltageTolerance-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        7;
+        sh:path         cim:PowerFlowSettings.voltageTolerance;
+        sh:severity     sh:Violation .
+
+set:PowerFlowSettings.slackDistributionKind-datatype
+        rdf:type        sh:PropertyShape;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:in           ( cim:SlackDistributionKind.singleReferenceMachine cim:SlackDistributionKind.generationDistributionActivePowerAndVoltageNodesOnly cim:SlackDistributionKind.generationDistributionParticipationFactor cim:SlackDistributionKind.loadDistribution );
+        sh:message      "The datatype is not IRI (Internationalized Resource Identifier) or it is enumerated value not part of the profile.";
+        sh:name         "PowerFlowSettings.slackDistributionKind-datatype";
+        sh:nodeKind     sh:IRI;
+        sh:order        13;
+        sh:path         cim:PowerFlowSettings.slackDistributionKind;
+        sh:severity     sh:Violation .
+
+set:ClearSimulationEvent.eventTime-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:float;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "ClearSimulationEvent.eventTime-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        0;
+        sh:path         cim:ClearSimulationEvent.eventTime;
+        sh:severity     sh:Violation .
+
+set:LineFault  rdf:type  sh:NodeShape;
+        sh:property     set:Fault.FaultCauseTypes-cardinality , set:Fault.kind-cardinality , set:Fault.occurredDateTime-cardinality , ido:IdentifiedObject.description-cardinality , ido:IdentifiedObject.name-datatype , set:LineFault.lengthFromTerminal1-datatype , set:LineFault.ACLineSegment-cardinality , set:Fault.SimulationEvents-valueType , set:Fault.impedance-datatype , set:LineFault.lengthFromTerminal1-cardinality , set:Fault.FaultCauseTypes-valueType , set:Fault.SimulationEvents-cardinality , ido:IdentifiedObject.name-cardinality , ido:IdentifiedObject.description-datatype , set:Fault.phases-datatype , set:Fault.phases-cardinality , set:Fault.impedance-cardinality , ido:IdentifiedObject.mRID-datatype , ido:IdentifiedObject.mRID-cardinality , set:Fault.kind-datatype , set:Fault.occurredDateTime-datatype , set:Fault.FaultyEquipment-cardinality;
+        sh:targetClass  cim:LineFault .
+
+set:PowerFlowSettings.switchedShuntControlPriority-datatype
+        rdf:type        sh:PropertyShape;
+        sh:datatype     xsd:integer;
+        sh:description  "This constraint validates the datatype of the property (attribute).";
+        sh:group        set:DatatypesGroup;
+        sh:message      "The datatype is not literal or it violates the xsd datatype.";
+        sh:name         "PowerFlowSettings.switchedShuntControlPriority-datatype";
+        sh:nodeKind     sh:Literal;
+        sh:order        17;
+        sh:path         cim:PowerFlowSettings.switchedShuntControlPriority;
         sh:severity     sh:Violation .
